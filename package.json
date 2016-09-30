@@ -23,8 +23,10 @@
   "homepage": "https://github.com/buildo/scripto#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
+    "babel-eslint": "^6.1.2",
     "babel-preset-es2015": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.6.1",
+    "eslint-config-buildo": "github:buildo/eslint-config",
     "lodash": "^4.16.2"
   },
   "dependencies": {
