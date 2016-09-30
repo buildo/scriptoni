@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Configuration and scripts for buildo React apps",
   "main": "./bin/scripto.js",
+  "bin": {
+    "scripto": "./bin/scripto.js"
+  },
   "scripts": {
     "start": "babel -w src --out-dir lib",
     "metarpheus": "babel-node index.js metarpheus",
