@@ -1,0 +1,30 @@
+{
+  "name": "scripto",
+  "version": "0.1.0",
+  "description": "Configuration and scripts for buildo React apps",
+  "main": "./bin/scripto.js",
+  "scripts": {
+    "start": "babel -w src --out-dir lib",
+    "metarpheus": "babel-node index.js metarpheus",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildo/scripto.git"
+  },
+  "author": "Andrea Ascari <dev.ascariandrea@gmail.com> (http://www.ascariandrea.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buildo/scripto/issues"
+  },
+  "homepage": "https://github.com/buildo/scripto#readme",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "lodash": "^4.16.2"
+  },
+  "dependencies": {
+    "cross-spawn": "^4.0.2",
+    "debug": "^2.2.0",
+    "metarpheus-tcomb": "^0.1.10"
+  }
+}
