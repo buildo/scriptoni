@@ -15,7 +15,10 @@
     "type": "git",
     "url": "git+https://github.com/buildo/scripto.git"
   },
-  "author": "Andrea Ascari <dev.ascariandrea@gmail.com> (http://www.ascariandrea.com/)",
+  "author": "Andrea Ascari <andrea.ascari@buildo.io> (https://github.com/ascariandrea)",
+  "contributors": [
+    "Francesco Negri <francesco.negri@buildo.io> (https://github.com/dhinus)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/buildo/scripto/issues"
