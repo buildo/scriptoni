@@ -8,8 +8,10 @@
   },
   "scripts": {
     "start": "babel -w src --out-dir lib",
+    "build": "babel src --out-dir lib",
     "metarpheus": "babel-node index.js metarpheus",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
