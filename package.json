@@ -1,10 +1,10 @@
 {
-  "name": "scripto",
+  "name": "scriptoni",
   "version": "0.1.0",
   "description": "Configuration and scripts for buildo React apps",
-  "main": "./bin/scripto.js",
+  "main": "./bin/scriptoni.js",
   "bin": {
-    "scripto": "./bin/scripto.js"
+    "scriptoni": "./bin/scriptoni.js"
   },
   "scripts": {
     "start": "babel -w src --out-dir lib",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/buildo/scripto.git"
+    "url": "git+https://github.com/buildo/scriptoni.git"
   },
   "author": "Andrea Ascari <andrea.ascari@buildo.io> (https://github.com/ascariandrea)",
   "contributors": [
@@ -21,9 +21,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/buildo/scripto/issues"
+    "url": "https://github.com/buildo/scriptoni/issues"
   },
-  "homepage": "https://github.com/buildo/scripto#readme",
+  "homepage": "https://github.com/buildo/scriptoni#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-eslint": "^6.1.2",
