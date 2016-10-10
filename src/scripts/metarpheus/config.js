@@ -7,8 +7,10 @@ const cwd = process.cwd();
 const ujcFilePath = path.resolve(cwd, 'metarpheus-config.js');
 
 // define ujc
-require('babel-register')({
-  only: ujcFilePath // so that config file can be ESwhatever
+require('babel-register')({ // so that config file can be ESwhatever
+  only: ujcFilePath,
+  babelrc: false,
+  presets: [ 'es2015' ]
 });
 // TODO: fs.existsSync is deprecated
 const ujc = fs.existsSync(ujcFilePath) && require(ujcFilePath).default || {};
