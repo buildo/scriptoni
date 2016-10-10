@@ -9,7 +9,7 @@ function buildCmdForLogging(cmd) {
   return [' \n '].concat(cmd).join(' \n ').concat([' \n \n ']);
 }
 
-function buildCMDForExecuting(cmd) {
+function buildCmdForExecuting(cmd) {
   return cmd.join(' \ ');
 }
 
@@ -38,7 +38,7 @@ const metarpheusCmd = [
 
 // exec cmd syncronously
 logger.metarpheus(`Starting ${buildCmdForLogging(metarpheusCmd)}`);
-execSync(buildCMDForExecuting(metarpheusCmd));
+execSync(buildCmdForExecuting(metarpheusCmd));
 logger.metarpheus(`Finished ${buildCmdForLogging(metarpheusCmd)}`);
 
  // METARPHEUS-TCOMB
