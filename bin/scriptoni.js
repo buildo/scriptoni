@@ -5,7 +5,6 @@ var script = process.argv[2];
 var args = process.argv.slice(3);
 
 switch (script) {
-  case 'hello':
   case 'metarpheus':
     var result = spawn.sync(
       'node',
