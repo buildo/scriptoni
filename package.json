@@ -9,6 +9,7 @@
   "scripts": {
     "start": "babel -w src --out-dir lib",
     "build": "babel src --out-dir lib",
+    "lint-style": "babel-node bin/scriptoni.js lint-style",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
     "test": "echo \"Error: no test specified\" && exit 1",
