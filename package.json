@@ -45,6 +45,8 @@
     "debug": "^2.2.0",
     "diff": "^3.0.1",
     "metarpheus-tcomb": "0.2.0",
-    "request": "^2.75.0"
+    "request": "^2.75.0",
+    "stylelint": "^7.5.0",
+    "stylelint-config-buildo": "0.0.2"
   }
 }
