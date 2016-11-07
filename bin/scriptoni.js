@@ -6,6 +6,7 @@ var args = process.argv.slice(3);
 
 switch (script) {
   case 'metarpheus':
+  case 'metarpheus-diff':
     var result = spawn.sync(
       'node',
       [require.resolve('../lib/scripts/' + script)].concat(args),
