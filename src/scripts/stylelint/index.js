@@ -6,18 +6,26 @@ import { resolveInSrc } from '../../util';
 
 const cwd = process.cwd();
 
-const stylelinrcFileName = '.stylelintrc';
+function readConfigInDir(dir) {
+  const stylelintrc = path.resolve(dir, '.stylelintrc');
+  return fs.existsSync(stylelintrc) && JSON.parse(fs.readFileSync(stylelintrc));
+}
 
-function getConfigFile() {
-  const userStylelintrc = path.resolve(cwd, stylelinrcFileName);
-  if (fs.existsSync(userStylelintrc)) {
-    return userStylelintrc;
-  }
-  return path.resolve(resolveInSrc('stylelint'), stylelinrcFileName);
+function getConfig() {
+  const defaultStylelintrc = readConfigInDir(resolveInSrc('stylelint'));
+  const userStylelintrc = readConfigInDir(cwd);
+
+  return {
+    config: {
+      ...defaultStylelintrc,
+      ...(userStylelintrc || {})
+    },
+    configBasedir: userStylelintrc ? cwd : '../../../'
+  };
 }
 
 const options = {
-  configFile: getConfigFile(),
+  ...getConfig(),
   files: path.resolve(cwd, 'src/**/*.scss'),
   syntax: 'scss',
   formatter: 'string'
