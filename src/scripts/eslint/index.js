@@ -1,25 +1,7 @@
-import fs from 'fs';
-import path from 'path';
 import { CLIEngine } from 'eslint';
-import { resolveInSrc } from '../../util';
+import baseConfig from './baseConfig';
 
-const cwd = process.cwd();
-
-const eslintrcFileName = '.eslintrc';
-
-function getConfigFile() {
-  const userEslintrcFileName = path.resolve(cwd, eslintrcFileName);
-  if (fs.existsSync(userEslintrcFileName)) {
-    return userEslintrcFileName;
-  }
-  return path.resolve(resolveInSrc('eslint'), eslintrcFileName);
-}
-
-const cli = new CLIEngine({
-  configFile: getConfigFile(),
-  cwd
-});
-
+const cli = new CLIEngine({ baseConfig });
 const formatter = cli.getFormatter('stylish');
 
 const report = cli.executeOnFiles(['src']);
