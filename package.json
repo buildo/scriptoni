@@ -10,6 +10,7 @@
     "start": "babel -w src --out-dir lib",
     "build": "babel src --out-dir lib",
     "lint-style": "babel-node bin/scriptoni.js lint-style",
+    "lint": "babel-node bin/scriptoni.js lint",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -39,12 +40,14 @@
     "lodash": "^4.16.2"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.16.0",
+    "babel-eslint": "^6.1.2",
     "babel-register": "^6.16.3",
     "chalk": "^1.1.3",
     "cross-spawn": "^4.0.2",
     "debug": "^2.2.0",
     "diff": "^3.0.1",
+    "eslint": "^3.9.1",
+    "eslint-config-buildo": "github:buildo/eslint-config",
     "metarpheus-tcomb": "0.2.0",
     "request": "^2.75.0",
     "stylelint": "^7.5.0",
