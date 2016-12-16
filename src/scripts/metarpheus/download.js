@@ -3,7 +3,7 @@ import fs from 'fs';
 import { logger } from '../../util';
 
 /* eslint-disable max-len */
-const METARPHEUS_URL = 'https://github.com/buildo/metarpheus/releases/download/0.1.0-escalapio/metarpheus.jar';
+const METARPHEUS_URL = 'https://github.com/buildo/metarpheus/releases/download/0.1.1/metarpheus.jar';
 /* eslint-enable max-len */
 
 export default function download() {
