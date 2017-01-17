@@ -15,7 +15,7 @@
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build",
-    "postinstall": "node lib/postinstall"
+    "postinstall": "npm run build && node lib/postinstall"
   },
   "repository": {
     "type": "git",
