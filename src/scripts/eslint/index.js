@@ -1,5 +1,5 @@
 import { CLIEngine } from 'eslint';
-import baseConfig from './baseConfig';
+import * as baseConfig from './baseConfig';
 
 const cli = new CLIEngine({ baseConfig });
 const formatter = cli.getFormatter('stylish');
