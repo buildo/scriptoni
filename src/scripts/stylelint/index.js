@@ -13,7 +13,7 @@ function readConfigInDir(dir) {
 
 function getConfig() {
   const userStylelintrc = readConfigInDir(cwd);
-  const baseConfig = readConfigInDir(resolveInSrc('stylelint'));
+  const baseConfig = require(resolveInSrc('stylelint/stylelintrc.json'));
 
   return {
     config: {
