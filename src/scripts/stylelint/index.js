@@ -12,12 +12,12 @@ function readConfigInDir(dir) {
 }
 
 function getConfig() {
-  const defaultStylelintrc = readConfigInDir(resolveInSrc('stylelint'));
   const userStylelintrc = readConfigInDir(cwd);
+  const baseConfig = require(resolveInSrc('stylelint/stylelintrc.json'));
 
   return {
     config: {
-      ...defaultStylelintrc,
+      ...baseConfig,
       ...(userStylelintrc || {})
     },
     configBasedir: userStylelintrc ? cwd : '../../../'
