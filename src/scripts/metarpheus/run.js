@@ -11,6 +11,8 @@ function buildCmdForExecuting(cmd) {
   return cmd.join(' \ ');
 }
 
+const homeDir = process.env.HOME || process.env.USERPROFILE;
+
 // RUN METARPHEUS
 export default function runMetarpheusTcomb(metarpheusTcombConfig) {
 
@@ -27,7 +29,7 @@ export default function runMetarpheusTcomb(metarpheusTcombConfig) {
   const otp = metarpheusTcombConfig.intermRepIn;
   const { apiPath } = metarpheusTcombConfig;
   // compose metarpheus command
-  const metarpheusJar = path.resolve(__dirname, 'metarpheus.jar');
+  const metarpheusJar = path.resolve(homeDir, 'metarpheus.jar');
   const metarpheusCmd = [
     'java',
     `-jar ${metarpheusJar}`,
