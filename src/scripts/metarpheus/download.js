@@ -1,9 +1,10 @@
+import os from 'os';
 import request from 'request';
 import fs from 'fs';
 import path from 'path';
 import { logger } from '../../util';
 
-const homeDir = process.env.HOME || process.env.USERPROFILE;
+const homeDir = os.homedir();
 const metarpheusPath = path.resolve(homeDir, 'metarpheus.jar');
 
 const getLatestMetarpheusFileInfo = function() {

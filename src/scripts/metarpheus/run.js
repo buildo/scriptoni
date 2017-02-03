@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
@@ -11,7 +12,7 @@ function buildCmdForExecuting(cmd) {
   return cmd.join(' \ ');
 }
 
-const homeDir = process.env.HOME || process.env.USERPROFILE;
+const homeDir = os.homedir();
 
 // RUN METARPHEUS
 export default function runMetarpheusTcomb(metarpheusTcombConfig) {
