@@ -2,7 +2,8 @@
   "name": "scriptoni",
   "version": "0.1.4",
   "files": [
-    "lib"
+    "lib",
+    "bin"
   ],
   "description": "Configuration and scripts for buildo React apps",
   "main": "./bin/scriptoni.js",
