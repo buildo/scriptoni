@@ -30,7 +30,7 @@ export default function runMetarpheusTcomb(metarpheusTcombConfig) {
   const otp = metarpheusTcombConfig.intermRepIn;
   const { apiPath } = metarpheusTcombConfig;
   // compose metarpheus command
-  const metarpheusJar = path.resolve(homeDir, 'metarpheus.jar');
+  const metarpheusJar = path.resolve(homeDir, '.metarpheus', 'metarpheus.jar');
   const metarpheusCmd = [
     'java',
     `-jar ${metarpheusJar}`,

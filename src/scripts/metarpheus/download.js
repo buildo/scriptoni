@@ -5,7 +5,7 @@ import path from 'path';
 import { logger } from '../../util';
 
 const homeDir = os.homedir();
-const metarpheusPath = path.resolve(homeDir, 'metarpheus.jar');
+const metarpheusPath = path.resolve(homeDir, '.metarpheus', 'metarpheus.jar');
 
 const getLatestMetarpheusFileInfo = function() {
   
