@@ -5,7 +5,7 @@ import path from 'path';
 import { logger } from '../../util';
 
 const homeDir = os.homedir();
-const metarpheusPath = path.resolve(homeDir, '.metarpheus', 'metarpheus.jar');
+const metarpheusPath = path.resolve(homeDir, '.metarpheus');
 
 const getLatestMetarpheusFileInfo = function() {
   
@@ -48,7 +48,10 @@ const getLocalFileSize = function() {
 };
 
 const downloadFile = function(url) {
-  const file = fs.createWriteStream(metarpheusPath);
+  if (!fs.existsSync(metarpheusPath)) {
+    fs.mkdirSync(metarpheusPath);
+  }
+  const file = fs.createWriteStream(path.resolve(metarpheusPath, 'metarpheus.jar'));
 
   logger.metarpheus(`Downloading metarpheus jar from '${url}'`);
   request
