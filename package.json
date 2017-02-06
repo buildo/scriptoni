@@ -1,6 +1,10 @@
 {
   "name": "scriptoni",
   "version": "0.1.4",
+  "files": [
+    "lib",
+    "bin"
+  ],
   "description": "Configuration and scripts for buildo React apps",
   "main": "./bin/scriptoni.js",
   "bin": {
@@ -14,8 +18,10 @@
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "npm run lint",
     "prepublish": "npm run build",
-    "postinstall": "node lib/postinstall"
+    "postinstall": "node lib/postinstall",
+    "release-version": "smooth-release"
   },
   "repository": {
     "type": "git",
@@ -37,7 +43,8 @@
     "babel-preset-stage-0": "^6.16.0",
     "eslint": "^3.6.1",
     "eslint-config-buildo": "github:buildo/eslint-config",
-    "lodash": "^4.16.2"
+    "lodash": "^4.16.2",
+    "smooth-release": "^7.0.0"
   },
   "dependencies": {
     "babel-eslint": "^6.1.2",
