@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { lint } from 'stylelint';
 import { red } from 'chalk';
-import { resolveInSrc } from '../../util';
+import baseConfig from './stylelintrc';
 
 const cwd = process.cwd();
 
@@ -13,7 +13,6 @@ function readConfigInDir(dir) {
 
 function getConfig() {
   const userStylelintrc = readConfigInDir(cwd);
-  const baseConfig = require(resolveInSrc('stylelint/stylelintrc.json'));
 
   return {
     config: {
