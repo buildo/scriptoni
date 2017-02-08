@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
@@ -10,6 +11,8 @@ function buildCmdForLogging(cmd) {
 function buildCmdForExecuting(cmd) {
   return cmd.join(' \ ');
 }
+
+const homeDir = os.homedir();
 
 // RUN METARPHEUS
 export default function runMetarpheusTcomb(metarpheusTcombConfig) {
@@ -27,7 +30,7 @@ export default function runMetarpheusTcomb(metarpheusTcombConfig) {
   const otp = metarpheusTcombConfig.intermRepIn;
   const { apiPath } = metarpheusTcombConfig;
   // compose metarpheus command
-  const metarpheusJar = path.resolve(__dirname, 'metarpheus.jar');
+  const metarpheusJar = path.resolve(homeDir, '.metarpheus', 'metarpheus.jar');
   const metarpheusCmd = [
     'java',
     `-jar ${metarpheusJar}`,
