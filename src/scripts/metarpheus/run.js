@@ -22,7 +22,7 @@ export default function runMetarpheusTcomb(metarpheusTcombConfig) {
   // define user scala configuration (usc) file path
   const uscFilePath = path.resolve(cwd, './metarpheus-config.scala');
   // set config (cfg) to usc file path if exists, otherwise fallback on default config
-  const defaultScalaConfig = path.resolve(__dirname, 'config.scala'); // eslint-disable-line max-len
+  const defaultScalaConfig = path.resolve(__dirname, 'config.scala');
   // TODO: fs.existsSync is deprecated
   const cfg = fs.existsSync(uscFilePath) && uscFilePath || defaultScalaConfig;
   logger.metarpheus(`Using scala config: ${cfg}`);
