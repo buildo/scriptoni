@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.5...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.6...HEAD)
+
+#### Fixes (bugs & defects):
+
+- config.scala for metarpheus is not included in release [#32](https://github.com/buildo/scriptoni/issues/32)
+
+## [v0.1.6](https://github.com/buildo/scriptoni/tree/v0.1.6) (2017-02-08)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.5...v0.1.6)
 
 #### Fixes (bugs & defects):
 
