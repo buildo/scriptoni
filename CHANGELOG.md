@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.4...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.5...HEAD)
+
+#### Fixes (bugs & defects):
+
+- lint configs are not included in the release [#30](https://github.com/buildo/scriptoni/issues/30)
+
+## [v0.1.5](https://github.com/buildo/scriptoni/tree/v0.1.5) (2017-02-08)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.4...v0.1.5)
 
 #### New features:
 
