@@ -12,7 +12,8 @@ function mkDirs(filePath) {
         if (error.code === 'ENOENT') {
           return mkDirs(path.dirname(filePath))
             .then(() => mkDirs(filePath))
-            .then(resolve);
+            .then(resolve)
+            .catch(reject);
         }
         else {
           reject(error);
@@ -50,5 +51,6 @@ download()
         logger.metarpheus(`Writing ${metarpheusTcombConfig.modelOut}`);
         fs.writeFileSync(metarpheusTcombConfig.modelOut, model);
         logger.metarpheus('Finished!');
-      });
+      })
+      .catch(logger.metarpheus);
   });
