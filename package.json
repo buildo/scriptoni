@@ -21,7 +21,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "preversion": "npm run lint",
     "prepublish": "npm run build",
-    "postinstall": "node lib/postinstall",
     "release-version": "smooth-release"
   },
   "repository": {
@@ -57,7 +56,9 @@
     "eslint": "^3.9.1",
     "eslint-config-buildo": "github:buildo/eslint-config",
     "metarpheus-tcomb": "0.2.0",
+    "progress": "^1.1.8",
     "request": "^2.75.0",
+    "request-promise": "^4.1.1",
     "stylelint": "^7.5.0",
     "stylelint-config-buildo": "0.0.2"
   }
