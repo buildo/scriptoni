@@ -5,6 +5,8 @@ import runMetarpheusTcomb from './run';
 import metarpheusTcombConfig from './config';
 import download from './download';
 
+const args = process.argv.slice(2);
+
 function mkDirs(filePath) {
   return new Promise((resolve, reject) => {
     fs.mkdir(filePath, (error) => {
@@ -33,7 +35,7 @@ function mkDirsIfNotExist(filePath) {
 
 download()
   .then(() => {
-    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig);
+    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig, args);
 
     const apiOutDir = path.dirname(metarpheusTcombConfig.apiOut);
     const modelOutDir = path.dirname(metarpheusTcombConfig.modelOut);

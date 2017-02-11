@@ -15,7 +15,7 @@ function buildCmdForExecuting(cmd) {
 const homeDir = os.homedir();
 
 // RUN METARPHEUS
-export default function runMetarpheusTcomb(metarpheusTcombConfig) {
+export default function runMetarpheusTcomb(metarpheusTcombConfig, args) {
 
   const cwd = process.cwd();
 
@@ -36,6 +36,7 @@ export default function runMetarpheusTcomb(metarpheusTcombConfig) {
     `-jar ${metarpheusJar}`,
     `--config=${cfg}`,
     `--output=${otp}`,
+    ...args,
     `${apiPath}`
   ];
 
