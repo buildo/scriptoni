@@ -1,7 +1,19 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.6...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.7...HEAD)
+
+#### New features:
+
+- Download metarpheus.jar only before running the scripts [#34](https://github.com/buildo/scriptoni/issues/34)
+
+#### Fixes (bugs & defects):
+
+- eslint rules cannot be used in editors [#16](https://github.com/buildo/scriptoni/issues/16)
+- metarpheus script fails if output path doesn't exist [#9](https://github.com/buildo/scriptoni/issues/9)
+
+## [v0.1.7](https://github.com/buildo/scriptoni/tree/v0.1.7) (2017-02-08)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.6...v0.1.7)
 
 #### Fixes (bugs & defects):
 
