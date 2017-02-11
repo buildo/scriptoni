@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.7...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.8...HEAD)
+
+#### New features:
+
+- Allow custom flags for metarpheus [#38](https://github.com/buildo/scriptoni/issues/38)
+
+## [v0.1.8](https://github.com/buildo/scriptoni/tree/v0.1.8) (2017-02-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.7...v0.1.8)
 
 #### New features:
 
