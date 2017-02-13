@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.9...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.0...HEAD)
+
+#### Fixes (bugs & defects):
+
+- metarpheus: fix import for user javascript configuration [#44](https://github.com/buildo/scriptoni/issues/44)
+
+## [v0.2.0](https://github.com/buildo/scriptoni/tree/v0.2.0) (2017-02-13)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.9...v0.2.0)
 
 #### Breaking:
 
