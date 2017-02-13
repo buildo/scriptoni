@@ -55,7 +55,7 @@
     "diff": "^3.0.1",
     "eslint": "^3.9.1",
     "eslint-config-buildo": "github:buildo/eslint-config",
-    "metarpheus-tcomb": "0.2.0",
+    "metarpheus-tcomb": "0.2.1",
     "progress": "^1.1.8",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
