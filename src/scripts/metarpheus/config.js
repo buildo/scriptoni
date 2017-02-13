@@ -7,7 +7,7 @@ const cwd = process.cwd();
 const ujcFilePath = path.resolve(cwd, 'metarpheus-config.js');
 
 // TODO: fs.existsSync is deprecated
-const ujc = fs.existsSync(ujcFilePath) && require(ujcFilePath).default || {};
+const ujc = fs.existsSync(ujcFilePath) && require(ujcFilePath) || {};
 
 // default module prelude
 const modelPrelude = `// DO NOT EDIT MANUALLY - metarpheus-generated
