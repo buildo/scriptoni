@@ -1,7 +1,18 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.8...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.9...HEAD)
+
+#### Breaking:
+
+- remove babel-register dependency [#41](https://github.com/buildo/scriptoni/issues/41)
+
+#### New features:
+
+- update metarpheus-tcomb version [#40](https://github.com/buildo/scriptoni/issues/40)
+
+## [v0.1.9](https://github.com/buildo/scriptoni/tree/v0.1.9) (2017-02-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.1.8...v0.1.9)
 
 #### New features:
 
