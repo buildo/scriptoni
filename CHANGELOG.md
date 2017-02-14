@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.0...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.1...HEAD)
+
+#### Fixes (bugs & defects):
+
+- Add flag to metarpheus-diff  [#46](https://github.com/buildo/scriptoni/issues/46)
+
+## [v0.2.1](https://github.com/buildo/scriptoni/tree/v0.2.1) (2017-02-13)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.0...v0.2.1)
 
 #### Fixes (bugs & defects):
 
