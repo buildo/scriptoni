@@ -6,10 +6,12 @@ import runMetarpheusTcomb from '../metarpheus/run';
 import { logger } from '../../util';
 import download from '../metarpheus/download';
 
+const args = process.argv.slice(2);
+
 download()
   .then(() => {
 
-    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig);
+    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig, args);
 
     const parseDiffsAcc = {
       output: '\n',
