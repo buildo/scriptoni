@@ -54,5 +54,8 @@ download()
         fs.writeFileSync(metarpheusTcombConfig.modelOut, model);
         logger.metarpheus('Finished!');
       })
-      .catch(logger.metarpheus);
+      .catch(e => {
+        logger.metarpheus(e);
+        process.exit(1);
+      });
   });
