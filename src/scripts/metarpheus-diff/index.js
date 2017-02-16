@@ -64,4 +64,7 @@ download()
     // exit with code from diffs
     process.exit(modelExitCode || apiExitCode);
   })
-  .catch(logger.metarpheus);
+  .catch(e => {
+    logger.metarpheus(e);
+    process.exit(1);
+  });

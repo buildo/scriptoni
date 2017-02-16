@@ -31,5 +31,13 @@ const options = {
 };
 
 lint(options)
-  .then(({ output }) => console.log(output)) // eslint-disable-line no-console
-  .catch((err) => console.log(red(err.stack))); // eslint-disable-line no-console
+  .then(({ output, errored }) => {
+    console.log(output); // eslint-disable-line no-console
+    if (errored) {
+      process.exit(1);
+    }
+  })
+  .catch((err) => {
+    console.log(red(err.stack)); // eslint-disable-line no-console
+    process.exit(1);
+  });
