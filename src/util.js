@@ -1,7 +1,8 @@
 import debug from 'debug';
-debug.enable('scripto:*');
+debug.enable('scriptoni:*');
 
 export const logger = {
-  metarpheus: debug('scripto:metarpheus'),
-  metarpheusDiff: debug('scripto:metarpheus-diff')
+  metarpheus: debug('scriptoni:metarpheus'),
+  metarpheusDiff: debug('scriptoni:metarpheus-diff'),
+  lint: debug('scriptoni:lint')
 };
