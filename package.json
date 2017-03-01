@@ -15,6 +15,7 @@
     "build": "rm -rf lib/* && babel src --out-dir lib && npm run copy-files",
     "copy-files": "babel-node src/copy-files.js",
     "lint-style": "babel-node bin/scriptoni.js lint-style",
+    "lint-style-fix": "babel-node bin/scriptoni.js lint-style-fix",
     "lint": "babel-node bin/scriptoni.js lint",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
