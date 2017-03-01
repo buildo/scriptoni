@@ -53,10 +53,14 @@
     "eslint": "^3.9.1",
     "eslint-config-buildo": "github:buildo/eslint-config",
     "metarpheus-tcomb": "0.2.1",
+    "node-glob": "^1.2.0",
+    "postcss": "^5.2.15",
+    "postcss-scss": "^0.4.1",
     "progress": "^1.1.8",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
+    "stylefmt": "^5.1.2",
     "stylelint": "^7.5.0",
-    "stylelint-config-buildo": "0.0.2"
+    "stylelint-config-buildo": "github:buildo/stylelint-config"
   }
 }
