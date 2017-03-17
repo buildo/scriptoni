@@ -1,31 +1,11 @@
-import fs from 'fs';
 import path from 'path';
 import { lint } from 'stylelint';
 import { red } from 'chalk';
-
-const cwd = process.cwd();
-
-function readConfigInDir(dir) {
-  const stylelintrc = path.resolve(dir, '.stylelintrc');
-  return fs.existsSync(stylelintrc) && JSON.parse(fs.readFileSync(stylelintrc));
-}
-
-function getConfig() {
-  const baseConfig = require('./stylelintrc.json');
-  const userStylelintrc = readConfigInDir(cwd);
-
-  return {
-    config: {
-      ...baseConfig,
-      ...(userStylelintrc || {})
-    },
-    configBasedir: userStylelintrc ? cwd : '../../../'
-  };
-}
+import config from './config';
 
 const options = {
-  ...getConfig(),
-  files: path.resolve(cwd, 'src/**/*.scss'),
+  ...config,
+  files: path.resolve(process.cwd(), 'src/**/*.scss'),
   syntax: 'scss',
   formatter: 'string'
 };
