@@ -30,6 +30,12 @@ switch (script) {
   case 'lint-fix':
     exit(spawnScript('eslint/fix'));
     break;
+  case 'web-dev':
+    exit(spawnScript('webpack/dev'));
+    break;
+  case 'web-build':
+    exit(spawnScript('webpack/build'));
+    break;
   default:
     console.log('Unknown script "' + script + '".');
     break;
