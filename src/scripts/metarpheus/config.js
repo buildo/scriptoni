@@ -25,13 +25,5 @@ import * as m from './model';
   modelOut: path.resolve(cwd, 'src/app/metarpheus/model.js'),
   apiOut: path.resolve(cwd, 'src/app/metarpheus/api.js'),
   intermRepIn: path.resolve(__dirname, 'metarpheus-interm-rep.json'),
-  ...ujc,
-  overrides: {
-    Date: () => 't.Date',
-    DateTime: () => 't.Date',
-    LocalDate: () => 't.Date', // TODO(gio): fixme? this should be a date only
-    OffsetDateTime: () => 't.Date', // TODO(gio): this allows milliseconds and more, parsing should be fixed
-    Map: () => 't.Object',
-    ...ujc.overrides
-  }
+  ...ujc
 };
