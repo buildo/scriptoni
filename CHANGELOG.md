@@ -1,7 +1,22 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.1...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.2...HEAD)
+
+#### New features:
+
+- update metarpheus-tcomb version [#59](https://github.com/buildo/scriptoni/issues/59)
+- Use stylelint-config-buildo from master branch [#55](https://github.com/buildo/scriptoni/issues/55)
+- Add lint-style-fix task [#50](https://github.com/buildo/scriptoni/issues/50)
+- Add lint-fix task [#49](https://github.com/buildo/scriptoni/issues/49)
+- Use babel-preset-buildo [#48](https://github.com/buildo/scriptoni/issues/48)
+
+#### Fixes (bugs & defects):
+
+- scriptoni lint doesn't exit with eslint exit status [#52](https://github.com/buildo/scriptoni/issues/52)
+
+## [v0.2.2](https://github.com/buildo/scriptoni/tree/v0.2.2) (2017-02-14)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.1...v0.2.2)
 
 #### Fixes (bugs & defects):
 
