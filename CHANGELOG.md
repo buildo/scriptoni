@@ -1,7 +1,14 @@
 #  Change Log
 
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.2...HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.3...HEAD)
+
+#### Breaking:
+
+- metarpheus script should not add default overrides [#61](https://github.com/buildo/scriptoni/issues/61)
+
+## [v0.2.3](https://github.com/buildo/scriptoni/tree/v0.2.3) (2017-03-20)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.2...v0.2.3)
 
 #### New features:
 
