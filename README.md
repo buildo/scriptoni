@@ -12,7 +12,7 @@ A set of shared scripts for your front-end apps.
 
 - [metarpheus](#metarpheus)
 - [metarpheus-diff](#metarpheus-diff)
-- [eslint & stylelint] (#eslint-and-stylelint)
+- [eslint & stylelint](#eslint-and-stylelint)
 
 ### `metarpheus`
 
