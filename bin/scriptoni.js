@@ -27,9 +27,6 @@ switch (script) {
   case 'lint':
     exit(spawnScript('eslint'));
     break;
-  case 'lint-fix':
-    exit(spawnScript('eslint/fix'));
-    break;
   default:
     console.log('Unknown script "' + script + '".');
     break;

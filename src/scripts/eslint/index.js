@@ -3,6 +3,7 @@ import { execSync } from 'child_process';
 import minimist from 'minimist';
 import map from 'lodash/map';
 import t from 'tcomb';
+import { logger } from '../../util';
 
 const cwd = process.cwd();
 
@@ -27,10 +28,12 @@ const eslintCmd = [
       return v.join(' ');
     }
   })
-];
+].join(' ');
+
+logger.lint(`Running  ${eslintCmd}`);
 
 try {
-  execSync(eslintCmd.join(' '), { stdio: 'inherit' });
+  execSync(eslintCmd, { stdio: 'inherit' });
 } catch (err) {
   process.exit(1);
 }
