@@ -1,8 +1,6 @@
 import path from 'path';
 import { execSync } from 'child_process';
 import minimist from 'minimist';
-import map from 'lodash/map';
-import t from 'tcomb';
 import { logger } from '../../util';
 
 const cwd = process.cwd();
@@ -17,15 +15,15 @@ const args = {
 
 const eslintCmd = [
   path.resolve(cwd, 'node_modules', 'eslint', 'bin', 'eslint.js'),
-  ...map(args, (v, k) => {
+  ...Object.keys(args).map(k => {
     if (k !== '_') {
-      if (t.Bool.is(v)) {
+      if (typeof args[k] === 'boolean') {
         return `--${k}`;
       } else {
-        return `--${k} ${v}`;
+        return `--${k} ${args[k]}`;
       }
     } else {
-      return v.join(' ');
+      return args[k].join(' ');
     }
   })
 ].join(' ');
