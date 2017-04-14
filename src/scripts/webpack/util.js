@@ -1,5 +1,4 @@
 import path from 'path';
-import { logger } from '../../util';
 
 export function getHtmlPluginConfig(NODE_ENV) {
   return {
@@ -11,15 +10,12 @@ export function getHtmlPluginConfig(NODE_ENV) {
   };
 }
 
-export function statsHandler(err, stats) {
-  if (err) { throw err; }
-  logger.webpack(stats.toString(({
-    assets: false,
-    children: false,
-    chunkModules: false,
-    chunkOrigins: false,
-    chunks: false,
-    timings: true,
-    colors: true
-  })));
-}
+export const statsOutputConfiguration = {
+  assets: false,
+  children: false,
+  chunkModules: false,
+  chunkOrigins: false,
+  chunks: false,
+  timings: true,
+  colors: true
+};
