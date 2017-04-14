@@ -69,4 +69,16 @@ and be sure your `.eslintrc` and `.stylelintrc` files in the root folder of your
 }
 ```
 
-**Note:** If you don't have any config file in your project's root, or if you don't include the `extends` lines above, scriptoni will force our shared configs anyway, but they may be ignored by your editor or by webpack.
+Scriptoni also provides autofixing capabilities adding the following scripts to your `package.json`:
+
+```json
+"lint-fix": "scriptoni lint --fix",
+"lint-style-fix": "scriptoni stylefmt"
+```
+
+**Note**: you can pass any arguments you would pass to `eslint`, `stylelint` or `stylefmt` executables. By default, `eslint` will lint your files under `src` directory, while `stylelint` and `stylefmt` will be called passing `src/**/*.scss`. You can override this default passing diffent dirs as args, e.g.
+
+```json
+"lint": "scriptoni lint source/",
+"lint-fix": "scriptoni lint-style source/**/*.css"
+```
