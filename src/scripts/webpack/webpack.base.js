@@ -12,7 +12,6 @@ export const bundleConfigWhitelist = [
   'localStringLengthMultiplier',
   'disableCrashReport',
   'fetchLocalesFrom',
-  // alinity pro specific keys
   'username',
   'password'
 ];
