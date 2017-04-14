@@ -78,10 +78,14 @@ export default function getConfig(args) {
 
   // get Config type
   const ConfigType = getConfigType(configFolderPath);
-
-  return ConfigType({
+  const config = {
     ...referenceConfig,
     ...localConfig,
     ...envConfig
-  });
+  };
+
+  if (!ConfigType.is(config)) {
+    throw new Error(`Configuration is invalid! ${JSON.stringify(config)}`);
+  }
+  return ConfigType(config);
 }
