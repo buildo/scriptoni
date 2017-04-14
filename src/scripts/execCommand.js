@@ -8,20 +8,17 @@ export default function execCommand(cmd, defaultArgs, logger) {
   const args = {
     ...defaultArgs,
     ...userArgs,
-    _: userArgs._.length > 0 ? userArgs._ : defaultArgs._
+    _: userArgs._.length > 0 ? userArgs._ : (defaultArgs._ || [])
   };
 
   const command = [
     cmd,
-    ...Object.keys(args).map(k => {
-      if (k !== '_') {
-        if (typeof args[k] === 'boolean') {
-          return `--${k}`;
-        } else {
-          return `--${k} ${args[k]}`;
-        }
+    ...args._,
+    ...Object.keys(args).filter(k => k !== '_').map(k => {
+      if (typeof args[k] === 'boolean') {
+        return `--${k}`;
       } else {
-        return args[k].join(' ');
+        return `--${k} ${args[k]}`;
       }
     })
   ].join(' ');
