@@ -9,10 +9,6 @@ export const BaseConfig = t.interface({
   apiEndpoint: t.String
 });
 
-const defaultConfig = {
-  port: 8080,
-  devTool: 'source-map'
-};
 
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args) => {
@@ -84,7 +80,6 @@ export default function getConfig(args) {
   const ConfigType = getConfigType(configFolderPath);
 
   return ConfigType({
-    ...defaultConfig,
     ...referenceConfig,
     ...localConfig,
     ...envConfig
