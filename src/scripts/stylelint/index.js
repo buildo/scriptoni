@@ -10,13 +10,12 @@ const cwd = process.cwd();
 const userArgs = minimist(process.argv.slice(2));
 
 const args = {
-  cache: true,
   ...userArgs,
   _: userArgs._.length > 0 ? userArgs._ : ['src']
 };
 
-const eslintCmd = [
-  path.resolve(cwd, 'node_modules', 'eslint', 'bin', 'eslint.js'),
+const stylelintCmd = [
+  path.resolve(cwd, 'node_modules', 'stylelint', 'bin', 'stylelint.js'),
   ...map(args, (v, k) => {
     if (k !== '_') {
       if (t.Bool.is(v)) {
@@ -30,10 +29,10 @@ const eslintCmd = [
   })
 ].join(' ');
 
-logger.lint(`Running  ${eslintCmd}`);
+logger.lintStyle(`Running  ${stylelintCmd}`);
 
 try {
-  execSync(eslintCmd, { stdio: 'inherit' });
+  execSync(stylelintCmd, { stdio: 'inherit' });
 } catch (err) {
   process.exit(1);
 }

@@ -21,9 +21,6 @@ switch (script) {
   case 'lint-style':
     exit(spawnScript('stylelint'));
     break;
-  case 'lint-style-fix':
-    exit(spawnScript('stylelint/fix'));
-    break;
   case 'lint':
     exit(spawnScript('eslint'));
     break;
