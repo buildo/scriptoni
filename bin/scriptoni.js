@@ -24,6 +24,9 @@ switch (script) {
   case 'lint':
     exit(spawnScript('eslint'));
     break;
+  case 'stylefmt':
+    exit(spawnScript('stylelint/stylefmt'));
+    break;
   default:
     console.log('Unknown script "' + script + '".');
     break;
