@@ -2,6 +2,13 @@
 
 
 
+## [v0.4.2](https://github.com/buildo/scriptoni/tree/v0.4.2) (2017-04-14)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.1...v0.4.2)
+
+#### New features:
+
+- Webpack configuration [#36](https://github.com/buildo/scriptoni/issues/36)
+
 ## [v0.4.1](https://github.com/buildo/scriptoni/tree/v0.4.1) (2017-04-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.0...v0.4.1)
 
