@@ -5,8 +5,7 @@ export function getHtmlPluginConfig(NODE_ENV) {
     inject: false,
     bundle: NODE_ENV === 'production',
     minify: NODE_ENV === 'production' ? {} : false,
-    template: path.resolve(process.cwd(), './src/app/index.html'),
-    gzip: NODE_ENV === 'production' ? '.gz' : ''
+    template: path.resolve(process.cwd(), './src/app/index.html')
   };
 }
 
