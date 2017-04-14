@@ -1,7 +1,21 @@
 #  Change Log
 
-## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.3...HEAD)
+
+
+## [v0.4.0](https://github.com/buildo/scriptoni/tree/v0.4.0) (2017-04-14)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.3.0...v0.4.0)
+
+#### Breaking:
+
+- wrapped scripts should accept original script's arguments [#57](https://github.com/buildo/scriptoni/issues/57)
+
+#### New features:
+
+- Add stylelint section in README [#21](https://github.com/buildo/scriptoni/issues/21)
+- Add eslint section in README [#20](https://github.com/buildo/scriptoni/issues/20)
+
+## [v0.3.0](https://github.com/buildo/scriptoni/tree/v0.3.0) (2017-03-21)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.2.3...v0.3.0)
 
 #### Breaking:
 
