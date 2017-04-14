@@ -6,7 +6,7 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 
-const bundleConfigWhitelist = [
+export const bundleConfigWhitelist = [
   'apiEndpoint',
   'debug',
   'localStringLengthMultiplier',
