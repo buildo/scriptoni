@@ -2,6 +2,13 @@
 
 
 
+## [v0.4.1](https://github.com/buildo/scriptoni/tree/v0.4.1) (2017-04-14)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.0...v0.4.1)
+
+#### Fixes (bugs & defects):
+
+- stylefmt default params are wrong [#65](https://github.com/buildo/scriptoni/issues/65)
+
 ## [v0.4.0](https://github.com/buildo/scriptoni/tree/v0.4.0) (2017-04-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.3.0...v0.4.0)
 
