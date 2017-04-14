@@ -12,7 +12,7 @@ export default ({ config, paths, NODE_ENV }) => {
   const plugins = [
     // cause failed production builds to fail faster
     new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin(getHtmlPluginConfig(config, true)),
+    new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV)),
     new ExtractTextPlugin('style', 'style.[hash].min.css')
   ];
 

@@ -1,14 +1,13 @@
 import path from 'path';
 import { logger } from '../../util';
 
-export function getHtmlPluginConfig(NODE_ENV, htmlConfig) {
+export function getHtmlPluginConfig(NODE_ENV) {
   return {
     inject: false,
     bundle: NODE_ENV === 'production',
     minify: NODE_ENV === 'production' ? {} : false,
     template: path.resolve(process.cwd(), './src/app/index.html'),
-    gzip: NODE_ENV === 'production' ? '.gz' : '',
-    ...htmlConfig
+    gzip: NODE_ENV === 'production' ? '.gz' : ''
   };
 }
 

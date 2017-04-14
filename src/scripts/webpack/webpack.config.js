@@ -27,7 +27,7 @@ export default ({ config, paths, NODE_ENV }) => {
     plugins: [
       ...base.plugins,
       new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.html))
+      new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV))
     ],
 
     module: {
