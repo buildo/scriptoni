@@ -76,7 +76,7 @@ Scriptoni also provides autofixing capabilities adding the following scripts to 
 "lint-style-fix": "scriptoni stylefmt"
 ```
 
-**Note**: you can pass any arguments you would pass to `eslint`, `stylelint` or `stylefmt` executables. By default, `eslint` will lint your files under `src` directory, while `stylelint` and `stylefmt` will be called passing `src/**/*.scss`. You can override this default passing diffent dirs as args, e.g.
+**Note**: you can pass any argument you would pass to `eslint`, `stylelint` or `stylefmt` executables. By default, `eslint` will lint your files under `src` directory, while `stylelint` and `stylefmt` will be called passing `src/**/*.scss`. You can override this default by passing diffent dirs as args, e.g.
 
 ```json
 "lint": "scriptoni lint source/",
