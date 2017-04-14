@@ -1,13 +1,13 @@
-import { CLIEngine } from 'eslint';
+import path from 'path';
+import { logger } from '../../util';
+import execCommand from '../execCommand';
 
-const baseConfig = require('./eslintrc.json');
+const cwd = process.cwd();
+const cmd = path.resolve(cwd, 'node_modules', 'eslint', 'bin', 'eslint.js');
 
-const cli = new CLIEngine({ baseConfig });
-const formatter = cli.getFormatter('stylish');
+const defaultArgs = {
+  cache: true,
+  _: ['src']
+};
 
-const report = cli.executeOnFiles(['src']);
-console.log(formatter(report.results));     // eslint-disable-line no-console
-
-if (report.errorCount > 0) {
-  process.exit(1);
-}
+execCommand(cmd, defaultArgs, logger.lint);
