@@ -8,8 +8,9 @@ const cwd = process.cwd();
 const userArgs = minimist(process.argv.slice(2));
 
 const args = {
+  cache: true,
   ...userArgs,
-  _: userArgs._.length > 0 ? userArgs._ : ['src']
+  _: userArgs._.length > 0 ? userArgs._ : ['src/**/*.scss']
 };
 
 const stylelintCmd = [
