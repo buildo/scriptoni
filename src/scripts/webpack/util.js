@@ -21,5 +21,5 @@ export function statsHandler(err, stats) {
     chunks: false,
     timings: true,
     colors: true
-  }, 'verbose')));
+  })));
 }
