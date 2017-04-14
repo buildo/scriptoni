@@ -3,13 +3,6 @@ import path from 'path';
 import t from 'tcomb';
 import pickBy from 'lodash/pickBy';
 
-export const BaseConfig = t.interface({
-  port: t.Number,
-  devTool: t.String,
-  apiEndpoint: t.String
-});
-
-
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args) => {
   const configRelativePath = args.c || './config';
@@ -50,7 +43,7 @@ const getConfigType = (configFolderPath) => {
       No Config type definition file found in ${configTypePath}, using the default one...
     `);
     /* eslint-enable no-console */
-    return BaseConfig;
+    return t.Any;
   }
 };
 
