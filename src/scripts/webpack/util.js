@@ -1,11 +1,12 @@
 import path from 'path';
 
-export function getHtmlPluginConfig(NODE_ENV) {
+export function getHtmlPluginConfig(NODE_ENV, title) {
   return {
     inject: false,
     bundle: NODE_ENV === 'production',
     minify: NODE_ENV === 'production' ? {} : false,
-    template: path.resolve(process.cwd(), './src/app/index.html')
+    template: path.resolve(process.cwd(), './src/app/index.html'),
+    title
   };
 }
 
