@@ -10,19 +10,12 @@ export default ({ config, paths, NODE_ENV }) => {
   return {
     ...base,
     entry: [
+      `webpack-dev-server/client?http://0.0.0.0:${config.port}/`,
       'webpack/hot/dev-server',
       path.resolve(paths.SRC, 'client/index.js')
     ],
 
     devtool: config.devTool || 'source-map',
-
-    devServer: {
-      contentBase: paths.BUILD,
-      hot: true,
-      inline: true,
-      port: config.port,
-      host: '0.0.0.0'
-    },
 
     plugins: [
       ...base.plugins,
