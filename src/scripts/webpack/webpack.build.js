@@ -32,6 +32,8 @@ export default ({ config, paths, NODE_ENV }) => {
   return {
     ...base,
 
+    bail: true,
+
     entry: path.resolve(paths.SRC, 'client/index.js'),
 
     devtool: 'source-map',
