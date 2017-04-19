@@ -2,6 +2,15 @@
 
 
 
+## [v0.4.3](https://github.com/buildo/scriptoni/tree/v0.4.3) (2017-04-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.2...v0.4.3)
+
+#### Fixes (bugs & defects):
+
+- Enable HMR for webpack dev task [#71](https://github.com/buildo/scriptoni/issues/71)
+- webpack build: "title" config is not correctly processed / passed to the final template [#69](https://github.com/buildo/scriptoni/issues/69)
+- Add --bail to webpack configuration [#67](https://github.com/buildo/scriptoni/issues/67)
+
 ## [v0.4.2](https://github.com/buildo/scriptoni/tree/v0.4.2) (2017-04-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.1...v0.4.2)
 
