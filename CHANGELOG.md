@@ -2,6 +2,13 @@
 
 
 
+## [v0.4.4](https://github.com/buildo/scriptoni/tree/v0.4.4) (2017-05-05)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.3...v0.4.4)
+
+#### Fixes (bugs & defects):
+
+- stylelint config requires stylelint>=7.8.0 [#73](https://github.com/buildo/scriptoni/issues/73)
+
 ## [v0.4.3](https://github.com/buildo/scriptoni/tree/v0.4.3) (2017-04-19)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.2...v0.4.3)
 
