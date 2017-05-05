@@ -65,7 +65,7 @@
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "stylefmt": "^5.1.2",
-    "stylelint": "^7.5.0",
+    "stylelint": "^7.8.0",
     "stylelint-config-buildo": "github:buildo/stylelint-config",
     "stylelint-webpack-plugin": "^0.7.0",
     "virtual-module-webpack-plugin": "^0.1.3",
