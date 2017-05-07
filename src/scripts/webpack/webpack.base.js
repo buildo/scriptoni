@@ -6,15 +6,6 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 
-export const bundleConfigWhitelist = [
-  'apiEndpoint',
-  'debug',
-  'localStringLengthMultiplier',
-  'disableCrashReport',
-  'fetchLocalesFrom',
-  'username',
-  'password'
-];
 export default ({ config, paths, NODE_ENV }) => {
 
   const preLoaders = NODE_ENV === 'development' ? [
@@ -49,7 +40,7 @@ export default ({ config, paths, NODE_ENV }) => {
     plugins: [
       new VirtualModulePlugin({
         moduleName: path.resolve(process.cwd(), 'src/app/config.json'),
-        contents: JSON.stringify(pick(config, bundleConfigWhitelist))
+        contents: JSON.stringify(config.bundle)
       }),
       new ProgressBarPlugin(),
       new webpack.DefinePlugin({
