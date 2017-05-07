@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import t from 'tcomb';
-import pickBy from 'lodash/pickBy';
+import omit from 'lodash/omit';
 
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args) => {
@@ -48,18 +48,21 @@ const getConfigType = (configFolderPath) => {
 };
 
 const nodeEnv = process.env.NODE_ENV || 'development';
-const envWhitelist = ['apiEndpoint', 'fetchLocalesFrom'];
+
+const getConfigurationFromEnv = (config = {}) => {
+  return Object.keys(config).reduce((acc, k) => {
+    const envVar = process.env[jsConfigVariableToEnvConfigVariable(k)];
+    return {
+      ...acc,
+      [k]: envVar || config[k]
+    };
+  }, {});
+};
 
 export default function getConfig(args) {
 
   // get user configuration folder path
   const configFolderPath = getConfigRelativePath(args);
-
-  // build configuration from env variables
-  const envConfig = pickBy(envWhitelist.reduce((c, k) => ({
-    ...c,
-    [k]: process.env[jsConfigVariableToEnvConfigVariable(k)]
-  }), {}));
 
   // load NODE_ENV related configuration
   const referenceConfigFilePath = path.resolve(configFolderPath, `./${nodeEnv}.json`);
@@ -69,16 +72,26 @@ export default function getConfig(args) {
   const localConfigFilePath = path.resolve(configFolderPath, './local.json');
   const localConfig = readOptionalConfigFile(localConfigFilePath);
 
-  // get Config type
-  const ConfigType = getConfigType(configFolderPath);
-  const config = {
+  const intermediateConfig = {
     ...referenceConfig,
     ...localConfig,
-    ...envConfig
+    bundle: {
+      ...referenceConfig.bundle,
+      ...localConfig.bundle
+    }
+  };
+
+  // get Config type
+  const ConfigType = getConfigType(configFolderPath);
+
+  // build configuration from env variables
+  const config = {
+    ...getConfigurationFromEnv(omit(intermediateConfig, 'bundle')),
+    bundle: getConfigurationFromEnv(intermediateConfig.bundle)
   };
 
   if (!ConfigType.is(config)) {
-    throw new Error(`Configuration is invalid! ${JSON.stringify(config)}`);
+    throw new Error(`Configuration is invalid! ${JSON.stringify(config, null, 4)}`);
   }
   return ConfigType(config);
 }
