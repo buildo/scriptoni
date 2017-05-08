@@ -72,7 +72,7 @@ export default function getConfig(args) {
   const localConfigFilePath = path.resolve(configFolderPath, './local.json');
   const localConfig = readOptionalConfigFile(localConfigFilePath);
 
-  const intermediateConfig = {
+  const fileConfig = {
     ...referenceConfig,
     ...localConfig,
     bundle: {
@@ -84,10 +84,10 @@ export default function getConfig(args) {
   // get Config type
   const ConfigType = getConfigType(configFolderPath);
 
-  // build configuration from env variables
+  // merge environment config values into fileConfig
   const config = {
-    ...getConfigurationFromEnv(omit(intermediateConfig, 'bundle')),
-    bundle: getConfigurationFromEnv(intermediateConfig.bundle)
+    ...getConfigurationFromEnv(omit(fileConfig, 'bundle')),
+    bundle: getConfigurationFromEnv(fileConfig.bundle)
   };
 
   if (!ConfigType.is(config)) {
