@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import pick from 'lodash/pick';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
