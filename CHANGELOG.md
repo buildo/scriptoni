@@ -2,6 +2,13 @@
 
 
 
+## [v0.5.0](https://github.com/buildo/scriptoni/tree/v0.5.0) (2017-05-09)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.4...v0.5.0)
+
+#### Breaking:
+
+- Handle configuration whitelist from webpack config [#75](https://github.com/buildo/scriptoni/issues/75)
+
 ## [v0.4.4](https://github.com/buildo/scriptoni/tree/v0.4.4) (2017-05-05)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.3...v0.4.4)
 
