@@ -9,9 +9,9 @@ const getConfigRelativePath = (args) => {
   return path.resolve(process.cwd(), configRelativePath);
 };
 
-// convert js config variable to env variable
+// convert js config variable to env variable and prefix it with 'CONFIG_'
 const jsConfigVariableToEnvConfigVariable = s =>
-  s.replace(/[A-Z]/g, m => `_${m[0]}`).toUpperCase();
+  `CONFIG_${s.replace(/[A-Z]/g, m => `_${m[0]}`).toUpperCase()}`;
 
 // try to read and parse a json file
 const readOptionalConfigFile = fullPath => {
