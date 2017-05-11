@@ -2,6 +2,13 @@
 
 
 
+## [v0.5.1](https://github.com/buildo/scriptoni/tree/v0.5.1) (2017-05-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.0...v0.5.1)
+
+#### Fixes (bugs & defects):
+
+- [webpack] env configs not already contained in file config are not considered [#78](https://github.com/buildo/scriptoni/issues/78)
+
 ## [v0.5.0](https://github.com/buildo/scriptoni/tree/v0.5.0) (2017-05-09)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.4.4...v0.5.0)
 
