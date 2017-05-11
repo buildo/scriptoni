@@ -49,13 +49,13 @@ const getConfigType = (configFolderPath) => {
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 
-const getConfigurationFromEnv = (config = {}) => {
-  return Object.keys(config).reduce((acc, k) => {
+const getConfigurationFromEnv = (keys) => {
+  return keys.reduce((acc, k) => {
     const envVar = process.env[jsConfigVariableToEnvConfigVariable(k)];
-    return {
-      ...acc,
-      [k]: envVar || config[k]
-    };
+    if (typeof envVar !== 'undefined') {
+      acc[k] = envVar;
+    }
+    return acc;
   }, {});
 };
 
@@ -85,9 +85,15 @@ export default function getConfig(args) {
   const ConfigType = getConfigType(configFolderPath);
 
   // merge environment config values into fileConfig
+  const topLevelKeys = Object.keys(omit(ConfigType.meta.props, 'bundle'));
+  const bundleKeys = Object.keys(ConfigType.meta.props.bundle.meta.props);
   const config = {
-    ...getConfigurationFromEnv(omit(fileConfig, 'bundle')),
-    bundle: getConfigurationFromEnv(fileConfig.bundle)
+    ...fileConfig,
+    ...getConfigurationFromEnv(topLevelKeys),
+    bundle: {
+      ...fileConfig.bundle,
+      ...getConfigurationFromEnv(bundleKeys)
+    }
   };
 
   if (!ConfigType.is(config)) {
