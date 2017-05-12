@@ -68,6 +68,7 @@
     "stylelint": "^7.8.0",
     "stylelint-config-buildo": "github:buildo/stylelint-config",
     "stylelint-webpack-plugin": "^0.7.0",
+    "svg-react-loader": "^0.3.7",
     "virtual-module-webpack-plugin": "^0.1.3",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.3"
