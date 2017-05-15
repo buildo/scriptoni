@@ -44,6 +44,7 @@
     "smooth-release": "^8.0.0"
   },
   "dependencies": {
+    "babel-core": "^6.24.1",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.4.1",
     "babel-preset-buildo": "^0.1.1",
