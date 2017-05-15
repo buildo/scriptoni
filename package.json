@@ -39,7 +39,6 @@
   "homepage": "https://github.com/buildo/scriptoni#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
-    "babel-eslint": "^6.1.2",
     "minimist": "^1.2.0",
     "smooth-release": "^8.0.0"
   },
