@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.4.1",
     "babel-preset-buildo": "^0.1.1",
     "chalk": "^1.1.3",
     "compression-webpack-plugin": "^0.3.2",
