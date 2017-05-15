@@ -2,6 +2,13 @@
 
 
 
+## [v0.5.2](https://github.com/buildo/scriptoni/tree/v0.5.2) (2017-05-15)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.1...v0.5.2)
+
+#### Fixes (bugs & defects):
+
+- Scriptoni should declare webpack loaders in dependencies [#82](https://github.com/buildo/scriptoni/issues/82)
+
 ## [v0.5.1](https://github.com/buildo/scriptoni/tree/v0.5.1) (2017-05-11)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.0...v0.5.1)
 
