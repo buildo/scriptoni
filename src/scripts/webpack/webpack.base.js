@@ -74,11 +74,16 @@ export default ({ config, paths, NODE_ENV }) => {
           test: paths.THEME_FONTS,
           loader: `file?name=[path][name].[ext]&context=${paths.THEME}`
         },
-        // copy png images
+        // copy png and jpg images
         {
-          test: /\.png$/,
+          test: /\.(png|jpg)$/,
           exclude: [paths.ASSETS],
           loader: 'file?name=[path][name].[ext]'
+        },
+        // copy svg images
+        {
+          test: /\.svg$/,
+          loader: 'babel?presets[]=react!svg-react'
         },
         // import sass variables in JS
         {
