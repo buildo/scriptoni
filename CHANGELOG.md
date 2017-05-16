@@ -2,6 +2,13 @@
 
 
 
+## [v0.5.3](https://github.com/buildo/scriptoni/tree/v0.5.3) (2017-05-16)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.2...v0.5.3)
+
+#### New features:
+
+- webpack config should handle svg and jpg formats loading [#81](https://github.com/buildo/scriptoni/issues/81)
+
 ## [v0.5.2](https://github.com/buildo/scriptoni/tree/v0.5.2) (2017-05-15)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.1...v0.5.2)
 
