@@ -3,6 +3,11 @@ import path from 'path';
 import t from 'tcomb';
 import omit from 'lodash/omit';
 
+const defaultConfigType = t.interface({
+  bundle: t.interface({
+  })
+}, { name: 'Config', strict: true });
+
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args) => {
   const configRelativePath = args.c || './config';
@@ -42,7 +47,7 @@ const getConfigType = (configFolderPath) => {
         No Config type definition file found in ${configTypePath}, using the default one...
       `);
       /* eslint-enable no-console */
-      return t.Any;
+      return defaultConfigType;
     }
     return require(configTypePath);
   } catch (e) {
@@ -51,7 +56,7 @@ const getConfigType = (configFolderPath) => {
       Error while importing Config type definition file ${configTypePath}, using the default one...
     `);
     /* eslint-enable no-console */
-    return t.Any;
+    return defaultConfigType;
   }
 };
 
