@@ -3,6 +3,11 @@ import path from 'path';
 import t from 'tcomb';
 import omit from 'lodash/omit';
 
+const defaultConfigType = t.interface({
+  bundle: t.interface({
+  })
+}, { name: 'Config', strict: true });
+
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args) => {
   const configRelativePath = args.c || './config';
@@ -34,17 +39,16 @@ const readOptionalConfigFile = fullPath => {
 
 // try to load configuration type from the user project, fallback on BaseConfig
 const getConfigType = (configFolderPath) => {
-  const configTypePath = path.resolve(configFolderPath, './Config');
-  try {
-    return require(configTypePath);
-  } catch (e) {
+  const configTypePath = path.resolve(configFolderPath, './Config.js');
+  if (!fs.existsSync(configTypePath)) {
     /* eslint-disable no-console */
     console.warn(`
-      No Config type definition file found in ${configTypePath}, using the default one...
-    `);
+        No Config type definition file found in ${configTypePath}, using the default one...
+      `);
     /* eslint-enable no-console */
-    return t.Any;
+    return defaultConfigType;
   }
+  return require(configTypePath);
 };
 
 const nodeEnv = process.env.NODE_ENV || 'development';
