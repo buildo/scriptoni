@@ -34,13 +34,21 @@ const readOptionalConfigFile = fullPath => {
 
 // try to load configuration type from the user project, fallback on BaseConfig
 const getConfigType = (configFolderPath) => {
-  const configTypePath = path.resolve(configFolderPath, './Config');
+  const configTypePath = path.resolve(configFolderPath, './Config.js');
   try {
+    if (!fs.existsSync(configTypePath)) {
+      /* eslint-disable no-console */
+      console.warn(`
+        No Config type definition file found in ${configTypePath}, using the default one...
+      `);
+      /* eslint-enable no-console */
+      return t.Any;
+    }
     return require(configTypePath);
   } catch (e) {
     /* eslint-disable no-console */
     console.warn(`
-      No Config type definition file found in ${configTypePath}, using the default one...
+      Error while importing Config type definition file ${configTypePath}, using the default one...
     `);
     /* eslint-enable no-console */
     return t.Any;
