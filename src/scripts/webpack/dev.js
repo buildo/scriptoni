@@ -12,7 +12,8 @@ const paths = getPaths(args);
 const server = new webpackServer(compiler(webpackConfig), {
   contentBase: paths.BUILD,
   hot: true,
-  stats: statsOutputConfiguration
+  stats: statsOutputConfiguration,
+  disableHostCheck: true
 });
 
 server.listen(getConfig(args).port);
