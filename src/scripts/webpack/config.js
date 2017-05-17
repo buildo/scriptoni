@@ -52,11 +52,9 @@ const getConfigType = (configFolderPath) => {
     return require(configTypePath);
   } catch (e) {
     /* eslint-disable no-console */
-    console.warn(`
-      Error while importing Config type definition file ${configTypePath}, using the default one...
-    `);
+    console.error(`Invalid Config type definition file: ${configTypePath}`);
     /* eslint-enable no-console */
-    return defaultConfigType;
+    process.exit(1);
   }
 };
 
