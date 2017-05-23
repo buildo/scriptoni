@@ -25,18 +25,33 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     module: {
       ...base.module,
-      loaders: [
-        ...base.module.loaders,
+      rules: [
+        ...base.module.rules,
         // style!css loaders
         {
           test: /\.css?$/,
-          loaders: ['style', 'css']
+          use: [{
+            loader: 'style-loader'
+          }, {
+            loader: 'css-loader'
+          }]
         },
         // SASS loaders
         {
           test: /\.scss?$/,
           exclude: paths.VARIABLES_MATCH,
-          loaders: ['style', 'css', 'resolve-url', 'sass?sourceMap']
+          user: [{
+            loader: 'style-loader'
+          }, {
+            loader: 'css-loader'
+          }, {
+            loader: 'resolve-url-loader'
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }]
         }
       ]
     }

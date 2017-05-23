@@ -14,7 +14,9 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
     // linting with eslint
     {
       test: /\.jsx?$/, // test for both js and jsx
-      loader: 'eslint',
+      use: [{
+        loader: 'eslint-loader'
+      }],
       include: paths.SRC,
       exclude: paths.ASSETS
     }
@@ -22,7 +24,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
   return {
     resolve: {
-      root: [
+      modules: [
         paths.APP, paths.COMPONENTS, paths.BASIC_COMPONENTS,
         paths.ROUTES, paths.NODE_MODULES
       ],
@@ -59,14 +61,14 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
     ],
 
     module: {
-      preLoaders,
-      loaders: [
+      rules: [
+        ...preLoaders.map(l => ({ ...l, enforce: 'pre' })),
         (() => {
           if (JSLoader(jsLoader) === JSLoader('babel')) {
             // babel transpiler
             return {
               test: /\.jsx?$/, // test for both js and jsx
-              loaders: ['babel'], // babel config stays in .babelrc
+              use: [{ loader: 'babel-loader' }],
               exclude: [paths.ASSETS],
               include: [paths.SRC]
             };
@@ -75,42 +77,62 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
           // TypeScript transpiler
           return {
             test: /\.tsx?$|\.jsx?$/,
-            loader: 'awesome-typescript-loader',
+            use: [{ loader: 'awesome-typescript-loader' }],
             exclude: [paths.ASSETS],
             include: [paths.SRC]
           };
         })(),
-        // require .json
-        {
-          test: /\.json$/,
-          exclude: [paths.ASSETS],
-          loader: 'json'
-        },
         // copy theme fonts
         {
           test: paths.THEME_FONTS,
-          loader: `file?name=[path][name].[ext]&context=${paths.THEME}`
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              context: paths.THEME
+            }
+          }]
         },
         // copy png and jpg images
         {
           test: /\.(png|jpg)$/,
           exclude: [paths.ASSETS],
-          loader: 'file?name=[path][name].[ext]'
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+          }]
         },
         // copy svg images
         {
           test: /\.svg$/,
-          loader: 'babel?presets[]=react!svg-react'
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['react']
+            }
+          }, {
+            loader: 'svg-react-loader'
+          }]
         },
         // import sass variables in JS
         {
           test: paths.VARIABLES_MATCH,
-          loader: 'sass-variables'
+          use: [{
+            loader: 'sass-variables-loader'
+          }]
         },
         // copy generic assets, if any
         {
           include: [paths.ASSETS],
-          loader: `file?name=[path][name].[ext]&context=${paths.ASSETS}`
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              context: path.ASSETS
+            }
+          }]
         }
       ]
     }
