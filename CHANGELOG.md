@@ -1,6 +1,12 @@
 #  Change Log
 
+## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.3...HEAD)
 
+#### Fixes (bugs & defects):
+
+- webpack: dev-server is not listening on 0.0.0.0 [#87](https://github.com/buildo/scriptoni/issues/87)
+- cleanup webpack config handling [#86](https://github.com/buildo/scriptoni/issues/86)
 
 ## [v0.5.3](https://github.com/buildo/scriptoni/tree/v0.5.3) (2017-05-16)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.2...v0.5.3)
