@@ -1,7 +1,9 @@
 #  Change Log
 
-## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.3...HEAD)
+
+
+## [v0.5.4](https://github.com/buildo/scriptoni/tree/v0.5.4) (2017-05-24)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.3...v0.5.4)
 
 #### Fixes (bugs & defects):
 
