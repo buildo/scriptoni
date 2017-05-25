@@ -2,6 +2,13 @@
 
 
 
+## [v0.5.5](https://github.com/buildo/scriptoni/tree/v0.5.5) (2017-05-25)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.4...v0.5.5)
+
+#### New features:
+
+- Add webpack typescript scripts [#91](https://github.com/buildo/scriptoni/issues/91)
+
 ## [v0.5.4](https://github.com/buildo/scriptoni/tree/v0.5.4) (2017-05-24)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.3...v0.5.4)
 
