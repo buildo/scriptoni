@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "jsx": "react",
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es6", "dom"
+    ],
+    "paths": {
+      "model": ["../../../../../src/app/model"],
+      "HTTPAPI": ["../../../../../src/app/HTTPAPI"],
+      "container": ["../../../../../src/app/container"],
+      "Basic": ["../../../../../src/app/components/Basic"],
+      "state-react-router": ["../../../../../src/app/state-react-router"],
+      "queries": ["../../../../../src/app/queries"],
+      "commands": ["../../../../../src/app/commands"],
+      "transitions": ["../../../../../src/app/transitions"],
+      "*": [
+        "../../../../../src/app/components/*",
+        "../../../../../src/app/components/Basic/*",
+        "../../../../../src/app/routes/*"
+      ]
+    }
+  },
+  "include": [
+    "../../../../../src/**/*"
+  ],
+  "exclude": [
+    "../../../../../node_modules"
+  ]
+}
