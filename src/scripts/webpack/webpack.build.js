@@ -6,8 +6,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { getHtmlPluginConfig } from './util';
 import WebpackBase from './webpack.base';
 
-export default ({ config, paths, NODE_ENV }) => {
-  const base = WebpackBase({ config, paths, NODE_ENV });
+export default ({ config, paths, NODE_ENV, ...options }) => {
+  const base = WebpackBase({ config, paths, NODE_ENV, ...options });
 
   const plugins = [
     // cause failed production builds to fail faster

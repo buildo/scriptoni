@@ -14,7 +14,8 @@ const copyToLib = (file) => {
 const files = [
   'eslint/eslintrc.json',
   'stylelint/stylelintrc.json',
-  'metarpheus/config.scala'
+  'metarpheus/config.scala',
+  'webpack/tsconfig.json'
 ];
 
 files.map(copyToLib);

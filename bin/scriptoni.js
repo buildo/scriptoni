@@ -33,6 +33,12 @@ switch (script) {
   case 'web-build':
     exit(spawnScript('webpack/build'));
     break;
+  case 'web-dev-ts':
+    exit(spawnScript('webpack/dev-ts'));
+    break;
+  case 'web-build-ts':
+    exit(spawnScript('webpack/build-ts'));
+    break;
   default:
     console.log('Unknown script "' + script + '".');
     break;

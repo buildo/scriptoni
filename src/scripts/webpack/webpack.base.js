@@ -1,3 +1,4 @@
+import t from 'tcomb';
 import path from 'path';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
@@ -5,7 +6,9 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 
-export default ({ config, paths, NODE_ENV }) => {
+const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
+
+export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
   const preLoaders = NODE_ENV === 'development' ? [
     // linting with eslint
@@ -22,7 +25,9 @@ export default ({ config, paths, NODE_ENV }) => {
       root: [
         paths.APP, paths.COMPONENTS, paths.BASIC_COMPONENTS,
         paths.ROUTES, paths.NODE_MODULES
-      ]
+      ],
+      extensions: JSLoader(jsLoader) === JSLoader('typescript') ?
+        ['', '.js', '.ts', '.tsx', '.json'] : undefined
     },
 
     stats: {
@@ -56,13 +61,25 @@ export default ({ config, paths, NODE_ENV }) => {
     module: {
       preLoaders,
       loaders: [
-        // babel transpiler
-        {
-          test: /\.jsx?$/, // test for both js and jsx
-          loaders: ['babel'], // babel config stays in .babelrc
-          exclude: [paths.ASSETS],
-          include: [paths.SRC]
-        },
+        (() => {
+          if (JSLoader(jsLoader) === JSLoader('babel')) {
+            // babel transpiler
+            return {
+              test: /\.jsx?$/, // test for both js and jsx
+              loaders: ['babel'], // babel config stays in .babelrc
+              exclude: [paths.ASSETS],
+              include: [paths.SRC]
+            };
+          }
+
+          // TypeScript transpiler
+          return {
+            test: /\.tsx?$|\.jsx?$/,
+            loader: 'awesome-typescript-loader',
+            exclude: [paths.ASSETS],
+            include: [paths.SRC]
+          };
+        })(),
         // require .json
         {
           test: /\.json$/,
