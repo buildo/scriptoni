@@ -5,11 +5,8 @@ import compiler from './compiler';
 import getConfig from './config';
 import getPaths from './paths';
 import { statsOutputConfiguration } from './util';
-import replaceBabelWithTypescript from './replaceBabelWithTypescript';
 
-const getWebpackConfig = (...args) => replaceBabelWithTypescript(
-  webpackConfig(...args)
-);
+const getWebpackConfig = (options) => webpackConfig({ ...options, jsLoader: 'typescript' });
 
 const args = minimist(process.argv.slice(2));
 const paths = getPaths(args);

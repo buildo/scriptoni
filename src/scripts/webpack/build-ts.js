@@ -2,11 +2,8 @@ import webpackBuild from './webpack.build.js';
 import compiler from './compiler';
 import { logger } from '../../util';
 import { statsOutputConfiguration } from './util';
-import replaceBabelWithTypescript from './replaceBabelWithTypescript';
 
-const getBuildConfig = (...args) => replaceBabelWithTypescript(
-  webpackBuild(...args)
-);
+const getBuildConfig = (options) => webpackBuild({ ...options, jsLoader: 'typescript' });
 
 compiler(getBuildConfig).run((err, stats) => {
   if (err) { throw err; }

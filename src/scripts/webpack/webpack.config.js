@@ -4,9 +4,9 @@ import WebpackBase from './webpack.base';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { getHtmlPluginConfig } from './util';
 
-export default ({ config, paths, NODE_ENV }) => {
+export default ({ config, paths, NODE_ENV, ...options }) => {
 
-  const base = WebpackBase({ config, paths, NODE_ENV });
+  const base = WebpackBase({ config, paths, NODE_ENV, ...options });
   return {
     ...base,
     entry: [
