@@ -139,6 +139,10 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
           }]
         }
       ]
+    },
+
+    node: {
+      constants: false
     }
   };
 };
