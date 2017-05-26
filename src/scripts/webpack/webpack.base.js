@@ -33,7 +33,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
         paths.ROUTES, paths.NODE_MODULES
       ],
       extensions: JSLoader(jsLoader) === JSLoader('typescript') ?
-        ['', '.js', '.ts', '.tsx', '.json'] : undefined
+        ['.js', '.ts', '.tsx', '.json'] : undefined
     },
 
     stats: {
