@@ -30,9 +30,10 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     }));
 
     plugins.unshift(
-      // Minimize all JavaScript output of chunks. Loaders are switched into minimizing mode.
       new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false, screw_ie8: true, sourceMap: true }
+        compress: { warnings: false, screw_ie8: true },
+        output: { comments: false },
+        sourceMap: true
       })
     );
   }
