@@ -12,6 +12,14 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
   const plugins = [
     // cause failed production builds to fail faster
     new webpack.NoErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({ // TODO: remove once eslint loader is updated?
+      options: {
+        eslint: {
+          ...base.eslint,
+          failOnError: true
+        }
+      }
+    }),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
     new ExtractTextPlugin('style', 'style.[hash].min.css') // FIXME: fix configuration for webpack 2
   ];
@@ -70,10 +78,6 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
           })
         }
       ]
-    },
-    eslint: {
-      ...base.eslint,
-      failOnError: true
     }
   };
 };
