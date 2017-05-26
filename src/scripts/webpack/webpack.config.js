@@ -40,7 +40,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
         {
           test: /\.scss?$/,
           exclude: paths.VARIABLES_MATCH,
-          user: [{
+          use: [{
             loader: 'style-loader'
           }, {
             loader: 'css-loader'
