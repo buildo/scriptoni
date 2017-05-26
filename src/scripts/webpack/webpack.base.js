@@ -10,17 +10,21 @@ const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
-  const preLoaders = NODE_ENV === 'development' ? [
+  const preLoaders = [
     // linting with eslint
     {
       test: /\.jsx?$/, // test for both js and jsx
       use: [{
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
+        options: {
+          failOnError: NODE_ENV === 'production',
+          failOnWarning: NODE_ENV === 'production'
+        }
       }],
       include: paths.SRC,
       exclude: paths.ASSETS
     }
-  ] : [];
+  ];
 
   return {
     resolve: {

@@ -12,14 +12,6 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
   const plugins = [
     // cause failed production builds to fail faster
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({ // TODO: remove once eslint loader is updated?
-      options: {
-        eslint: {
-          ...base.eslint,
-          failOnError: true
-        }
-      }
-    }),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
     new ExtractTextPlugin({ filename: 'style.[hash].min.css' })
   ];
