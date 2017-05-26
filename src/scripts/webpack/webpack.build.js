@@ -11,7 +11,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
   const plugins = [
     // cause failed production builds to fail faster
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({ // TODO: remove once eslint loader is updated?
       options: {
         eslint: {
