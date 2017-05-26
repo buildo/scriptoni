@@ -21,7 +21,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
       }
     }),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
-    new ExtractTextPlugin('style', 'style.[hash].min.css') // FIXME: fix configuration for webpack 2
+    new ExtractTextPlugin({ filename: 'style.[hash].min.css' })
   ];
 
   if (NODE_ENV === 'production') {
