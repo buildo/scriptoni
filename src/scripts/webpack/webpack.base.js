@@ -78,7 +78,13 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
           // TypeScript transpiler
           return {
             test: /\.tsx?$|\.jsx?$/,
-            use: [{ loader: 'awesome-typescript-loader' }],
+            use: [{
+              loader: 'awesome-typescript-loader',
+              options: {
+                useBabel: true,
+                useCache: true
+              }
+            }],
             exclude: [paths.ASSETS],
             include: [paths.SRC]
           };
