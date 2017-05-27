@@ -10,22 +10,6 @@ const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
-  const preLoaders = [
-    // linting with eslint
-    {
-      test: /\.jsx?$/, // test for both js and jsx
-      use: [{
-        loader: 'eslint-loader',
-        options: {
-          failOnError: NODE_ENV === 'production',
-          failOnWarning: NODE_ENV === 'production'
-        }
-      }],
-      include: paths.SRC,
-      exclude: paths.ASSETS
-    }
-  ];
-
   return {
     resolve: {
       modules: [
@@ -66,7 +50,20 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
     module: {
       rules: [
-        ...preLoaders.map(l => ({ ...l, enforce: 'pre' })),
+        // linting with eslint
+        {
+          enforce: 'pre',
+          test: /\.jsx?$/, // test for both js and jsx
+          use: [{
+            loader: 'eslint-loader',
+            options: {
+              failOnError: NODE_ENV === 'production',
+              failOnWarning: NODE_ENV === 'production'
+            }
+          }],
+          include: paths.SRC,
+          exclude: paths.ASSETS
+        },
         (() => {
           if (JSLoader(jsLoader) === JSLoader('babel')) {
             // babel transpiler
