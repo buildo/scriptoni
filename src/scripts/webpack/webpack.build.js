@@ -11,9 +11,9 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
   const plugins = [
     // cause failed production builds to fail faster
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
-    new ExtractTextPlugin('style', 'style.[hash].min.css')
+    new ExtractTextPlugin({ filename: 'style.[hash].min.css' })
   ];
 
   if (NODE_ENV === 'production') {
@@ -22,9 +22,10 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     }));
 
     plugins.unshift(
-      // Minimize all JavaScript output of chunks. Loaders are switched into minimizing mode.
       new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false, screw_ie8: true }
+        compress: { warnings: false, screw_ie8: true },
+        output: { comments: false },
+        sourceMap: true
       })
     );
   }
@@ -42,23 +43,34 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     module: {
       ...base.module,
-      loaders: [
-        ...base.module.loaders,
+      rules: [
+        ...base.module.rules,
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css')
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'css-loader'
+          })
         },
         // SASS
         {
           test: /\.scss$/,
           exclude: paths.VARIABLES_MATCH,
-          loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url?sourceMap!sass?sourceMap') // eslint-disable-line max-len
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            }, {
+              loader: 'resolve-url-loader',
+              options: { sourceMap: true }
+            }, {
+              loader: 'sass-loader',
+              options: { sourceMap: true }
+            }]
+          })
         }
       ]
-    },
-    eslint: {
-      ...base.eslint,
-      failOnError: true
     }
   };
 };
