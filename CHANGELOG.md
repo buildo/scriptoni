@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.0](https://github.com/buildo/scriptoni/tree/v0.6.0) (2017-05-29)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.5...v0.6.0)
+
+#### Breaking:
+
+- update to webpack@2 [#93](https://github.com/buildo/scriptoni/issues/93)
+
 ## [v0.5.5](https://github.com/buildo/scriptoni/tree/v0.5.5) (2017-05-25)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.5.4...v0.5.5)
 
