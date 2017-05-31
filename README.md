@@ -13,6 +13,7 @@ A set of shared scripts for your front-end apps.
 - [metarpheus](#metarpheus)
 - [metarpheus-diff](#metarpheus-diff)
 - [eslint & stylelint](#eslint-and-stylelint)
+- [webpack](#webpack)
 
 ### `metarpheus`
 
@@ -96,5 +97,21 @@ Add these scripts to your `package.json`:
 
 where:
 
-- the `UV_THREADPOOL_SIZE` trick is a workaround for a known issue with the sass-loader (https://github.com/webpack-contrib/sass-loader/issues/100)
-- the `-c ./config` points to a directory containing the development and the production configurations.
+- the `UV_THREADPOOL_SIZE` trick is a workaround for a known issue with the sass-loader (https://github.com/webpack-contrib/sass-loader/issues/100). *You'll need this only if your project has more than a few `.sass` files*
+- the `-c ./config` points to a directory containing configuration for your project (read more below).
+
+**config dir (WIP)**
+
+*This "API" is very work in progress at the moment*
+
+The config dir for a project should include:
+- a `Config.js` file. It should export a tcomb type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
+- any of `production.json`, `development.json`, `local.json` (all are optional): production and development should be tracked in version control, they are the default/base for `NODE_ENV=production` and `=development`, respectively. `local.json` is inteded to be used for custom, per-developer config tweaks, and should not be tracked.
+
+See https://github.com/buildo/webseed/tree/master/config for an example/minimal configuration.
+
+The final config available to the source code is obtained merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
+
+Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni webpack`.
+
+The virtual 'config' module obtained is available as `import config from 'config'` anywhere in your code base.
