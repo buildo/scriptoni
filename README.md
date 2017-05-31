@@ -112,6 +112,6 @@ See https://github.com/buildo/webseed/tree/master/config for an example/minimal 
 
 The final config available to the source code is obtained merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
 
-Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni webpack`.
+Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni web-dev` (or `web-build`).
 
 The virtual 'config' module obtained is available as `import config from 'config'` anywhere in your code base.
