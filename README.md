@@ -108,10 +108,29 @@ The config dir for a project should include:
 - a `Config.js` file. It should export a tcomb type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
 - any of `production.json`, `development.json`, `local.json` (all are optional): production and development should be tracked in version control, they are the default/base for `NODE_ENV=production` and `=development`, respectively. `local.json` is inteded to be used for custom, per-developer config tweaks, and should not be tracked.
 
-See https://github.com/buildo/webseed/tree/master/config for an example/minimal configuration.
-
 The final config available to the source code is obtained merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
 
 Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni web-dev` (or `web-build`).
 
 The virtual 'config' module obtained is available as `import config from 'config'` anywhere in your code base.
+
+Not every config keys is actually part of the final bundle, In other words, not every config key is visible to JS code when importing from 'config'. The bundled configs should be specified as part of a sub-key `bundle`:
+```js
+// config/Config.js
+t.interface({
+  port: t.Integer,
+  bundle: t.interface({
+    apiEndpoint: t.String
+  }, { strict: true })
+}, { strict: true })
+
+// config/local.json
+{
+  "port": 8080 // non-bundled, this is available to webpack but not to JS code,
+  "bundle": {
+    "apiEndpoint": "example.com" // bundled, you can use `config.apiEndpoint` from JS code
+  }
+}
+```
+
+See https://github.com/buildo/webseed/tree/master/config for an example/minimal configuration.
