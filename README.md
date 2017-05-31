@@ -82,3 +82,19 @@ Scriptoni also provides autofixing capabilities adding the following scripts to 
 "lint": "scriptoni lint source/",
 "lint-fix": "scriptoni lint-style source/**/*.css"
 ```
+
+### `webpack`
+
+Bundling your application with webpack is awesome. What's less awesome is having to configure it on every single project. `scriptoni` provides a default battle-tested webpack configuration for both development and production builds.
+
+Add these scripts to your `package.json`:
+
+```json
+"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev -c ./config",
+"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build -c ./config"
+```
+
+where:
+
+- the `UV_THREADPOOL_SIZE` trick is a workaround for a known issue with the sass-loader (https://github.com/webpack-contrib/sass-loader/issues/100)
+- the `-c ./config` points to a directory containing the development and the production configurations.
