@@ -2,6 +2,17 @@
 
 
 
+## [v0.6.2](https://github.com/buildo/scriptoni/tree/v0.6.2) (2017-06-05)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.1...v0.6.2)
+
+#### Fixes (bugs & defects):
+
+- minimist and babel-cli should be deps, not devDeps [#98](https://github.com/buildo/scriptoni/issues/98)
+
+#### New features:
+
+- Update README with Webpack usage [#80](https://github.com/buildo/scriptoni/issues/80)
+
 ## [v0.6.1](https://github.com/buildo/scriptoni/tree/v0.6.1) (2017-05-31)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.0...v0.6.1)
 
