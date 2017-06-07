@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.3](https://github.com/buildo/scriptoni/tree/v0.6.3) (2017-06-07)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.2...v0.6.3)
+
+#### Fixes (bugs & defects):
+
+- file-loader context is not configured correctly due to a typo [#100](https://github.com/buildo/scriptoni/issues/100)
+
 ## [v0.6.2](https://github.com/buildo/scriptoni/tree/v0.6.2) (2017-06-05)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.1...v0.6.2)
 
