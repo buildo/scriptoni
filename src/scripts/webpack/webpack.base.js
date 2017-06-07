@@ -137,7 +137,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: path.ASSETS
+              context: paths.ASSETS
             }
           }]
         }
