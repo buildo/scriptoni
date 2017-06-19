@@ -2,6 +2,17 @@
 
 
 
+## [v0.6.4](https://github.com/buildo/scriptoni/tree/v0.6.4) (2017-06-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.3...v0.6.4)
+
+#### Fixes (bugs & defects):
+
+- tsconfig.json paths should be relative to user defined baseUrl [#104](https://github.com/buildo/scriptoni/issues/104)
+
+#### New features:
+
+- update typescript version [#102](https://github.com/buildo/scriptoni/issues/102)
+
 ## [v0.6.3](https://github.com/buildo/scriptoni/tree/v0.6.3) (2017-06-07)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.2...v0.6.3)
 
