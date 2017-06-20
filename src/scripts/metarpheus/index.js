@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { logger } from '../../util';
 import { runMetarpheusTcomb, runMetarpheusIoTs } from './run';
-import getMetarpheusJSConfig from './config';
+import getMetarpheusConfig from './config';
 import download from './download';
 
 const _args = process.argv.slice(2);
@@ -35,15 +35,15 @@ function mkDirsIfNotExist(filePath) {
   return Promise.resolve();
 }
 
-const metarpheusJSConfig = getMetarpheusJSConfig(ts);
+const metarpheusConfig = getMetarpheusConfig(ts);
 
 download()
   .then(() => {
-    const apiOutDir = path.dirname(metarpheusJSConfig.apiOut);
-    const modelOutDir = path.dirname(metarpheusJSConfig.modelOut);
+    const apiOutDir = path.dirname(metarpheusConfig.apiOut);
+    const modelOutDir = path.dirname(metarpheusConfig.modelOut);
 
     const { model, api } = (() =>
-      (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusJSConfig, args)
+      (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
     )();
 
     // create dirs if don't exist
@@ -51,13 +51,13 @@ download()
       .then(() => mkDirsIfNotExist(modelOutDir))
       .then(() => {
         // write api in api output file
-        logger.metarpheus(`Writing ${metarpheusJSConfig.apiOut}`);
-        fs.writeFileSync(metarpheusJSConfig.apiOut, api);
+        logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
+        fs.writeFileSync(metarpheusConfig.apiOut, api);
         logger.metarpheus('Finished!');
 
         // write model in model output file
-        logger.metarpheus(`Writing ${metarpheusJSConfig.modelOut}`);
-        fs.writeFileSync(metarpheusJSConfig.modelOut, model);
+        logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
+        fs.writeFileSync(metarpheusConfig.modelOut, model);
         logger.metarpheus('Finished!');
       })
       .catch(e => {
