@@ -25,9 +25,11 @@
       "commands": ["src/app/commands"],
       "transitions": ["src/app/transitions"],
       "*": [
-        "src/app/components/*",
         "src/app/components/Basic/*",
-        "src/app/routes/*"
+        "src/app/components/*",
+        "src/app/routes/*",
+        "src/app/*",
+        "src/*"
       ]
     }
   },
