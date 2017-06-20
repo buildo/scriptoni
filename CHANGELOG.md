@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.6](https://github.com/buildo/scriptoni/tree/v0.6.6) (2017-06-20)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.5...v0.6.6)
+
+#### Fixes (bugs & defects):
+
+- tsconfig.json is missing a few common magic paths [#108](https://github.com/buildo/scriptoni/issues/108)
+
 ## [v0.6.5](https://github.com/buildo/scriptoni/tree/v0.6.5) (2017-06-20)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.4...v0.6.5)
 
