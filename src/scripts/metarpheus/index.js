@@ -1,11 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { logger } from '../../util';
-import runMetarpheusTcomb from './run';
-import metarpheusTcombConfig from './config';
+import { runMetarpheusTcomb, runMetarpheusIoTs } from './run';
+import getMetarpheusConfig from './config';
 import download from './download';
 
-const args = process.argv.slice(2);
+const _args = process.argv.slice(2);
+const ts = _args.indexOf('--ts') !== -1;
+const args = _args.filter(a => a !== '--ts');
 
 function mkDirs(filePath) {
   return new Promise((resolve, reject) => {
@@ -33,25 +35,29 @@ function mkDirsIfNotExist(filePath) {
   return Promise.resolve();
 }
 
+const metarpheusConfig = getMetarpheusConfig(ts);
+
 download()
   .then(() => {
-    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig, args);
+    const apiOutDir = path.dirname(metarpheusConfig.apiOut);
+    const modelOutDir = path.dirname(metarpheusConfig.modelOut);
 
-    const apiOutDir = path.dirname(metarpheusTcombConfig.apiOut);
-    const modelOutDir = path.dirname(metarpheusTcombConfig.modelOut);
+    const { model, api } = (() =>
+      (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
+    )();
 
     // create dirs if don't exist
     mkDirsIfNotExist(apiOutDir)
       .then(() => mkDirsIfNotExist(modelOutDir))
       .then(() => {
         // write api in api output file
-        logger.metarpheus(`Writing ${metarpheusTcombConfig.apiOut}`);
-        fs.writeFileSync(metarpheusTcombConfig.apiOut, api);
+        logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
+        fs.writeFileSync(metarpheusConfig.apiOut, api);
         logger.metarpheus('Finished!');
 
         // write model in model output file
-        logger.metarpheus(`Writing ${metarpheusTcombConfig.modelOut}`);
-        fs.writeFileSync(metarpheusTcombConfig.modelOut, model);
+        logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
+        fs.writeFileSync(metarpheusConfig.modelOut, model);
         logger.metarpheus('Finished!');
       })
       .catch(e => {
