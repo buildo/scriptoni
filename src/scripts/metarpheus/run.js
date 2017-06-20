@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import metarpheusTcomb from 'metarpheus-tcomb';
-import { getModels, getRoutes } from 'metarpheus-io-ts';
+import { getModels } from 'metarpheus-io-ts';
 import { logger } from '../../util';
 function buildCmdForLogging(cmd) {
   return [' \n '].concat(cmd).join(' \n ').concat([' \n \n ']);
