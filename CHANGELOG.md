@@ -2,6 +2,17 @@
 
 
 
+## [v0.6.7](https://github.com/buildo/scriptoni/tree/v0.6.7) (2017-06-21)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.6...v0.6.7)
+
+#### Fixes (bugs & defects):
+
+- node v5 doesn't like `, moreArgs = []` [#112](https://github.com/buildo/scriptoni/issues/112)
+
+#### New features:
+
+- add `"noUnusedParameters": true,` in tsconfig [#110](https://github.com/buildo/scriptoni/issues/110)
+
 ## [v0.6.6](https://github.com/buildo/scriptoni/tree/v0.6.6) (2017-06-20)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.5...v0.6.6)
 
