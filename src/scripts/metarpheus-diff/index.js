@@ -1,12 +1,14 @@
 import fs from 'fs';
 import { diffLines } from 'diff';
 import { green, red } from 'chalk';
-import metarpheusTcombConfig from '../metarpheus/config';
-import runMetarpheusTcomb from '../metarpheus/run';
+import getMetarpheusConfig from '../metarpheus/config';
+import { runMetarpheusTcomb } from '../metarpheus/run';
 import { logger } from '../../util';
 import download from '../metarpheus/download';
 
 const args = process.argv.slice(2);
+
+const metarpheusTcombConfig = getMetarpheusConfig(false);
 
 download()
   .then(() => {
