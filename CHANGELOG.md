@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.10](https://github.com/buildo/scriptoni/tree/v0.6.10) (2017-06-26)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.9...v0.6.10)
+
+#### New features:
+
+- [metarpheus ts] optional type should be `T | undefined` [#117](https://github.com/buildo/scriptoni/issues/117)
+
 ## [v0.6.9](https://github.com/buildo/scriptoni/tree/v0.6.9) (2017-06-21)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.8...v0.6.9)
 
