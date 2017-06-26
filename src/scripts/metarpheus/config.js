@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { undefinedType } from 'io-ts-codegen';
 
 export default function(ts) {
   // get current working directory
@@ -15,6 +16,7 @@ export default function(ts) {
       isReadonly: false,
       runtime: false,
       newtypes: [],
+      optionalType: undefinedType,
       apiPath: path.resolve(cwd, '../api/src/main/scala'),
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.ts'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.ts'),
