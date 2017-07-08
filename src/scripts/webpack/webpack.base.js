@@ -64,30 +64,35 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
           include: paths.SRC,
           exclude: paths.ASSETS
         },
-        (() => {
+        ...(() => {
           if (JSLoader(jsLoader) === JSLoader('babel')) {
             // babel transpiler
-            return {
+            return [{
               test: /\.jsx?$/, // test for both js and jsx
               use: [{ loader: 'babel-loader' }],
               exclude: [paths.ASSETS],
               include: [paths.SRC]
-            };
+            }];
           }
 
           // TypeScript transpiler
-          return {
-            test: /\.tsx?$|\.jsx?$/,
+          return [{
+            test: /\.tsx?$$/,
             use: [{
-              loader: 'awesome-typescript-loader',
-              options: {
-                useBabel: true,
-                useCache: true
-              }
+              loader: 'babel-loader'
+            }, {
+              loader: 'ts-loader'
             }],
             exclude: [paths.ASSETS],
             include: [paths.SRC]
-          };
+          }, {
+            test: /\.jsx?$$/,
+            use: [{
+              loader: 'babel-loader'
+            }],
+            exclude: [paths.ASSETS],
+            include: [paths.SRC]
+          }];
         })(),
         // copy theme fonts
         {
