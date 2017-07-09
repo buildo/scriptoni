@@ -15,7 +15,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
     new ExtractTextPlugin({ filename: 'style.[hash].min.css' }),
-    webpackFailPlugin
+    webpackFailPlugin // This is needed for TS builds because of https://github.com/TypeStrong/ts-loader/pull/172
   ];
 
   if (NODE_ENV === 'production') {
