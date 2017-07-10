@@ -3,6 +3,7 @@ import path from 'path';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpackFailPlugin from 'webpack-fail-plugin';
 import { getHtmlPluginConfig } from './util';
 import WebpackBase from './webpack.base';
 
@@ -13,7 +14,8 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     // cause failed production builds to fail faster
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title)),
-    new ExtractTextPlugin({ filename: 'style.[hash].min.css' })
+    new ExtractTextPlugin({ filename: 'style.[hash].min.css' }),
+    webpackFailPlugin // This is needed for TS builds because of https://github.com/TypeStrong/ts-loader/pull/172
   ];
 
   if (NODE_ENV === 'production') {
