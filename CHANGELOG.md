@@ -2,6 +2,18 @@
 
 
 
+## [v0.6.11](https://github.com/buildo/scriptoni/tree/v0.6.11) (2017-07-10)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.10...v0.6.11)
+
+#### New features:
+
+- try plain `ts-loader` in place of `awesome-typescript-loader` [#121](https://github.com/buildo/scriptoni/issues/121)
+- upgrade to webpack 3 [#120](https://github.com/buildo/scriptoni/issues/120)
+
+#### Fixes (bugs & defects):
+
+- webpack-ts build is not exiting with >0 if there are TS errors [#119](https://github.com/buildo/scriptoni/issues/119)
+
 ## [v0.6.10](https://github.com/buildo/scriptoni/tree/v0.6.10) (2017-06-26)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.9...v0.6.10)
 
