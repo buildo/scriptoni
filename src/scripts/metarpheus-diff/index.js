@@ -2,18 +2,20 @@ import fs from 'fs';
 import { diffLines } from 'diff';
 import { green, red } from 'chalk';
 import getMetarpheusConfig from '../metarpheus/config';
-import { runMetarpheusTcomb } from '../metarpheus/run';
+import { runMetarpheusTcomb, runMetarpheusIoTs } from '../metarpheus/run';
 import { logger } from '../../util';
 import download from '../metarpheus/download';
 
-const args = process.argv.slice(2);
+const _args = process.argv.slice(2);
+const ts = _args.indexOf('--ts') !== -1;
+const args = _args.filter(a => a !== '--ts');
 
-const metarpheusTcombConfig = getMetarpheusConfig(false);
+const metarpheusConfig = getMetarpheusConfig(ts);
 
 download()
   .then(() => {
 
-    const { model, api } = runMetarpheusTcomb(metarpheusTcombConfig, args);
+    const { model, api } = (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args);
 
     const parseDiffsAcc = {
       output: '\n',
@@ -47,7 +49,7 @@ download()
     const {
       output: apiOutput,
       exitCode: apiExitCode
-    } = diffLines(fs.readFileSync(metarpheusTcombConfig.apiOut, 'utf-8'), api)
+    } = diffLines(fs.readFileSync(metarpheusConfig.apiOut, 'utf-8'), api)
       .reduce(parseDiffs, parseDiffsAcc);
 
     process.stdout.write(apiOutput);
@@ -58,7 +60,7 @@ download()
     const {
       output: modelOutput,
       exitCode: modelExitCode
-    } = diffLines(fs.readFileSync(metarpheusTcombConfig.modelOut, 'utf-8'), model)
+    } = diffLines(fs.readFileSync(metarpheusConfig.modelOut, 'utf-8'), model)
         .reduce(parseDiffs, parseDiffsAcc);
 
     process.stdout.write(modelOutput);
