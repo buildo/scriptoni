@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.12](https://github.com/buildo/scriptoni/tree/v0.6.12) (2017-07-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.11...v0.6.12)
+
+#### New features:
+
+- add metarpheus-ts-diff [#123](https://github.com/buildo/scriptoni/issues/123)
+
 ## [v0.6.11](https://github.com/buildo/scriptoni/tree/v0.6.11) (2017-07-10)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.10...v0.6.11)
 
