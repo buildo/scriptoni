@@ -21,6 +21,9 @@ switch (script) {
   case 'metarpheus-ts':
     exit(spawnScript('metarpheus', ['--ts']));
     break;
+  case 'metarpheus-ts-diff':
+    exit(spawnScript('metarpheus-diff', ['--ts']));
+    break;
   case 'lint-style':
     exit(spawnScript('stylelint'));
     break;
