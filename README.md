@@ -1,5 +1,7 @@
 # scriptoni
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/buildo/scriptoni.svg)](https://greenkeeper.io/)
+
 A set of shared scripts for your front-end apps.
 
 ## Quick start
