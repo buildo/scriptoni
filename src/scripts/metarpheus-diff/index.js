@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { diffLines } from 'diff';
+import { structuredPatch, createTwoFilesPatch } from 'diff';
 import { green, red } from 'chalk';
 import getMetarpheusConfig from '../metarpheus/config';
 import { runMetarpheusTcomb, runMetarpheusIoTs } from '../metarpheus/run';
@@ -17,53 +17,37 @@ download()
 
     const { model, api } = (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args);
 
-    const parseDiffsAcc = {
-      output: '\n',
-      exitCode: 0
-    };
-
-    function getExitCode(part, exitCode) {
-      if (part.added || part.removed) {
-        return 1;
+    function colorLine(line) {
+      switch (line[0]) {
+        case '+': return green(line);
+        case '-': return red(line);
+        default: return line;
       }
-      return exitCode;
     }
 
-    function buildOutput(part) {
-      if (part.added || part.removed) {
-        const color = part.added ? green : red;
-        return color(part.value);
-      }
-      return '';
-    }
-
-    function parseDiffs({ output, exitCode }, part) {
-      return {
-        exitCode: getExitCode(part, exitCode),
-        output: output + buildOutput(part)
-      };
+    function colorizePatch(patch) {
+      return patch.split('\n').map(colorLine).join('\n');
     }
 
     // API diff
     logger.metarpheusDiff('Diffing api files...');
-    const {
-      output: apiOutput,
-      exitCode: apiExitCode
-    } = diffLines(fs.readFileSync(metarpheusConfig.apiOut, 'utf-8'), api)
-      .reduce(parseDiffs, parseDiffsAcc);
+    const apiNew = fs.readFileSync(metarpheusConfig.apiOut, 'utf-8');
+    const apiExitCode = structuredPatch('', '', api, apiNew).hunks.length === 0 ? 0 : 1;
+    const apiOutput = colorizePatch(createTwoFilesPatch('current', 'new', api, apiNew));
 
-    process.stdout.write(apiOutput);
-
+    if (apiExitCode !== 0) {
+      console.log(apiOutput); // eslint-disable-line no-console
+    }
 
     // model diff
     logger.metarpheusDiff('Diffing models files...');
-    const {
-      output: modelOutput,
-      exitCode: modelExitCode
-    } = diffLines(fs.readFileSync(metarpheusConfig.modelOut, 'utf-8'), model)
-        .reduce(parseDiffs, parseDiffsAcc);
+    const modelNew = fs.readFileSync(metarpheusConfig.modelOut, 'utf-8');
+    const modelExitCode = structuredPatch('', '', model, modelNew).hunks.length === 0 ? 0 : 1;
+    const modelOutput = colorizePatch(createTwoFilesPatch('current', 'new', model, modelNew));
 
-    process.stdout.write(modelOutput);
+    if (modelExitCode !== 0) {
+      console.log(modelOutput); // eslint-disable-line no-console
+    }
 
     // exit with code from diffs
     process.exit(modelExitCode || apiExitCode);
