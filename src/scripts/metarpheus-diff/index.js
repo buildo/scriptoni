@@ -36,7 +36,7 @@ download()
     const apiOutput = colorizePatch(createTwoFilesPatch('current', 'new', api, apiNew));
 
     if (apiExitCode !== 0) {
-      process.stdout.write(apiOutput);
+      console.log(apiOutput); // eslint-disable-line no-console
     }
 
     // model diff
@@ -46,7 +46,7 @@ download()
     const modelOutput = colorizePatch(createTwoFilesPatch('current', 'new', model, modelNew));
 
     if (modelExitCode !== 0) {
-      process.stdout.write(modelOutput);
+      console.log(modelOutput); // eslint-disable-line no-console
     }
 
     // exit with code from diffs
