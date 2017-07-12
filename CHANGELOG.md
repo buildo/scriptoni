@@ -2,6 +2,13 @@
 
 
 
+## [v0.6.13](https://github.com/buildo/scriptoni/tree/v0.6.13) (2017-07-12)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.12...v0.6.13)
+
+#### Fixes (bugs & defects):
+
+- metarpheus-diff is still broken [#116](https://github.com/buildo/scriptoni/issues/116)
+
 ## [v0.6.12](https://github.com/buildo/scriptoni/tree/v0.6.12) (2017-07-11)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.11...v0.6.12)
 
