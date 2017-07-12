@@ -68,7 +68,7 @@
     "postcss": "^5.2.15",
     "postcss-scss": "^0.4.1",
     "progress": "^1.1.8",
-    "progress-bar-webpack-plugin": "^1.9.3",
+    "progress-bar-webpack-plugin": "^1.10.0",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "resolve-url-loader": "^2.1.0",
