@@ -26,16 +26,16 @@ export default function(ts) {
   } else {
     // default module prelude
     const modelPrelude = `// DO NOT EDIT MANUALLY - metarpheus-generated
-    /* eslint-disable */
-    import t from 'tcomb';
-    `;
+/* eslint-disable */
+import t from 'tcomb';
+`;
 
     return {
       apiPath: path.resolve(cwd, '../api/src/main/scala'),
       modelPrelude,
       apiPrelude: `${modelPrelude}
-    import * as m from './model';
-    `,
+import * as m from './model';
+`,
       apiModelPrefix: 'm.',
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.js'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.js'),
