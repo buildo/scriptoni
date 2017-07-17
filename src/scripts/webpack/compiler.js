@@ -12,6 +12,7 @@ export default function compiler(getWebpackConfig) {
 
   const paths = getPaths(args);
 
+  logger.webpack('platform', process.platform);
   const NODE_ENV = process.env.NODE_ENV || config.NODE_ENV || 'development';
   logger.webpack('building with', `NODE_ENV=${NODE_ENV}`);
   logger.webpack('Configuration', JSON.stringify(config, null, 4));
