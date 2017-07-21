@@ -2,6 +2,16 @@
 
 
 
+## [v0.6.15](https://github.com/buildo/scriptoni/tree/v0.6.15) (2017-07-21)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.14...v0.6.15)
+
+#### New features:
+
+- webpack script could be nicer in the final project [#97](https://github.com/buildo/scriptoni/issues/97)
+- Eat our own dog food [#90](https://github.com/buildo/scriptoni/issues/90)
+- Add greenkeeper [#85](https://github.com/buildo/scriptoni/issues/85)
+- add script to validate `node`, `npm` and `yarn` versions before "start" and "build" [#27](https://github.com/buildo/scriptoni/issues/27)
+
 ## [v0.6.14](https://github.com/buildo/scriptoni/tree/v0.6.14) (2017-07-12)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.13...v0.6.14)
 
