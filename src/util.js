@@ -10,6 +10,7 @@ export function loadFileFromArgument(args, key, defaultPath) {
 }
 
 export const logger = {
+  bin: debug('scriptoni:bin'),
   metarpheus: debug('scriptoni:metarpheus'),
   metarpheusDiff: debug('scriptoni:metarpheus-diff'),
   lint: debug('scriptoni:lint'),
