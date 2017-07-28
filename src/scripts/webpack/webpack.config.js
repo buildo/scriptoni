@@ -1,8 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import WebpackBase from './webpack.base';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { getHtmlPluginConfig } from './util';
 
 export default ({ config, paths, NODE_ENV, ...options }) => {
 
@@ -19,8 +17,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     plugins: [
       ...base.plugins,
-      new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin(getHtmlPluginConfig(NODE_ENV, config.title))
+      new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {

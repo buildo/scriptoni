@@ -1,10 +1,12 @@
 import t from 'tcomb';
 import path from 'path';
 import webpack from 'webpack';
+import HTMLPlugin from 'html-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
+import { getHtmlPluginConfig } from './util';
 
 const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
@@ -45,7 +47,8 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
       new StyleLintPlugin({
         files: '**/*.scss',
         syntax: 'scss'
-      })
+      }),
+      new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config))
     ],
 
     module: {
