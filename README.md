@@ -25,14 +25,11 @@ add this script to your `package.json`:
 ```
 
 By default, Metarpheus will look for your API at `../api/src/main/scala`, but
-you can override this (and many other option) by creating the following files in
-your project directory:
+you can override this (and many other option) by creating a `metarpheus-config.js` file in
+your project directory.
+If this file is found, it will be merged with the
+[default options](src/scripts/metarpheus/config.js). Only the options you specify will be overridden.
 
-* `metarpheus-config.js` - if this file is found, it will be merged with the
-  [default options](src/scripts/metarpheus/config.js). Only the options you
-  specify will be overridden.
-* `metarpheus-config.scala` - if this file is found, it will completely replace
-  the [default Scala config](src/scripts/metarpheus/config.scala).
 
 ### `metarpheus-diff`
 

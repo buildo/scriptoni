@@ -17,10 +17,10 @@ export default function(ts) {
       runtime: false,
       newtypes: [],
       optionalType: undefinedType,
-      apiPath: path.resolve(cwd, '../api/src/main/scala'),
+      apiPaths: [path.resolve(cwd, '../api/src/main/scala')],
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.ts'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.ts'),
-      intermRepIn: path.resolve(__dirname, 'metarpheus-interm-rep.json'),
+      authRouteTermNames: ['withRole'],
       ...ujc
     };
   } else {
@@ -31,7 +31,7 @@ import t from 'tcomb';
 `;
 
     return {
-      apiPath: path.resolve(cwd, '../api/src/main/scala'),
+      apiPaths: [path.resolve(cwd, '../api/src/main/scala')],
       modelPrelude,
       apiPrelude: `${modelPrelude}
 import * as m from './model';
@@ -39,7 +39,7 @@ import * as m from './model';
       apiModelPrefix: 'm.',
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.js'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.js'),
-      intermRepIn: path.resolve(__dirname, 'metarpheus-interm-rep.json'),
+      authRouteTermNames: ['withRole'],
       ...ujc
     };
   }
