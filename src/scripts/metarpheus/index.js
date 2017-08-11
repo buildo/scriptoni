@@ -3,7 +3,6 @@ import path from 'path';
 import { logger } from '../../util';
 import { runMetarpheusTcomb, runMetarpheusIoTs } from './run';
 import getMetarpheusConfig from './config';
-import download from './download';
 
 const _args = process.argv.slice(2);
 const ts = _args.indexOf('--ts') !== -1;
@@ -37,31 +36,28 @@ function mkDirsIfNotExist(filePath) {
 
 const metarpheusConfig = getMetarpheusConfig(ts);
 
-download()
+const apiOutDir = path.dirname(metarpheusConfig.apiOut);
+const modelOutDir = path.dirname(metarpheusConfig.modelOut);
+
+const { model, api } = (() =>
+  (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
+)();
+
+// create dirs if don't exist
+mkDirsIfNotExist(apiOutDir)
+  .then(() => mkDirsIfNotExist(modelOutDir))
   .then(() => {
-    const apiOutDir = path.dirname(metarpheusConfig.apiOut);
-    const modelOutDir = path.dirname(metarpheusConfig.modelOut);
+    // write api in api output file
+    logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
+    fs.writeFileSync(metarpheusConfig.apiOut, api);
+    logger.metarpheus('Finished!');
 
-    const { model, api } = (() =>
-      (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
-    )();
-
-    // create dirs if don't exist
-    mkDirsIfNotExist(apiOutDir)
-      .then(() => mkDirsIfNotExist(modelOutDir))
-      .then(() => {
-        // write api in api output file
-        logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
-        fs.writeFileSync(metarpheusConfig.apiOut, api);
-        logger.metarpheus('Finished!');
-
-        // write model in model output file
-        logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
-        fs.writeFileSync(metarpheusConfig.modelOut, model);
-        logger.metarpheus('Finished!');
-      })
-      .catch(e => {
-        logger.metarpheus(e);
-        process.exit(1);
-      });
+    // write model in model output file
+    logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
+    fs.writeFileSync(metarpheusConfig.modelOut, model);
+    logger.metarpheus('Finished!');
+  })
+  .catch(e => {
+    logger.metarpheus(e);
+    process.exit(1);
   });
