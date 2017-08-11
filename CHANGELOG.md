@@ -2,6 +2,13 @@
 
 
 
+## [v0.7.0](https://github.com/buildo/scriptoni/tree/v0.7.0) (2017-08-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.16...v0.7.0)
+
+#### Breaking:
+
+- Use metarpheus from js [#140](https://github.com/buildo/scriptoni/issues/140)
+
 ## [v0.6.16](https://github.com/buildo/scriptoni/tree/v0.6.16) (2017-08-08)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.15...v0.6.16)
 
