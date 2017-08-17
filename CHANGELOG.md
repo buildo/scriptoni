@@ -2,6 +2,14 @@
 
 
 
+## [v0.7.1](https://github.com/buildo/scriptoni/tree/v0.7.1) (2017-08-17)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.0...v0.7.1)
+
+#### Fixes (bugs & defects):
+
+- dev server configuration should allow browser history location [#142](https://github.com/buildo/scriptoni/issues/142)
+- Requests to check for metarpheus latest version are not authenticated [#137](https://github.com/buildo/scriptoni/issues/137)
+
 ## [v0.7.0](https://github.com/buildo/scriptoni/tree/v0.7.0) (2017-08-11)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.6.16...v0.7.0)
 
