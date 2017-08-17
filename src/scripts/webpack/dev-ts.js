@@ -15,7 +15,8 @@ const server = new webpackServer(compiler(getWebpackConfig), {
   contentBase: paths.BUILD,
   hot: true,
   stats: statsOutputConfiguration,
-  disableHostCheck: true
+  disableHostCheck: true,
+  historyApiFallback: { verbose: true }
 });
 
 server.listen(getConfig(args).port);
