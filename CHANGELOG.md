@@ -2,6 +2,13 @@
 
 
 
+## [v0.7.3](https://github.com/buildo/scriptoni/tree/v0.7.3) (2017-08-18)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.2...v0.7.3)
+
+#### New features:
+
+- Enable scope hoisting for webpack [#134](https://github.com/buildo/scriptoni/issues/134)
+
 ## [v0.7.2](https://github.com/buildo/scriptoni/tree/v0.7.2) (2017-08-18)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.1...v0.7.2)
 
