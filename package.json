@@ -86,6 +86,6 @@
     "virtual-module-webpack-plugin": "^0.3.0",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-fail-plugin": "^1.0.6"
+    "webpack-fail-plugin": "^2.0.0"
   }
 }
