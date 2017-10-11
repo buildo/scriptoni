@@ -2,6 +2,13 @@
 
 
 
+## [v0.7.6](https://github.com/buildo/scriptoni/tree/v0.7.6) (2017-10-11)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.5...v0.7.6)
+
+#### New features:
+
+- Update metarpheus [#153](https://github.com/buildo/scriptoni/issues/153)
+
 ## [v0.7.5](https://github.com/buildo/scriptoni/tree/v0.7.5) (2017-09-29)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.4...v0.7.5)
 
