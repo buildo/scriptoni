@@ -1,5 +1,5 @@
 import metarpheusTcomb from 'metarpheus-tcomb';
-import { getModels } from 'metarpheus-io-ts';
+import { getModels, getRoutes } from 'metarpheus-io-ts';
 import { logger } from '../../util';
 import { run as runMetarpheus } from 'metarpheus';
 
@@ -51,7 +51,14 @@ ${metarpheusTsConfig.modelPrelude}
 
 ${getModels(intermRep.models, metarpheusTsConfig)}
 `;
+
+  const api = `
+${metarpheusTsConfig.apiPrelude}
+
+${getRoutes(intermRep.routes, metarpheusTsConfig)}
+`;
+
   logger.metarpheus('Finished metarpheus-io-ts');
   // TODO(gio): we are not currently interested in `api`
-  return { model, api: '' };
+  return { model, api };
 }

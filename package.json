@@ -61,7 +61,7 @@
     "io-ts": "^0.5.0",
     "io-ts-codegen": "0.0.1",
     "metarpheus": "0.1.7",
-    "metarpheus-io-ts": "^0.1.5",
+    "metarpheus-io-ts": "file:../metarpheus-io-ts",
     "metarpheus-tcomb": "^0.2",
     "minimist": "^1.2.0",
     "node-glob": "^1.2.0",
