@@ -14,13 +14,15 @@ export default function(ts) {
   if (ts) {
     return {
       isReadonly: false,
-      runtime: false,
+      runtime: true,
       newtypes: [],
       optionalType: undefinedType,
       apiPaths: [path.resolve(cwd, '../api/src/main/scala')],
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.ts'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.ts'),
       authRouteTermNames: ['withRole'],
+      apiPrelude: '',
+      modelPrelude: '',
       ...ujc
     };
   } else {
