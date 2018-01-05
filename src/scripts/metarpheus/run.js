@@ -47,8 +47,7 @@ export function runMetarpheusIoTs(metarpheusTsConfig, args) {
   logger.metarpheus('Starting metarpheus-io-ts');
   const model = getModels(intermRep.models, metarpheusTsConfig, metarpheusTsConfig.modelPrelude);
 
-  const api = `
-${metarpheusTsConfig.apiPrelude}
+  const api = `${metarpheusTsConfig.apiPrelude || ''}
 
 ${getRoutes(intermRep.routes, metarpheusTsConfig)}
 `;
