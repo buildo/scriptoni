@@ -2,6 +2,13 @@
 
 
 
+## [v0.7.7](https://github.com/buildo/scriptoni/tree/v0.7.7) (2018-01-05)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.6...v0.7.7)
+
+#### New features:
+
+- Update metarpheus-io-ts and generate APIs [#156](https://github.com/buildo/scriptoni/issues/156)
+
 ## [v0.7.6](https://github.com/buildo/scriptoni/tree/v0.7.6) (2017-10-11)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.5...v0.7.6)
 
