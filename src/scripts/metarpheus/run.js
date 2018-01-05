@@ -45,12 +45,7 @@ export function runMetarpheusIoTs(metarpheusTsConfig, args) {
   const intermRep = runMetarpheus(metarpheusTsConfig.apiPaths, metarpheusConfig);
 
   logger.metarpheus('Starting metarpheus-io-ts');
-  // TODO(gio): "prelude" should eventually be supported by metarhpeus-io-ts directly
-  const model = `
-${metarpheusTsConfig.modelPrelude}
-
-${getModels(intermRep.models, metarpheusTsConfig)}
-`;
+  const model = getModels(intermRep.models, metarpheusTsConfig, metarpheusTsConfig.modelPrelude);
 
   const api = `
 ${metarpheusTsConfig.apiPrelude}
