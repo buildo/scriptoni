@@ -1,5 +1,5 @@
 import metarpheusTcomb from 'metarpheus-tcomb';
-import { getModels } from 'metarpheus-io-ts';
+import { getModels, getRoutes } from 'metarpheus-io-ts';
 import { logger } from '../../util';
 import { run as runMetarpheus } from 'metarpheus';
 
@@ -45,13 +45,14 @@ export function runMetarpheusIoTs(metarpheusTsConfig, args) {
   const intermRep = runMetarpheus(metarpheusTsConfig.apiPaths, metarpheusConfig);
 
   logger.metarpheus('Starting metarpheus-io-ts');
-  // TODO(gio): "prelude" should eventually be supported by metarhpeus-io-ts directly
-  const model = `
-${metarpheusTsConfig.modelPrelude}
+  const model = getModels(intermRep.models, metarpheusTsConfig, metarpheusTsConfig.modelPrelude);
 
-${getModels(intermRep.models, metarpheusTsConfig)}
+  const api = `
+${metarpheusTsConfig.apiPrelude}
+
+${getRoutes(intermRep.routes, metarpheusTsConfig)}
 `;
+
   logger.metarpheus('Finished metarpheus-io-ts');
-  // TODO(gio): we are not currently interested in `api`
-  return { model, api: '' };
+  return { model, api };
 }

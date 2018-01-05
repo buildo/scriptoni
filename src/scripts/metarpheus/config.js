@@ -14,7 +14,7 @@ export default function(ts) {
   if (ts) {
     return {
       isReadonly: false,
-      runtime: false,
+      runtime: true,
       newtypes: [],
       optionalType: undefinedType,
       apiPaths: [path.resolve(cwd, '../api/src/main/scala')],
