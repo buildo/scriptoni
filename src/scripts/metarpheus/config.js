@@ -21,8 +21,6 @@ export default function(ts) {
       modelOut: path.resolve(cwd, 'src/app/metarpheus/model.ts'),
       apiOut: path.resolve(cwd, 'src/app/metarpheus/api.ts'),
       authRouteTermNames: ['withRole'],
-      apiPrelude: '',
-      modelPrelude: '',
       ...ujc
     };
   } else {
