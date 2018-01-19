@@ -2,6 +2,13 @@
 
 
 
+## [v0.8.0](https://github.com/buildo/scriptoni/tree/v0.8.0) (2018-01-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.10...v0.8.0)
+
+#### Breaking:
+
+- adapt to webseed/template simplification [#160](https://github.com/buildo/scriptoni/issues/160)
+
 ## [v0.7.10](https://github.com/buildo/scriptoni/tree/v0.7.10) (2018-01-15)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.9...v0.7.10)
 
