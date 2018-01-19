@@ -2,6 +2,13 @@
 
 
 
+## [v0.9.1](https://github.com/buildo/scriptoni/tree/v0.9.1) (2018-01-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.9.0...v0.9.1)
+
+#### Fixes (bugs & defects):
+
+- tsconfig.json contains an additional , [#162](https://github.com/buildo/scriptoni/issues/162)
+
 ## [v0.9.0](https://github.com/buildo/scriptoni/tree/v0.9.0) (2018-01-19)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.8.0...v0.9.0)
 
