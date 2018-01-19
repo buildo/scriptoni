@@ -15,7 +15,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
   return {
     resolve: {
       modules: [
-        paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES
+        paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES
       ],
       extensions: JSLoader(jsLoader) === JSLoader('typescript') ?
         ['.js', '.ts', '.tsx', '.json'] : undefined
