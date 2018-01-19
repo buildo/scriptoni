@@ -2,6 +2,9 @@
 
 
 
+## [v0.9.0](https://github.com/buildo/scriptoni/tree/v0.9.0) (2018-01-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.8.0...v0.9.0)
+
 ## [v0.8.0](https://github.com/buildo/scriptoni/tree/v0.8.0) (2018-01-19)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.7.10...v0.8.0)
 
