@@ -5,7 +5,7 @@ export function getHtmlPluginConfig(NODE_ENV, config) {
     inject: false,
     bundle: NODE_ENV === 'production',
     minify: NODE_ENV === 'production' ? {} : false,
-    template: path.resolve(process.cwd(), './src/app/index.html'),
+    template: path.resolve(process.cwd(), './src/index.html'),
     title: config.title,
     data: config.bundle
   };
