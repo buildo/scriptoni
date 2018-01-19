@@ -27,7 +27,7 @@
       "*": [
         "src/components/Basic/*",
         "src/components/*",
-        "src/*",
+        "src/*"
       ]
     }
   },
