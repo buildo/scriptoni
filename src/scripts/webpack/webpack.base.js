@@ -15,8 +15,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
   return {
     resolve: {
       modules: [
-        paths.APP, paths.COMPONENTS, paths.BASIC_COMPONENTS,
-        paths.ROUTES, paths.NODE_MODULES
+        paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES
       ],
       extensions: JSLoader(jsLoader) === JSLoader('typescript') ?
         ['.js', '.ts', '.tsx', '.json'] : undefined
@@ -36,7 +35,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
     plugins: [
       new VirtualModulePlugin({
-        moduleName: path.resolve(process.cwd(), 'src/app/config.json'),
+        moduleName: path.resolve(process.cwd(), 'src/config.json'),
         contents: JSON.stringify(config.bundle)
       }),
       new ProgressBarPlugin(),

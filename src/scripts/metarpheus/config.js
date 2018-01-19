@@ -18,8 +18,8 @@ export default function(ts) {
       newtypes: [],
       optionalType: undefinedType,
       apiPaths: [path.resolve(cwd, '../api/src/main/scala')],
-      modelOut: path.resolve(cwd, 'src/app/metarpheus/model.ts'),
-      apiOut: path.resolve(cwd, 'src/app/metarpheus/api.ts'),
+      modelOut: path.resolve(cwd, 'src/metarpheus/model.ts'),
+      apiOut: path.resolve(cwd, 'src/metarpheus/api.ts'),
       authRouteTermNames: ['withRole'],
       ...ujc
     };
@@ -37,8 +37,8 @@ import t from 'tcomb';
 import * as m from './model';
 `,
       apiModelPrefix: 'm.',
-      modelOut: path.resolve(cwd, 'src/app/metarpheus/model.js'),
-      apiOut: path.resolve(cwd, 'src/app/metarpheus/api.js'),
+      modelOut: path.resolve(cwd, 'src/metarpheus/model.js'),
+      apiOut: path.resolve(cwd, 'src/metarpheus/api.js'),
       authRouteTermNames: ['withRole'],
       ...ujc
     };

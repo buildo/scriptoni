@@ -17,20 +17,17 @@
       "es6", "dom"
     ],
     "paths": {
-      "model": ["src/app/model"],
-      "HTTPAPI": ["src/app/HTTPAPI"],
-      "container": ["src/app/container"],
-      "Basic": ["src/app/components/Basic"],
-      "state-react-router": ["src/app/state-react-router"],
-      "queries": ["src/app/queries"],
-      "commands": ["src/app/commands"],
-      "transitions": ["src/app/transitions"],
+      "model": ["src/model"],
+      "HTTPAPI": ["src/HTTPAPI"],
+      "container": ["src/container"],
+      "Basic": ["src/components/Basic"],
+      "queries": ["src/queries"],
+      "commands": ["src/commands"],
+      "transitions": ["src/transitions"],
       "*": [
-        "src/app/components/Basic/*",
-        "src/app/components/*",
-        "src/app/routes/*",
-        "src/app/*",
-        "src/*"
+        "src/components/Basic/*",
+        "src/components/*",
+        "src/*",
       ]
     }
   },
