@@ -2,6 +2,13 @@
 
 
 
+## [v0.10.2](https://github.com/buildo/scriptoni/tree/v0.10.2) (2018-03-12)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.10.1...v0.10.2)
+
+#### Fixes (bugs & defects):
+
+- Build breaks if you remove ie11 from browsers (.babelrc) [#170](https://github.com/buildo/scriptoni/issues/170)
+
 ## [v0.10.1](https://github.com/buildo/scriptoni/tree/v0.10.1) (2018-02-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.10.0...v0.10.1)
 
