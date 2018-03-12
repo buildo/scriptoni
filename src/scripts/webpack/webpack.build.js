@@ -3,6 +3,7 @@ import path from 'path';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpackFailPlugin from 'webpack-fail-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackBase from './webpack.base';
 
 export default ({ config, paths, NODE_ENV, ...options }) => {
@@ -21,13 +22,14 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
       regExp: /\.js$|\.css$/
     }));
 
-    plugins.unshift(
-      new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false, screw_ie8: true },
-        output: { comments: false },
-        sourceMap: true
-      })
-    );
+    plugins.unshift(new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8
+      },
+      parallel: true,
+      cache: true,
+      sourceMap: true
+    }));
   }
 
   return {
