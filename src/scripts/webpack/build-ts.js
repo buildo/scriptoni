@@ -5,7 +5,7 @@ import { statsOutputConfiguration } from './util';
 
 const getBuildConfig = (options) => webpackBuild({ ...options, jsLoader: 'typescript' });
 
-compiler(getBuildConfig).run((err, stats) => {
+compiler(getBuildConfig, 'build-ts').run((err, stats) => {
   if (err) { throw err; }
   logger.webpack(stats.toString(statsOutputConfiguration));
 });
