@@ -11,7 +11,7 @@ const getWebpackConfig = (options) => webpackConfig({ ...options, jsLoader: 'typ
 const args = minimist(process.argv.slice(2));
 const paths = getPaths(args);
 
-const server = new webpackServer(compiler(getWebpackConfig), {
+const server = new webpackServer(compiler(getWebpackConfig, 'dev-ts'), {
   contentBase: paths.BUILD,
   hot: true,
   stats: statsOutputConfiguration,

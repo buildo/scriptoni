@@ -9,7 +9,7 @@ import { statsOutputConfiguration } from './util';
 const args = minimist(process.argv.slice(2));
 const paths = getPaths(args);
 
-const server = new webpackServer(compiler(webpackConfig), {
+const server = new webpackServer(compiler(webpackConfig, 'dev'), {
   contentBase: paths.BUILD,
   hot: true,
   stats: statsOutputConfiguration,

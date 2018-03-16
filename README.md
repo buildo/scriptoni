@@ -131,3 +131,34 @@ t.interface({
 ```
 
 See https://github.com/buildo/webseed/tree/master/config for an example/minimal configuration.
+
+** custom Webpack config **
+
+The default webpack config shipped with scriptoni should be fine in most cases. However, you may need to change something.
+If this is the case, you can override the default config by passing an additional `--webpackConfig` argument, followed by the file path containing your override function.
+
+Let's say, for example, you want to change the output library.
+You can provide a `webpack.config.js` file in the root directory of your project, with the following content:
+
+```js
+module.exports = (defaultConfig, { config, paths, NODE_ENV, target }) => ({
+  ...defaultConfig,
+  output: {
+    ...config.output,
+    library: 'myclient'
+  }
+});
+```
+
+As you can see, your function will receive the default webpack config as first argument, followed by an object containing useful options:
+- `config`: the app config (see the previous chapter)
+- `paths`: the paths used by your project
+- `NODE_ENV`: 'development' or 'production'
+- `target`: one of `dev`, `build`, `dev-ts` or `build-ts`
+
+As a last step, you can change the `start` and `build` scripts in your `package.json` file by adding `--webpackConfig ./webpack.config.js` and the end of both commands:
+
+```json
+"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev -c ./config --webpackConfig ./webpack-config.js",
+"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build -c ./config --webpackConfig ./webpack-config.js"
+```
