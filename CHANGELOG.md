@@ -2,6 +2,13 @@
 
 
 
+## [v0.11.2](https://github.com/buildo/scriptoni/tree/v0.11.2) (2018-03-16)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.1...v0.11.2)
+
+#### New features:
+
+- Webpack extendable configuration [#76](https://github.com/buildo/scriptoni/issues/76)
+
 ## [v0.11.1](https://github.com/buildo/scriptoni/tree/v0.11.1) (2018-03-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.0...v0.11.1)
 
