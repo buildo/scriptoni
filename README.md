@@ -132,7 +132,7 @@ t.interface({
 
 See https://github.com/buildo/webseed/tree/master/config for an example/minimal configuration.
 
-** custom Webpack config **
+**custom Webpack config**
 
 The default webpack config shipped with scriptoni should be fine in most cases. However, you may need to change something.
 If this is the case, you can override the default config by passing an additional `--webpackConfig` argument, followed by the file path containing your override function.
