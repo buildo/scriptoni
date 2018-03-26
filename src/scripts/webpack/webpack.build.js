@@ -24,7 +24,10 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     plugins.unshift(new UglifyJsPlugin({
       uglifyOptions: {
-        ecma: 8
+        ecma: 8,
+        output: {
+          ecma: 5
+        }
       },
       parallel: true,
       cache: true,
