@@ -2,6 +2,13 @@
 
 
 
+## [v0.11.3](https://github.com/buildo/scriptoni/tree/v0.11.3) (2018-03-26)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.2...v0.11.3)
+
+#### Fixes (bugs & defects):
+
+- uglifyed build output does not work on IE11 and Chrome 38 [#178](https://github.com/buildo/scriptoni/issues/178)
+
 ## [v0.11.2](https://github.com/buildo/scriptoni/tree/v0.11.2) (2018-03-16)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.1...v0.11.2)
 
