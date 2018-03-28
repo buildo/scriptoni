@@ -2,6 +2,13 @@
 
 
 
+## [v0.12.0](https://github.com/buildo/scriptoni/tree/v0.12.0) (2018-03-28)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.3...v0.12.0)
+
+#### Breaking:
+
+- Upgrade TS to 2.8 [#180](https://github.com/buildo/scriptoni/issues/180)
+
 ## [v0.11.3](https://github.com/buildo/scriptoni/tree/v0.11.3) (2018-03-26)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.11.2...v0.11.3)
 
