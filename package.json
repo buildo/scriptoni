@@ -81,7 +81,7 @@
     "stylelint-webpack-plugin": "^0.8.0",
     "svg-react-loader": "^0.4.4",
     "ts-loader": "^3.2.0",
-    "typescript": "^2.6.2",
+    "typescript": "^2.8.1",
     "uglifyjs-webpack-plugin": "^1.2.3",
     "virtual-module-webpack-plugin": "^0.3.0",
     "webpack": "^3.1.0",
