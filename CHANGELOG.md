@@ -2,6 +2,13 @@
 
 
 
+## [v0.12.2](https://github.com/buildo/scriptoni/tree/v0.12.2) (2018-04-13)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.1...v0.12.2)
+
+#### New features:
+
+- Webpack script: every path should be overwritable [#184](https://github.com/buildo/scriptoni/issues/184)
+
 ## [v0.12.1](https://github.com/buildo/scriptoni/tree/v0.12.1) (2018-04-09)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.0...v0.12.1)
 
