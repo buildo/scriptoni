@@ -35,7 +35,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
     plugins: [
       new VirtualModulePlugin({
-        moduleName: path.resolve(process.cwd(), 'src/config.json'),
+        moduleName: paths.VIRTUAL_CONFIG,
         contents: JSON.stringify(config.bundle)
       }),
       new ProgressBarPlugin(),
@@ -48,7 +48,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
         files: '**/*.scss',
         syntax: 'scss'
       }),
-      new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config))
+      new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
     ],
 
     module: {
