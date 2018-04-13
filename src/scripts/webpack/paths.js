@@ -3,6 +3,7 @@ import t from 'tcomb';
 import { loadFileFromArgument } from '../../util';
 
 const Paths = t.interface({
+  ROOT: t.String,
   SRC: t.String,
   ENTRY: t.String,
   LOCALES: t.String,
