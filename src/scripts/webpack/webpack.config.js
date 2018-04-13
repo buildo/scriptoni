@@ -10,7 +10,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     entry: [
       `webpack-dev-server/client?http://0.0.0.0:${config.port}/`,
       'webpack/hot/dev-server',
-      path.resolve(paths.SRC, 'setup/index.js')
+      paths.ENTRY
     ],
 
     devtool: config.devTool || 'source-map',
