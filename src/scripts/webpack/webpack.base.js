@@ -1,5 +1,4 @@
 import t from 'tcomb';
-import path from 'path';
 import webpack from 'webpack';
 import HTMLPlugin from 'html-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';

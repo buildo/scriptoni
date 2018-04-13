@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import path from 'path';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpackFailPlugin from 'webpack-fail-plugin';

@@ -20,7 +20,7 @@ const Paths = t.interface({
 });
 
 export default function getPaths(args) {
-  const userPaths = loadFileFromArgument(args, 'paths', './paths.js') || {}
+  const userPaths = loadFileFromArgument(args, 'paths', './paths.js') || {};
   const ROOT = userPaths.ROOT || process.cwd();
 
   return Paths({
@@ -41,7 +41,7 @@ export default function getPaths(args) {
     VARIABLES_MATCH: /(v|V)ariables\.scss$/,
 
     // give priority to user custom paths
-    ...userPaths,
+    ...userPaths
   });
 
 }

@@ -1,5 +1,3 @@
-import path from 'path';
-
 export function getHtmlPluginConfig(NODE_ENV, config, paths) {
   return {
     inject: false,

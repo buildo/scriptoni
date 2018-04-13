@@ -1,4 +1,3 @@
-import path from 'path';
 import webpack from 'webpack';
 import WebpackBase from './webpack.base';
 
