@@ -4,6 +4,7 @@ import { loadFileFromArgument } from '../../util';
 
 const Paths = t.interface({
   SRC: t.String,
+  ENTRY: t.String,
   LOCALES: t.String,
   THEME: t.String,
   THEME_FONTS: t.String,
@@ -12,26 +13,34 @@ const Paths = t.interface({
   NODE_MODULES: t.String,
   COMPONENTS: t.String,
   BASIC_COMPONENTS: t.String,
+  VIRTUAL_CONFIG: t.String,
+  TEMPLATE: t.String,
   VARIABLES_MATCH: t.Object // regex
 });
 
-const defaultPaths = {
-  SRC: path.resolve(process.cwd(), 'src'),
-  LOCALES: path.resolve(process.cwd(), 'src/locales'),
-  THEME: path.resolve(process.cwd(), 'src/theme'),
-  THEME_FONTS: path.resolve(process.cwd(), 'src/theme/fonts'),
-  BUILD: path.resolve(process.cwd(), 'build'),
-  ASSETS: path.resolve(process.cwd(), 'assets'),
-  NODE_MODULES: path.resolve(process.cwd(), 'node_modules'),
-  COMPONENTS: path.resolve(process.cwd(), 'src/components'),
-  BASIC_COMPONENTS: path.resolve(process.cwd(), 'src/components/Basic'),
-  VARIABLES_MATCH: /(v|V)ariables\.scss$/
-};
-
 export default function getPaths(args) {
+  const userPaths = loadFileFromArgument(args, 'paths', './paths.js') || {}
+  const ROOT = userPaths.ROOT || process.cwd();
+
   return Paths({
-    ...defaultPaths,
-    ...loadFileFromArgument(args, 'paths', './paths.js')
+    // defaultPaths
+    ROOT,
+    SRC: path.resolve(ROOT, 'src'),
+    ENTRY: path.resolve(ROOT, 'src/setup/index.js'),
+    LOCALES: path.resolve(ROOT, 'src/locales'),
+    THEME: path.resolve(ROOT, 'src/theme'),
+    THEME_FONTS: path.resolve(ROOT, 'src/theme/fonts'),
+    BUILD: path.resolve(ROOT, 'build'),
+    ASSETS: path.resolve(ROOT, 'assets'),
+    NODE_MODULES: path.resolve(ROOT, 'node_modules'),
+    COMPONENTS: path.resolve(ROOT, 'src/components'),
+    BASIC_COMPONENTS: path.resolve(ROOT, 'src/components/Basic'),
+    VIRTUAL_CONFIG: path.resolve(ROOT, 'src/config.json'),
+    TEMPLATE: path.resolve(ROOT, 'src/index.html'),
+    VARIABLES_MATCH: /(v|V)ariables\.scss$/,
+
+    // give priority to user custom paths
+    ...userPaths,
   });
 
 }
