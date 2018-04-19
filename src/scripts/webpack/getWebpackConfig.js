@@ -3,7 +3,7 @@ import getConfig from './config';
 import getPaths from './paths';
 import path from 'path';
 import identity from 'lodash/identity';
-import { logger } from './util';
+import { logger } from '../../util';
 
 export default function getWebpackConfig(webpackConfigFn, target) {
   const args = minimist(process.argv.slice(2));
