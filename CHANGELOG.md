@@ -2,6 +2,13 @@
 
 
 
+## [v0.12.3](https://github.com/buildo/scriptoni/tree/v0.12.3) (2018-04-19)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.2...v0.12.3)
+
+#### New features:
+
+- it should be possible to configure webpack-dev-server from outside [#186](https://github.com/buildo/scriptoni/issues/186)
+
 ## [v0.12.2](https://github.com/buildo/scriptoni/tree/v0.12.2) (2018-04-13)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.1...v0.12.2)
 
