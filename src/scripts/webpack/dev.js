@@ -3,18 +3,12 @@ import webpackServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.js';
 import compiler from './compiler';
 import getConfig from './config';
-import getPaths from './paths';
-import { statsOutputConfiguration } from './util';
+import getWebpackConfig from './getWebpackConfig';
 
 const args = minimist(process.argv.slice(2));
-const paths = getPaths(args);
 
-const server = new webpackServer(compiler(webpackConfig, 'dev'), {
-  contentBase: paths.BUILD,
-  hot: true,
-  stats: statsOutputConfiguration,
-  disableHostCheck: true,
-  historyApiFallback: { verbose: true }
-});
+const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev');
+
+const server = new webpackServer(compiler(webpackConfigObject), webpackConfigObject.devServer);
 
 server.listen(getConfig(args).port);
