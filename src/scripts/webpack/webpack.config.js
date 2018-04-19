@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import WebpackBase from './webpack.base';
+import { statsOutputConfiguration } from './util';
 
 export default ({ config, paths, NODE_ENV, ...options }) => {
 
@@ -11,6 +12,14 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
       'webpack/hot/dev-server',
       paths.ENTRY
     ],
+
+    devServer: {
+      contentBase: paths.BUILD,
+      hot: true,
+      stats: statsOutputConfiguration,
+      disableHostCheck: true,
+      historyApiFallback: { verbose: true }
+    },
 
     devtool: config.devTool || 'source-map',
 
