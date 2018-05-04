@@ -7,6 +7,9 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
   const base = WebpackBase({ config, paths, NODE_ENV, ...options });
   return {
     ...base,
+
+    mode: 'development',
+
     entry: [
       `webpack-dev-server/client?http://0.0.0.0:${config.port}/`,
       'webpack/hot/dev-server',

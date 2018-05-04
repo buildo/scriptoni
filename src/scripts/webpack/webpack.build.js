@@ -39,6 +39,8 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     bail: true,
 
+    mode: 'production',
+
     entry: paths.ENTRY,
 
     devtool: 'source-map',
