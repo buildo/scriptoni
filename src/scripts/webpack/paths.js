@@ -39,6 +39,7 @@ export default function getPaths(args) {
     BASIC_COMPONENTS: path.resolve(ROOT, 'src/components/Basic'),
     VIRTUAL_CONFIG: path.resolve(ROOT, 'src/config.json'),
     TEMPLATE: path.resolve(ROOT, 'src/index.html'),
+    TSCONFIG: path.resolve(ROOT, 'tsconfig.json'),
     VARIABLES_MATCH: /(v|V)ariables\.scss$/,
     BABELRC: path.resolve(ROOT, '.babelrc'),
     // give priority to user custom paths
