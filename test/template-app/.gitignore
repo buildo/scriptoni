@@ -1,0 +1,7 @@
+*.log
+*.log*
+node_modules
+build/*
+*.tags*
+.eslintcache
+.DS_Store

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack build-ts built files should not change size 1`] = `
+Array [
+  Object {
+    "name": "0.bundle.b26854fae34330842465.js",
+    "size": 1721,
+  },
+  Object {
+    "name": "0.bundle.b26854fae34330842465.js.gz",
+    "size": 681,
+  },
+  Object {
+    "name": "0.bundle.b26854fae34330842465.js.map",
+    "size": 3755,
+  },
+  Object {
+    "name": "1.bundle.b26854fae34330842465.js",
+    "size": 7349,
+  },
+  Object {
+    "name": "1.bundle.b26854fae34330842465.js.gz",
+    "size": 1162,
+  },
+  Object {
+    "name": "1.bundle.b26854fae34330842465.js.map",
+    "size": 13734,
+  },
+  Object {
+    "name": "bundle.b26854fae34330842465.js",
+    "size": 644551,
+  },
+  Object {
+    "name": "bundle.b26854fae34330842465.js.gz",
+    "size": 166308,
+  },
+  Object {
+    "name": "bundle.b26854fae34330842465.js.map",
+    "size": 2946282,
+  },
+  Object {
+    "name": "index.html",
+    "size": 4774,
+  },
+  Object {
+    "name": "style.b26854fae34330842465.min.css",
+    "size": 29484,
+  },
+  Object {
+    "name": "style.b26854fae34330842465.min.css.gz",
+    "size": 5847,
+  },
+  Object {
+    "name": "style.b26854fae34330842465.min.css.map",
+    "size": 40396,
+  },
+]
+`;
+
+exports[`webpack build-ts built files should stay the same 1`] = `
+Array [
+  "0.bundle.b26854fae34330842465.js",
+  "0.bundle.b26854fae34330842465.js.gz",
+  "0.bundle.b26854fae34330842465.js.map",
+  "1.bundle.b26854fae34330842465.js",
+  "1.bundle.b26854fae34330842465.js.gz",
+  "1.bundle.b26854fae34330842465.js.map",
+  "bundle.b26854fae34330842465.js",
+  "bundle.b26854fae34330842465.js.gz",
+  "bundle.b26854fae34330842465.js.map",
+  "index.html",
+  "style.b26854fae34330842465.min.css",
+  "style.b26854fae34330842465.min.css.gz",
+  "style.b26854fae34330842465.min.css.map",
+]
+`;

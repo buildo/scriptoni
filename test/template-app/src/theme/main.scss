@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+// THEME
+.layout,
+.layout > div {
+  height: 100%;
+}
+
+:focus {
+  outline: none;
+}
+
+.focused > * {
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-color: $mediumBlue;
+}

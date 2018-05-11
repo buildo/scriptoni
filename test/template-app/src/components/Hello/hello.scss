@@ -1,0 +1,14 @@
+@import '~theme/variables.scss';
+
+.hello {
+  margin-top: 40px;
+
+  .label {
+    margin-right: 10px;
+  }
+
+  .warning {
+    margin-left: 10px;
+    color: $strawberry;
+  }
+}
