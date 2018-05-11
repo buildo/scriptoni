@@ -19,8 +19,8 @@
     "lint": "babel-node bin/scriptoni.js lint",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preversion": "npm run lint",
+    "test": "jest",
+    "preversion": "npm run lint && npm test",
     "prepublish": "npm run build",
     "release-version": "smooth-release"
   },
@@ -38,7 +38,12 @@
   },
   "homepage": "https://github.com/buildo/scriptoni#readme",
   "devDependencies": {
-    "smooth-release": "^8.0.0"
+    "@types/jest": "^22.2.3",
+    "@types/lodash": "^4.14.108",
+    "@types/node": "^10.0.8",
+    "jest": "^22.4.3",
+    "smooth-release": "^8.0.0",
+    "ts-jest": "^22.4.6"
   },
   "dependencies": {
     "babel-cli": "^6.16.0",
