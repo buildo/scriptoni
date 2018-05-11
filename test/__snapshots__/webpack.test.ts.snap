@@ -4,55 +4,55 @@ exports[`webpack build-ts built files should not change size 1`] = `
 Array [
   Object {
     "name": "0.bundle.js",
-    "size": 1721,
+    "size": 1000,
   },
   Object {
     "name": "0.bundle.js.gz",
-    "size": 681,
+    "size": 0,
   },
   Object {
     "name": "0.bundle.js.map",
-    "size": 3755,
+    "size": 3000,
   },
   Object {
     "name": "1.bundle.js",
-    "size": 7349,
+    "size": 7000,
   },
   Object {
     "name": "1.bundle.js.gz",
-    "size": 1161,
+    "size": 1000,
   },
   Object {
     "name": "1.bundle.js.map",
-    "size": 13734,
+    "size": 13000,
   },
   Object {
     "name": "bundle.js",
-    "size": 644551,
+    "size": 644000,
   },
   Object {
     "name": "bundle.js.gz",
-    "size": 166307,
+    "size": 166000,
   },
   Object {
     "name": "bundle.js.map",
-    "size": 2946282,
+    "size": 2946000,
   },
   Object {
     "name": "index.html",
-    "size": 4774,
+    "size": 4000,
   },
   Object {
     "name": "style.min.css",
-    "size": 29484,
+    "size": 29000,
   },
   Object {
     "name": "style.min.css.gz",
-    "size": 5845,
+    "size": 5000,
   },
   Object {
     "name": "style.min.css.map",
-    "size": 40396,
+    "size": 40000,
   },
 ]
 `;

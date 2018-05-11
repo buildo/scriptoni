@@ -38,11 +38,10 @@ describe('webpack', () => {
     it('built files should not change size', async () => {
       const fileNames = await readdir(resolve(templateDir, 'build'));
       const fileSizes = fileNames.map(name => ({
-        name, size: statSync(resolve(templateDir, 'build', name)).size
+        name: stripHash(name),
+        size: Math.floor(statSync(resolve(templateDir, 'build', name)).size / 1000) * 1000
       }));
-      expect(sortBy(fileSizes, 'name').map(x => ({
-        ...x, name: stripHash(x.name)
-      }))).toMatchSnapshot();
+      expect(sortBy(fileSizes, 'name')).toMatchSnapshot();
     });
   });
 });
