@@ -11,6 +11,8 @@ const templateDir = resolve(__dirname, 'template-app');
 
 jest.setTimeout(10 * 60 * 1000);
 
+const stripHash = fileName => fileName.replace(/\.[\da-z]{20,}\./, '.');
+
 describe('webpack', () => {
   describe('build-ts', () => {
     beforeAll(() => {
@@ -30,7 +32,7 @@ describe('webpack', () => {
 
     it('built files should stay the same', async () => {
       const fileNames = await readdir(resolve(templateDir, 'build'));
-      expect(fileNames).toMatchSnapshot();
+      expect(fileNames.map(stripHash)).toMatchSnapshot();
     });
 
     it('built files should not change size', async () => {
@@ -38,7 +40,9 @@ describe('webpack', () => {
       const fileSizes = fileNames.map(name => ({
         name, size: statSync(resolve(templateDir, 'build', name)).size
       }));
-      expect(sortBy(fileSizes, 'name')).toMatchSnapshot();
+      expect(sortBy(fileSizes, 'name').map(x => ({
+        ...x, name: stripHash(x.name)
+      }))).toMatchSnapshot();
     });
   });
 });
