@@ -3,10 +3,9 @@ import path from 'path';
 import { logger } from '../../util';
 import { runMetarpheusTcomb, runMetarpheusIoTs } from './run';
 import getMetarpheusConfig from './config';
+import minimist from 'minimist';
 
-const _args = process.argv.slice(2);
-const ts = _args.indexOf('--ts') !== -1;
-const args = _args.filter(a => a !== '--ts');
+const args = minimist(process.argv.slice(2));
 
 function mkDirs(filePath) {
   return new Promise((resolve, reject) => {
@@ -34,13 +33,13 @@ function mkDirsIfNotExist(filePath) {
   return Promise.resolve();
 }
 
-const metarpheusConfig = getMetarpheusConfig(ts);
+const metarpheusConfig = getMetarpheusConfig(args);
 
 const apiOutDir = path.dirname(metarpheusConfig.apiOut);
 const modelOutDir = path.dirname(metarpheusConfig.modelOut);
 
 const { model, api } = (() =>
-  (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
+  (args.ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
 )();
 
 // create dirs if don't exist
