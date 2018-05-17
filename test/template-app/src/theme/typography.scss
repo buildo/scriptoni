@@ -1,0 +1,10 @@
+@import './variables.scss';
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: $regular;
+  color: $black;
+  -webkit-font-smoothing: antialiased;
+}

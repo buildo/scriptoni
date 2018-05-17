@@ -1,0 +1,6 @@
+build:
+  test-and-lint:
+    image: node:8
+    commands:
+      - yarn
+      - yarn preversion

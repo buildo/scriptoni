@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack build-ts built files should not change size 1`] = `
+Array [
+  Object {
+    "name": "0.bundle.js",
+    "size": 1000,
+  },
+  Object {
+    "name": "0.bundle.js.gz",
+    "size": 0,
+  },
+  Object {
+    "name": "0.bundle.js.map",
+    "size": 3000,
+  },
+  Object {
+    "name": "1.bundle.js",
+    "size": 7000,
+  },
+  Object {
+    "name": "1.bundle.js.gz",
+    "size": 1000,
+  },
+  Object {
+    "name": "1.bundle.js.map",
+    "size": 13000,
+  },
+  Object {
+    "name": "bundle.js",
+    "size": 644000,
+  },
+  Object {
+    "name": "bundle.js.gz",
+    "size": 166000,
+  },
+  Object {
+    "name": "bundle.js.map",
+    "size": 2946000,
+  },
+  Object {
+    "name": "index.html",
+    "size": 4000,
+  },
+  Object {
+    "name": "style.min.css",
+    "size": 29000,
+  },
+  Object {
+    "name": "style.min.css.gz",
+    "size": 5000,
+  },
+  Object {
+    "name": "style.min.css.map",
+    "size": 40000,
+  },
+]
+`;
+
+exports[`webpack build-ts built files should stay the same 1`] = `
+Array [
+  "0.bundle.js",
+  "0.bundle.js.gz",
+  "0.bundle.js.map",
+  "1.bundle.js",
+  "1.bundle.js.gz",
+  "1.bundle.js.map",
+  "bundle.js",
+  "bundle.js.gz",
+  "bundle.js.map",
+  "index.html",
+  "style.min.css",
+  "style.min.css.gz",
+  "style.min.css.map",
+]
+`;

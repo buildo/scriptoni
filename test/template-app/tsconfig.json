@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/scriptoni/lib/scripts/webpack/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": [
+    "src/**/*",
+    "typings"
+  ]
+}
