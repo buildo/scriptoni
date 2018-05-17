@@ -6,7 +6,7 @@ export default function(args) {
   // get current working directory
   const cwd = process.cwd();
   // define user javascript config file path
-  const ujcFilePath = path.resolve(cwd, args.metarpheusConfig || args.ts ? 'metarpheus-ts-config.js' : 'metarpheus-config.js');
+  const ujcFilePath = path.resolve(cwd, args.metarpheusConfig || (args.ts ? 'metarpheus-ts-config.js' : 'metarpheus-config.js'));
 
   // TODO: fs.existsSync is deprecated
   const ujc = fs.existsSync(ujcFilePath) && require(ujcFilePath) || {};

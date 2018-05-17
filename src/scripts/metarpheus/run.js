@@ -5,7 +5,7 @@ import { run as runMetarpheus } from 'metarpheus';
 
 function getMetarpheusConfig(config, args) {
   const { authRouteTermNames, modelsForciblyInUse, wiro } = config;
-  const useWiro = args.indexOf('--wiro') !== -1 || wiro;
+  const useWiro = args.wiro || wiro;
   return { authRouteTermNames, modelsForciblyInUse, wiro: useWiro };
 }
 
