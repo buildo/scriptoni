@@ -6,10 +6,17 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
+import fs from 'fs';
 
 const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
+
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
+
+  const BabelLoader = {
+    loader: 'babel-loader',
+    options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
+  };
 
   return {
     resolve: {
@@ -71,7 +78,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
             // babel transpiler
             return [{
               test: /\.jsx?$/, // test for both js and jsx
-              use: [{ loader: 'babel-loader' }],
+              use: [BabelLoader],
               exclude: [paths.ASSETS],
               include: [paths.SRC]
             }];
@@ -80,18 +87,14 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
           // TypeScript transpiler
           return [{
             test: /\.tsx?$$/,
-            use: [{
-              loader: 'babel-loader'
-            }, {
+            use: [BabelLoader, {
               loader: 'ts-loader'
             }],
             exclude: [paths.ASSETS],
             include: [paths.SRC]
           }, {
             test: /\.jsx?$$/,
-            use: [{
-              loader: 'babel-loader'
-            }],
+            use: [BabelLoader],
             exclude: [paths.ASSETS],
             include: [paths.SRC]
           }];
@@ -122,8 +125,9 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
         {
           test: /\.svg$/,
           use: [{
-            loader: 'babel-loader',
+            ...BabelLoader,
             options: {
+              ...BabelLoader.options,
               presets: ['react']
             }
           }, {

@@ -16,7 +16,8 @@ const Paths = t.interface({
   BASIC_COMPONENTS: t.String,
   VIRTUAL_CONFIG: t.String,
   TEMPLATE: t.String,
-  VARIABLES_MATCH: t.Object // regex
+  VARIABLES_MATCH: t.Object, // regex
+  BABELRC: t.String
 });
 
 export default function getPaths(args) {
@@ -39,7 +40,7 @@ export default function getPaths(args) {
     VIRTUAL_CONFIG: path.resolve(ROOT, 'src/config.json'),
     TEMPLATE: path.resolve(ROOT, 'src/index.html'),
     VARIABLES_MATCH: /(v|V)ariables\.scss$/,
-
+    BABELRC: path.resolve(ROOT, '.babelrc'),
     // give priority to user custom paths
     ...userPaths
   });
