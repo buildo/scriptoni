@@ -13,12 +13,19 @@ function runCommands(commands) {
   });
 }
 
-module.exports = () => runCommands([
-  `cd ${templateDir}`,
-  'yarn --no-lockfile',
-  'rm -rf node_modules/scriptoni',
-  'cd ../../',
-  'yarn build',
-  `cd ${templateDir}`,
-  'yarn add --no-lockfile ../../'
-]);
+module.exports = () => {
+  console.log();
+  console.log();
+  console.log('🕒 Preparing to run the tests! This will take a few minutes...');
+  console.log('🕒 Please be patient (or smart and improve `scriptoni/test/globalSetup.js`)');
+  console.log();
+  return runCommands([
+    `cd ${templateDir}`,
+    'yarn --no-lockfile',
+    'rm -rf node_modules/scriptoni',
+    'cd ../../',
+    'yarn build',
+    `cd ${templateDir}`,
+    'yarn add --no-lockfile ../../'
+  ]);
+};
