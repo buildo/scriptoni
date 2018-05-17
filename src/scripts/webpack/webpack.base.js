@@ -15,7 +15,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
   const BabelLoader = {
     loader: 'babel-loader',
-    options: JSON.parse(fs.readFileSync(`${paths.ROOT}/.babelrc`, { encoding: 'utf8' }))
+    options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
   };
 
   return {
