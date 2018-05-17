@@ -9,12 +9,14 @@ import { getHtmlPluginConfig } from './util';
 import fs from 'fs';
 
 const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
-const BabelLoader = {
-  loader: 'babel-loader',
-  options: JSON.parse(fs.readFileSync(`${__dirname}/.babelrc`, { encoding: 'utf8' }))
-};
+
 
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
+
+  const BabelLoader = {
+    loader: 'babel-loader',
+    options: JSON.parse(fs.readFileSync(`${paths.ROOT}/.babelrc`, { encoding: 'utf8' }))
+  };
 
   return {
     resolve: {
