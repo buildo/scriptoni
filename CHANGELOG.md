@@ -2,6 +2,17 @@
 
 
 
+## [v0.12.4](https://github.com/buildo/scriptoni/tree/v0.12.4) (2018-05-17)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.3...v0.12.4)
+
+#### New features:
+
+- metarpheus config file path should be overridable [#193](https://github.com/buildo/scriptoni/issues/193)
+
+#### Fixes (bugs & defects):
+
+- wrong babelrc in monorepo with shared folders [#189](https://github.com/buildo/scriptoni/issues/189)
+
 ## [v0.12.3](https://github.com/buildo/scriptoni/tree/v0.12.3) (2018-04-19)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.2...v0.12.3)
 
