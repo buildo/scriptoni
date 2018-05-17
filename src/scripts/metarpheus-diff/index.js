@@ -4,14 +4,13 @@ import { green, red } from 'chalk';
 import getMetarpheusConfig from '../metarpheus/config';
 import { runMetarpheusTcomb, runMetarpheusIoTs } from '../metarpheus/run';
 import { logger } from '../../util';
+import minimist from 'minimist';
 
-const _args = process.argv.slice(2);
-const ts = _args.indexOf('--ts') !== -1;
-const args = _args.filter(a => a !== '--ts');
+const args = minimist(process.argv.slice(2));
 
-const metarpheusConfig = getMetarpheusConfig(ts);
+const metarpheusConfig = getMetarpheusConfig(args);
 
-const { model, api } = (ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args);
+const { model, api } = (args.ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args);
 
 function colorLine(line) {
   switch (line[0]) {

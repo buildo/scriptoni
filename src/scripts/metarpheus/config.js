@@ -2,16 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import { undefinedType } from 'io-ts-codegen';
 
-export default function(ts) {
+export default function(args) {
   // get current working directory
   const cwd = process.cwd();
   // define user javascript config file path
-  const ujcFilePath = path.resolve(cwd, ts ? 'metarpheus-ts-config.js' : 'metarpheus-config.js');
+  const ujcFilePath = path.resolve(cwd, args.metarpheusConfig || (args.ts ? 'metarpheus-ts-config.js' : 'metarpheus-config.js'));
 
   // TODO: fs.existsSync is deprecated
   const ujc = fs.existsSync(ujcFilePath) && require(ujcFilePath) || {};
 
-  if (ts) {
+  if (args.ts) {
     return {
       isReadonly: false,
       runtime: true,
