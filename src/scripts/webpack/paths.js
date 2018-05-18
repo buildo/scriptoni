@@ -37,7 +37,7 @@ export default function getPaths(args) {
     NODE_MODULES: path.resolve(ROOT, 'node_modules'),
     COMPONENTS: path.resolve(ROOT, 'src/components'),
     BASIC_COMPONENTS: path.resolve(ROOT, 'src/components/Basic'),
-    VIRTUAL_CONFIG: path.resolve(ROOT, 'src/config.json'),
+    VIRTUAL_CONFIG: 'src/config.json',
     TEMPLATE: path.resolve(ROOT, 'src/index.html'),
     TSCONFIG: path.resolve(ROOT, 'tsconfig.json'),
     VARIABLES_MATCH: /(v|V)ariables\.scss$/,
