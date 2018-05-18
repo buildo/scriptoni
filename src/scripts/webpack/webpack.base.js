@@ -13,6 +13,8 @@ const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
+  process.env.config = JSON.stringify(config.bundle)
+
   const BabelLoader = {
     loader: 'babel-loader',
     options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
@@ -40,10 +42,6 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
     },
 
     plugins: [
-      new VirtualModulePlugin({
-        moduleName: paths.VIRTUAL_CONFIG,
-        contents: JSON.stringify(config.bundle)
-      }),
       new ProgressBarPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(NODE_ENV),

@@ -91,7 +91,6 @@
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.1",
     "uglifyjs-webpack-plugin": "^1.2.3",
-    "virtual-module-webpack-plugin": "^0.4.0",
     "webpack": "^4.7.0",
     "webpack-dev-server": "^3.1.4",
     "webpack-fail-plugin": "^2.0.0"

@@ -14,7 +14,6 @@ const Paths = t.interface({
   NODE_MODULES: t.String,
   COMPONENTS: t.String,
   BASIC_COMPONENTS: t.String,
-  VIRTUAL_CONFIG: t.String,
   TEMPLATE: t.String,
   VARIABLES_MATCH: t.Object, // regex
   BABELRC: t.String
@@ -37,7 +36,6 @@ export default function getPaths(args) {
     NODE_MODULES: path.resolve(ROOT, 'node_modules'),
     COMPONENTS: path.resolve(ROOT, 'src/components'),
     BASIC_COMPONENTS: path.resolve(ROOT, 'src/components/Basic'),
-    VIRTUAL_CONFIG: 'src/config.json',
     TEMPLATE: path.resolve(ROOT, 'src/index.html'),
     TSCONFIG: path.resolve(ROOT, 'tsconfig.json'),
     VARIABLES_MATCH: /(v|V)ariables\.scss$/,

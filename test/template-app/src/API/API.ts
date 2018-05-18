@@ -1,4 +1,4 @@
-import { apiEndpoint } from 'config';
+const { apiEndpoint } = JSON.parse(process.env.config!);
 
 export const getRandomName = (length: number) => {
   return fetch(`${apiEndpoint}/?minlen=${length}&maxlen=${length}`).then(res => res.json()).then(res => {
