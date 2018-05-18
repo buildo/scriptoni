@@ -1,1 +1,5 @@
-{}
+{
+  "bundle": {
+    "apiEndpoint": "http://uinames.com/api"
+  }
+}

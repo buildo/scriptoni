@@ -22,5 +22,6 @@ const t = require('tcomb');
 module.exports = t.interface({
   port: t.maybe(t.Integer),
   bundle: t.interface({
+    apiEndpoint: t.String
   })
 }, { name: 'Config', strict: true });
