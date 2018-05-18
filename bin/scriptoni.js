@@ -22,14 +22,9 @@ function execSync(command, options) {
 }
 var execSyncOptions = { cwd: process.cwd(), encoding: 'utf-8' };
 /*
- * This is a super opinionated way to dry node_modules from
- * different versions of react, but it should be avoided and handled
- * by dependencies definition in the user's package.json
+ * clean /build folder
  */
 function clean() {
-  execSync('(rm -rf node_modules/react-intl/node_modules/react || true)', execSyncOptions);
-  execSync('(rm -rf node_modules/fixed-data-table-2/node_modules/react || true)', execSyncOptions);
-  execSync('(rm -rf node_modules/revenge/node_modules/react || true)', execSyncOptions);
   execSync('rm -rf build/*', execSyncOptions);
   execSync('mkdir -p build', execSyncOptions);
 }
