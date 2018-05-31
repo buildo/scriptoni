@@ -16,7 +16,7 @@ describe('webpack', () => {
     beforeAll(() => {
       rimraf.sync(resolve(templateDir, 'build'));
       mkdirSync(resolve(templateDir, 'build'));
-      runCommands([
+      return runCommands([
       `cd ${templateDir}`,
       './node_modules/.bin/scriptoni web-build-ts -c ./config'
     ]));
