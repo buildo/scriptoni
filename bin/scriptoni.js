@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var fs = require('fs');
+var rimraf = require('rimraf');
 var spawn = require('cross-spawn');
 var _execSync = require('child_process').execSync;
 var path = require('path');
@@ -20,13 +22,14 @@ function execSync(command, options) {
   logger.bin('executing: ', command);
   return _execSync(command, options);
 }
-var execSyncOptions = { cwd: process.cwd(), encoding: 'utf-8' };
+
 /*
  * clean /build folder
  */
 function clean() {
-  execSync('rm -rf build/*', execSyncOptions);
-  execSync('mkdir -p build', execSyncOptions);
+  console.log('Clean /build folder')
+  rimraf.sync('build');
+  fs.mkdirSync('build');
 }
 
 switch (script) {
