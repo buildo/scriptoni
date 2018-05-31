@@ -1,6 +1,7 @@
+import * as rimraf  from 'rimraf';
 import { resolve } from 'path';
 import { promisify } from 'util';
-import { readdir as _readdir, statSync } from 'fs';
+import { readdir as _readdir, statSync, mkdirSync } from 'fs';
 import sortBy = require('lodash/sortBy');
 import { runCommands, templateDir } from './utils';
 
@@ -12,10 +13,12 @@ jest.setTimeout(10 * 60 * 1000);
 
 describe('webpack', () => {
   describe('build-ts', () => {
-    beforeAll(() => runCommands([
+    beforeAll(() => {
+      rimraf.sync(resolve(templateDir, 'build'));
+      mkdirSync(resolve(templateDir, 'build'));
+      runCommands([
       `cd ${templateDir}`,
-      `${process.platform === 'win32' ? 'del' : 'rm -rf'} build-ts && mkdir build-ts`,
-      'NODE_ENV=production ./node_modules/.bin/scriptoni web-build-ts -c ./config'
+      './node_modules/.bin/scriptoni web-build-ts -c ./config'
     ]));
 
     it('built files should stay the same', async () => {

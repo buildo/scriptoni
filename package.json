@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "babel -w src --out-dir lib",
-    "build": "(del /Q lib  || rm -rf lib/*) && babel src --out-dir lib && npm run copy-files",
+    "build": "rimraf lib/* && babel src --out-dir lib && npm run copy-files",
     "copy-files": "babel-node src/copy-files.js",
     "lint-style": "babel-node bin/scriptoni.js lint-style",
     "lint-style-fix": "babel-node bin/scriptoni.js lint-style-fix",
