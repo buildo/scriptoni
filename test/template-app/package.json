@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "bento web-dev-ts -c ./config",
-    "build": "NODE_ENV=production bento web-build-ts -c ./config",
+    "build": "bento web-build-ts -c ./config",
     "lint": "bento lint",
     "lint-fix": "bento lint --fix",
     "lint-style": "bento lint-style"
