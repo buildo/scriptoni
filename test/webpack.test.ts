@@ -14,7 +14,7 @@ describe('webpack', () => {
   describe('build-ts', () => {
     beforeAll(() => runCommands([
       `cd ${templateDir}`,
-      'rm -rf build-ts && mkdir build-ts',
+      `${process.platform === 'win32' ? 'del' : 'rm -rf'} build-ts && mkdir build-ts`,
       'NODE_ENV=production ./node_modules/.bin/scriptoni web-build-ts -c ./config'
     ]));
 
