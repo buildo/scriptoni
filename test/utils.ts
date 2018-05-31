@@ -1,14 +1,10 @@
 import { resolve } from 'path';
-import { exec as _exec } from 'child_process';
-import { promisify } from 'util';
+import { spawn } from 'child_process';
 
-const exec = promisify(_exec);
+const _runCommands = require('./runCommands');
 
 export const templateDir = resolve(__dirname, 'template-app');
 
-export function runCommands(commands: string[]) {
-  return exec(commands.join(' && ')).catch(err => {
-    console.error(err);
-    throw err;
-  })
+export function runCommands(commands: string[]): Promise<any> {
+  return _runCommands(commands)
 }

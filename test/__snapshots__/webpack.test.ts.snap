@@ -28,15 +28,15 @@ Array [
   },
   Object {
     "name": "bundle.js",
-    "size": 644000,
+    "size": 638000,
   },
   Object {
     "name": "bundle.js.gz",
-    "size": 166000,
+    "size": 164000,
   },
   Object {
     "name": "bundle.js.map",
-    "size": 2946000,
+    "size": 2933000,
   },
   Object {
     "name": "index.html",
