@@ -23,11 +23,8 @@ function execSync(command, options) {
   return _execSync(command, options);
 }
 
-/*
- * clean /build folder
- */
 function clean() {
-  console.log('Clean /build folder')
+  logger.bin('clean /build folder')
   rimraf.sync('build');
   fs.mkdirSync('build');
 }
