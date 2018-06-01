@@ -13,8 +13,6 @@ const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
 export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
-  process.env.config = JSON.stringify(config.bundle)
-
   const BabelLoader = {
     loader: 'babel-loader',
     options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
@@ -52,7 +50,11 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
         files: '**/*.scss',
         syntax: 'scss'
       }),
-      new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
+      new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths)),
+      new VirtualModulePlugin({
+        moduleName: 'src/config.json',
+        contents: JSON.stringify(config.bundle)
+      })
     ],
 
     module: {
