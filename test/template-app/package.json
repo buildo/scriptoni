@@ -2,20 +2,19 @@
   "name": "template-app",
   "version": "1.0.0",
   "scripts": {
-    "start": "bento web-dev-ts -c ./config",
-    "build": "NODE_ENV=production bento web-build-ts -c ./config",
-    "lint": "bento lint",
-    "lint-fix": "bento lint --fix",
-    "lint-style": "bento lint-style"
+    "start": "node ../../bin/scriptoni.js web-dev-ts -c ./config",
+    "build": "node ../../bin/scriptoni.js web-build-ts -c ./config",
+    "lint": "node ../../bin/scriptoni.js lint",
+    "lint-fix": "node ../../bin/scriptoni.js lint --fix",
+    "lint-style": "node ../../bin/scriptoni.js lint-style"
   },
   "dependencies": {
-    "@buildo/bento": "^5.0.0",
+    "@buildo/bento": "^6.0.0",
     "classnames": "^2.2.5",
     "es6-promise": "^4.2.2",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "scriptoni": "../../"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",

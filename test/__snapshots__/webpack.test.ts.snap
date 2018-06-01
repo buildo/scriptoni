@@ -28,7 +28,7 @@ Array [
   },
   Object {
     "name": "bundle.js",
-    "size": 638000,
+    "size": 637000,
   },
   Object {
     "name": "bundle.js.gz",
@@ -36,7 +36,7 @@ Array [
   },
   Object {
     "name": "bundle.js.map",
-    "size": 2933000,
+    "size": 2927000,
   },
   Object {
     "name": "index.html",

@@ -12,14 +12,14 @@
   },
   "scripts": {
     "start": "babel -w src --out-dir lib",
-    "build": "rm -rf lib/* && babel src --out-dir lib && npm run copy-files",
+    "build": "rimraf lib/* && babel src --out-dir lib && npm run copy-files",
     "copy-files": "babel-node src/copy-files.js",
     "lint-style": "babel-node bin/scriptoni.js lint-style",
     "lint-style-fix": "babel-node bin/scriptoni.js lint-style-fix",
     "lint": "babel-node bin/scriptoni.js lint",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
-    "test": "jest",
+    "test": "NODE_ENV= jest",
     "preversion": "npm run lint && npm test",
     "prepublish": "npm run build",
     "release-version": "smooth-release"
@@ -41,6 +41,7 @@
     "@types/jest": "^22.2.3",
     "@types/lodash": "^4.14.108",
     "@types/node": "^10.0.8",
+    "@types/rimraf": "^2.0.2",
     "jest": "^22.4.3",
     "smooth-release": "^8.0.0",
     "ts-jest": "^22.4.6"
@@ -77,6 +78,7 @@
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "resolve-url-loader": "^2.1.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "sass-variables-loader": "^0.1.3",
     "style-loader": "^0.18.2",
