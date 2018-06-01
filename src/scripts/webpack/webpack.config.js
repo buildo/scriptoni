@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import WebpackBase from './webpack.base';
 import { statsOutputConfiguration } from './util';
 
@@ -29,26 +28,13 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
     plugins: [
       ...base.plugins,
-      new webpack.HotModuleReplacementPlugin(),
-      new ForkTsCheckerWebpackPlugin({
-        tsconfig: paths.TSCONFIG
-      })
+      new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
       ...base.module,
       rules: [
-        ...base.module.rules.map(rule => ({
-          ...rule,
-          use: rule.use.map(u => ({
-            ...u,
-            options: u.loader === 'ts-loader' ? {
-              ...u.options,
-              transpileOnly: true,
-              experimentalWatchApi: true
-            } : u.options
-          }))
-        })),
+        ...base.module.rules,
         // style!css loaders
         {
           test: /\.css?$/,
