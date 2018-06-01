@@ -18,7 +18,7 @@ describe('webpack', () => {
       mkdirSync(resolve(templateDir, 'build'));
       return runCommands([
         `cd ${templateDir}`,
-        './node_modules/.bin/scriptoni web-build-ts -c ./config'
+        'yarn build'
       ]);
     });
 
