@@ -5,6 +5,8 @@ import path from 'path';
 import identity from 'lodash/identity';
 import { logger } from '../../util';
 
+const NODE_ENV = process.env.NODE_ENV;
+
 export default function getWebpackConfig(webpackConfigFn, target) {
   const args = minimist(process.argv.slice(2));
 
@@ -16,8 +18,6 @@ export default function getWebpackConfig(webpackConfigFn, target) {
   const customizeConfigFn = customConfig ? require(customConfig) : identity;
 
   logger.webpack('platform', process.platform);
-  const defaultNodeEnv = target === 'build' || target === 'build-ts' ? 'production' : 'development';
-  const NODE_ENV = process.env.NODE_ENV || config.NODE_ENV || defaultNodeEnv;
   logger.webpack('building with', `NODE_ENV=${NODE_ENV}`);
   logger.webpack('Configuration', JSON.stringify(config, null, 4));
 

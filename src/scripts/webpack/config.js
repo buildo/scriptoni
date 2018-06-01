@@ -51,8 +51,6 @@ const getConfigType = (configFolderPath) => {
   return require(configTypePath);
 };
 
-const nodeEnv = process.env.NODE_ENV || 'development';
-
 const getConfigurationFromEnv = (keys) => {
   return keys.reduce((acc, k) => {
     const envVar = process.env[jsConfigVariableToEnvConfigVariable(k)];
@@ -64,12 +62,11 @@ const getConfigurationFromEnv = (keys) => {
 };
 
 export default function getConfig(args) {
-
   // get user configuration folder path
   const configFolderPath = getConfigRelativePath(args);
 
   // load NODE_ENV related configuration
-  const referenceConfigFilePath = path.resolve(configFolderPath, `./${nodeEnv}.json`);
+  const referenceConfigFilePath = path.resolve(configFolderPath, `./${process.env.NODE_ENV}.json`);
   const referenceConfig = readOptionalConfigFile(referenceConfigFilePath);
 
   // load local configuration

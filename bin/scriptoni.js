@@ -29,6 +29,13 @@ function clean() {
   fs.mkdirSync('build');
 }
 
+// default NODE_ENV for webpack scripts
+if (script === 'web-build' || script === 'web-build-ts') {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+} else if (script === 'web-dev' || script === 'web-dev-ts') {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+}
+
 switch (script) {
   case 'metarpheus':
   case 'metarpheus-diff':
