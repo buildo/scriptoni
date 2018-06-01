@@ -2,6 +2,18 @@
 
 
 
+## [v0.12.5](https://github.com/buildo/scriptoni/tree/v0.12.5) (2018-06-01)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.4...v0.12.5)
+
+#### Fixes (bugs & defects):
+
+- doe not work on Windows [#198](https://github.com/buildo/scriptoni/issues/198)
+- can we remove the "clean react" step from every build? [#169](https://github.com/buildo/scriptoni/issues/169)
+
+#### New features:
+
+- transpile TS faster 🚀 [#150](https://github.com/buildo/scriptoni/issues/150)
+
 ## [v0.12.4](https://github.com/buildo/scriptoni/tree/v0.12.4) (2018-05-17)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.3...v0.12.4)
 
