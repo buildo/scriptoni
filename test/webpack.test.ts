@@ -17,9 +17,10 @@ describe('webpack', () => {
       rimraf.sync(resolve(templateDir, 'build'));
       mkdirSync(resolve(templateDir, 'build'));
       return runCommands([
-      `cd ${templateDir}`,
-      './node_modules/.bin/scriptoni web-build-ts -c ./config'
-    ]));
+        `cd ${templateDir}`,
+        './node_modules/.bin/scriptoni web-build-ts -c ./config'
+      ]);
+    });
 
     it('built files should stay the same', async () => {
       const fileNames = await readdir(resolve(templateDir, 'build'));
