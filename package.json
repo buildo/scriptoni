@@ -19,7 +19,7 @@
     "lint": "babel-node bin/scriptoni.js lint",
     "metarpheus": "babel-node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
-    "test": "jest",
+    "test": "NODE_ENV= jest",
     "preversion": "npm run lint && npm test",
     "prepublish": "npm run build",
     "release-version": "smooth-release"
