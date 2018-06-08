@@ -18,7 +18,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
 
   if (NODE_ENV === 'production') {
     plugins.unshift(new CompressionPlugin({
-      regExp: /\.js$|\.css$/
+      test: /\.js$|\.css$/
     }));
 
     plugins.unshift(new UglifyJsPlugin({
@@ -38,6 +38,8 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     ...base,
 
     bail: true,
+
+    mode: 'production',
 
     entry: paths.ENTRY,
 

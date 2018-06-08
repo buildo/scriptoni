@@ -2,6 +2,7 @@ const resolve = require('path').resolve;
 const runCommands = require('./runCommands');
 
 const templateDir = resolve(__dirname, 'template-app');
+const scriptoniDir = resolve(__dirname, '..');
 
 module.exports = () => {
   console.log();
@@ -10,10 +11,11 @@ module.exports = () => {
   console.log('🕒 Please be patient (or smart and improve `scriptoni/test/globalSetup.js`)');
   console.log();
   return runCommands([
-    `cd ${templateDir}`,
-    'cd ../../',
+    `cd ${scriptoniDir}`,
     'yarn build',
     `cd ${templateDir}`,
-    'yarn --no-lockfile'
+    'rm -rf node_modules',
+    'yarn',
+    'rm -rf node_modules/@buildo/bento/node_modules/scriptoni'
   ]);
 };
