@@ -14,7 +14,7 @@ module.exports = () => {
     `cd ${scriptoniDir}`,
     'yarn build',
     `cd ${templateDir}`,
-    'yarn --no-lockfile',
+    'yarn',
     'rm -rf node_modules/@buildo/bento/node_modules/scriptoni'
   ]);
 };
