@@ -14,6 +14,7 @@ module.exports = () => {
     `cd ${scriptoniDir}`,
     'yarn build',
     `cd ${templateDir}`,
+    'rm -rf node_modules',
     'yarn',
     'rm -rf node_modules/@buildo/bento/node_modules/scriptoni'
   ]);
