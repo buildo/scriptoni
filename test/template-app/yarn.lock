@@ -4968,6 +4968,12 @@ metarpheus@0.1.8:
   dependencies:
     shelljs "0.7.7"
 
+metarpheus@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/metarpheus/-/metarpheus-0.1.9.tgz#608615eac248c1b0e3e181fb209ce3ac985db167"
+  dependencies:
+    shelljs "0.7.7"
+
 methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
@@ -7076,7 +7082,7 @@ scriptoni@../../:
     file-loader "^1.1.11"
     html-webpack-plugin "^3.2.0"
     io-ts "^1.0.5"
-    metarpheus "0.1.8"
+    metarpheus "^0.1.9"
     metarpheus-io-ts "^0.2.2"
     metarpheus-tcomb "^0.2"
     minimist "^1.2.0"
