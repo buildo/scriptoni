@@ -2,6 +2,14 @@
 
 
 
+## [v0.13.0](https://github.com/buildo/scriptoni/tree/v0.13.0) (2018-06-15)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.5...v0.13.0)
+
+#### Breaking:
+
+- metarpheus dep should not be pinned [#203](https://github.com/buildo/scriptoni/issues/203)
+- webpack: upgrade TS version [#202](https://github.com/buildo/scriptoni/issues/202)
+
 ## [v0.12.5](https://github.com/buildo/scriptoni/tree/v0.12.5) (2018-06-01)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.4...v0.12.5)
 
