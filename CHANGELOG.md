@@ -3,6 +3,10 @@
 ## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.13.0...HEAD)
 
+#### New features:
+
+- Update metarpheus [#209](https://github.com/buildo/scriptoni/issues/209)
+
 #### Fixes (bugs & defects):
 
 - Scriptoni is not passing models to metarpheus-io-ts getRoutes [#207](https://github.com/buildo/scriptoni/issues/207)
