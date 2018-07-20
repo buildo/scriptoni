@@ -1,6 +1,11 @@
 #  Change Log
 
+## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.13.0...HEAD)
 
+#### Breaking:
+
+- Update to metarpheus-io-ts@0.3.0 [#205](https://github.com/buildo/scriptoni/issues/205)
 
 ## [v0.13.0](https://github.com/buildo/scriptoni/tree/v0.13.0) (2018-06-15)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.5...v0.13.0)
@@ -17,10 +22,6 @@
 
 - doe not work on Windows [#198](https://github.com/buildo/scriptoni/issues/198)
 - can we remove the "clean react" step from every build? [#169](https://github.com/buildo/scriptoni/issues/169)
-
-#### New features:
-
-- transpile TS faster 🚀 [#150](https://github.com/buildo/scriptoni/issues/150)
 
 ## [v0.12.4](https://github.com/buildo/scriptoni/tree/v0.12.4) (2018-05-17)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.12.3...v0.12.4)
