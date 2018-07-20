@@ -65,7 +65,7 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "io-ts": "^1.0.5",
-    "metarpheus": "^0.1.9",
+    "metarpheus": "^1.0.0",
     "metarpheus-io-ts": "^0.3.0",
     "metarpheus-tcomb": "^0.2",
     "minimist": "^1.2.0",
