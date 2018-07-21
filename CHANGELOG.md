@@ -1,15 +1,30 @@
 #  Change Log
 
-## [Unreleased](https://github.com/buildo/scriptoni/tree/HEAD)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.13.0...HEAD)
+
+
+## [v0.15.0](https://github.com/buildo/scriptoni/tree/v0.15.0) (2018-07-21)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.14.2...v0.15.0)
+
+#### Breaking:
+
+- Use metarpheus-io-ts 0.4.0 [#210](https://github.com/buildo/scriptoni/issues/210)
+
+## [v0.14.2](https://github.com/buildo/scriptoni/tree/v0.14.2) (2018-07-20)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.14.1...v0.14.2)
 
 #### New features:
 
 - Update metarpheus [#209](https://github.com/buildo/scriptoni/issues/209)
 
+## [v0.14.1](https://github.com/buildo/scriptoni/tree/v0.14.1) (2018-07-20)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.14.0...v0.14.1)
+
 #### Fixes (bugs & defects):
 
 - Scriptoni is not passing models to metarpheus-io-ts getRoutes [#207](https://github.com/buildo/scriptoni/issues/207)
+
+## [v0.14.0](https://github.com/buildo/scriptoni/tree/v0.14.0) (2018-07-20)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.13.0...v0.14.0)
 
 #### Breaking:
 
