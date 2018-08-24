@@ -14,7 +14,8 @@ const copyToLib = (file) => {
 const files = [
   'eslint/eslintrc.json',
   'stylelint/stylelintrc.json',
-  'webpack/tsconfig.json'
+  'webpack/tsconfig.json',
+  'prettier/.prettierrc.js'
 ];
 
 files.map(copyToLib);

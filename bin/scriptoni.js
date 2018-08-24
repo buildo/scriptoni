@@ -72,6 +72,14 @@ switch (script) {
     clean();
     exit(spawnScript('webpack/build-ts'));
     break;
+  case 'prettier-write':
+    clean();
+    exit(spawnScript('prettier/write'));
+    break;
+  case 'prettier-check':
+    clean();
+    exit(spawnScript('prettier/listDifferent'));
+    break;
   default:
     console.log('Unknown script "' + script + '".');
     break;
