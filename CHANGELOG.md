@@ -2,6 +2,13 @@
 
 
 
+## [v0.15.1](https://github.com/buildo/scriptoni/tree/v0.15.1) (2018-08-24)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.0...v0.15.1)
+
+#### New features:
+
+- add prettier scripts [#211](https://github.com/buildo/scriptoni/issues/211)
+
 ## [v0.15.0](https://github.com/buildo/scriptoni/tree/v0.15.0) (2018-07-21)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.14.2...v0.15.0)
 
