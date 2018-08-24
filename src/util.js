@@ -15,5 +15,6 @@ export const logger = {
   metarpheusDiff: debug('scriptoni:metarpheus-diff'),
   lint: debug('scriptoni:lint'),
   lintStyle: debug('scriptoni:lint-style'),
-  webpack: debug('scriptoni:webpack')
+  webpack: debug('scriptoni:webpack'),
+  prettier: debug('scriptoni:prettier')
 };
