@@ -3,6 +3,18 @@
 exports[`webpack build-ts built files should not change size 1`] = `
 Array [
   Object {
+    "name": "0.bundle.js",
+    "size": 7000,
+  },
+  Object {
+    "name": "0.bundle.js.gz",
+    "size": 1000,
+  },
+  Object {
+    "name": "0.bundle.js.map",
+    "size": 13000,
+  },
+  Object {
     "name": "1.bundle.js",
     "size": 1000,
   },
@@ -15,28 +27,16 @@ Array [
     "size": 3000,
   },
   Object {
-    "name": "2.bundle.js",
-    "size": 7000,
-  },
-  Object {
-    "name": "2.bundle.js.gz",
-    "size": 1000,
-  },
-  Object {
-    "name": "2.bundle.js.map",
-    "size": 13000,
-  },
-  Object {
     "name": "bundle.js",
     "size": 636000,
   },
   Object {
     "name": "bundle.js.gz",
-    "size": 163000,
+    "size": 164000,
   },
   Object {
     "name": "bundle.js.map",
-    "size": 2821000,
+    "size": 2820000,
   },
   Object {
     "name": "index.html",
@@ -44,27 +44,27 @@ Array [
   },
   Object {
     "name": "style.min.css",
-    "size": 29000,
+    "size": 38000,
   },
   Object {
     "name": "style.min.css.gz",
-    "size": 5000,
+    "size": 7000,
   },
   Object {
     "name": "style.min.css.map",
-    "size": 39000,
+    "size": 52000,
   },
 ]
 `;
 
 exports[`webpack build-ts built files should stay the same 1`] = `
 Array [
+  "0.bundle.js",
+  "0.bundle.js.gz",
+  "0.bundle.js.map",
   "1.bundle.js",
   "1.bundle.js.gz",
   "1.bundle.js.map",
-  "2.bundle.js",
-  "2.bundle.js.gz",
-  "2.bundle.js.map",
   "bundle.js",
   "bundle.js.gz",
   "bundle.js.map",
