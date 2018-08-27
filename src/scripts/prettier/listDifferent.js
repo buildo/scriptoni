@@ -1,7 +1,7 @@
 import execCommand from '../execCommand';
 import { logger } from '../../util';
-import getCommandAndDefaultArgs from './getCommandsAndDefaultArgs';
+import getDefaultArgs from './getDefaultArgs';
 
-const { command, defaultArgs } = getCommandAndDefaultArgs('list-different');
+const defaultArgs = getDefaultArgs('list-different');
 
-execCommand(command, defaultArgs, logger.prettier);
+execCommand('prettier', defaultArgs, logger.prettier);
