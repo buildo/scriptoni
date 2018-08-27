@@ -2,6 +2,13 @@
 
 
 
+## [v0.15.2](https://github.com/buildo/scriptoni/tree/v0.15.2) (2018-08-27)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.1...v0.15.2)
+
+#### Fixes (bugs & defects):
+
+- fix prettier scripts command path [#214](https://github.com/buildo/scriptoni/issues/214)
+
 ## [v0.15.1](https://github.com/buildo/scriptoni/tree/v0.15.1) (2018-08-24)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.0...v0.15.1)
 
