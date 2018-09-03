@@ -28,7 +28,7 @@ export default function getPaths(args) {
     // defaultPaths
     ROOT,
     SRC: path.resolve(ROOT, 'src'),
-    ENTRY: path.resolve(ROOT, 'src/setup/index.js'),
+    ENTRY: path.resolve(ROOT, 'src/setup'),
     LOCALES: path.resolve(ROOT, 'src/locales'),
     THEME: path.resolve(ROOT, 'src/theme'),
     THEME_FONTS: path.resolve(ROOT, 'src/theme/fonts'),
