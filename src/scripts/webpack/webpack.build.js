@@ -12,7 +12,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     // cause failed production builds to fail faster
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({ filename: '[name].style.[hash].min.css' }),
     webpackFailPlugin // This is needed for TS builds because of https://github.com/TypeStrong/ts-loader/pull/172
   ];
 
