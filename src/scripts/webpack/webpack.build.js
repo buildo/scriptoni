@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpackFailPlugin from 'webpack-fail-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackBase from './webpack.base';
@@ -12,7 +12,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
     // cause failed production builds to fail faster
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: 'style.[hash].min.css' }),
+    new MiniCssExtractPlugin(),
     webpackFailPlugin // This is needed for TS builds because of https://github.com/TypeStrong/ts-loader/pull/172
   ];
 
@@ -53,28 +53,35 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
         ...base.module.rules,
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader'
-          })
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
+            {
+              loader: 'css-loader'
+            }
+          ]
         },
         // SASS
         {
           test: /\.scss$/,
           exclude: paths.VARIABLES_MATCH,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [{
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: { sourceMap: true }
+            }, {
+              loader: 'resolve-url-loader'
+            },
+            {
               loader: 'css-loader',
               options: { sourceMap: true }
-            }, {
-              loader: 'resolve-url-loader',
-              options: { sourceMap: true }
-            }, {
+            },
+            {
               loader: 'sass-loader',
               options: { sourceMap: true }
-            }]
-          })
+            }
+          ]
         }
       ]
     }
