@@ -35,7 +35,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
       library: 'webclient',
       libraryTarget: 'var',
       path: paths.BUILD,
-      filename: 'bundle.[hash].js',
+      filename: '[name].bundle.[hash].js',
       publicPath: '/'
     },
 
