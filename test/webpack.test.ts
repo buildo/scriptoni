@@ -18,7 +18,7 @@ describe('webpack', () => {
       mkdirSync(resolve(templateDir, 'build'));
       return runCommands([
         `cd ${templateDir}`,
-        'yarn build'
+        'yarn build --bundleAnalyzer'
       ]);
     });
 
