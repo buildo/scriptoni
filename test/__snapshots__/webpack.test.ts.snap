@@ -4,27 +4,43 @@ exports[`webpack build-ts built files should not change size 1`] = `
 Array [
   Object {
     "name": "1.bundle.js",
-    "size": 1000,
-  },
-  Object {
-    "name": "1.bundle.js.gz",
     "size": 0,
   },
   Object {
     "name": "1.bundle.js.map",
-    "size": 3000,
+    "size": 0,
   },
   Object {
     "name": "2.bundle.js",
-    "size": 7000,
-  },
-  Object {
-    "name": "2.bundle.js.gz",
-    "size": 1000,
+    "size": 0,
   },
   Object {
     "name": "2.bundle.js.map",
+    "size": 0,
+  },
+  Object {
+    "name": "4.bundle.js",
+    "size": 7000,
+  },
+  Object {
+    "name": "4.bundle.js.gz",
+    "size": 1000,
+  },
+  Object {
+    "name": "4.bundle.js.map",
     "size": 13000,
+  },
+  Object {
+    "name": "5.bundle.js",
+    "size": 1000,
+  },
+  Object {
+    "name": "5.bundle.js.gz",
+    "size": 0,
+  },
+  Object {
+    "name": "5.bundle.js.map",
+    "size": 3000,
   },
   Object {
     "name": "index.html",
@@ -32,27 +48,51 @@ Array [
   },
   Object {
     "name": "main.bundle.js",
-    "size": 636000,
+    "size": 11000,
   },
   Object {
     "name": "main.bundle.js.gz",
-    "size": 163000,
+    "size": 3000,
   },
   Object {
     "name": "main.bundle.js.map",
-    "size": 2825000,
+    "size": 31000,
   },
   Object {
     "name": "main.style.min.css",
-    "size": 30000,
+    "size": 11000,
   },
   Object {
     "name": "main.style.min.css.gz",
-    "size": 6000,
+    "size": 2000,
   },
   Object {
     "name": "main.style.min.css.map",
-    "size": 46000,
+    "size": 21000,
+  },
+  Object {
+    "name": "vendors~main.bundle.js",
+    "size": 626000,
+  },
+  Object {
+    "name": "vendors~main.bundle.js.gz",
+    "size": 161000,
+  },
+  Object {
+    "name": "vendors~main.bundle.js.map",
+    "size": 2793000,
+  },
+  Object {
+    "name": "vendors~main.style.min.css",
+    "size": 19000,
+  },
+  Object {
+    "name": "vendors~main.style.min.css.gz",
+    "size": 4000,
+  },
+  Object {
+    "name": "vendors~main.style.min.css.map",
+    "size": 25000,
   },
 ]
 `;
@@ -60,11 +100,15 @@ Array [
 exports[`webpack build-ts built files should stay the same 1`] = `
 Array [
   "1.bundle.js",
-  "1.bundle.js.gz",
   "1.bundle.js.map",
   "2.bundle.js",
-  "2.bundle.js.gz",
   "2.bundle.js.map",
+  "4.bundle.js",
+  "4.bundle.js.gz",
+  "4.bundle.js.map",
+  "5.bundle.js",
+  "5.bundle.js.gz",
+  "5.bundle.js.map",
   "index.html",
   "main.bundle.js",
   "main.bundle.js.gz",
@@ -72,5 +116,11 @@ Array [
   "main.style.min.css",
   "main.style.min.css.gz",
   "main.style.min.css.map",
+  "vendors~main.bundle.js",
+  "vendors~main.bundle.js.gz",
+  "vendors~main.bundle.js.map",
+  "vendors~main.style.min.css",
+  "vendors~main.style.min.css.gz",
+  "vendors~main.style.min.css.map",
 ]
 `;

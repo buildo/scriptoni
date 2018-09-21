@@ -157,6 +157,14 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
     node: {
       constants: false
+    },
+
+    optimization: {
+      splitChunks: {
+        // splitting all vendor modules outside the main chunk
+        chunks: 'all',
+        minSize: 0
+      }
     }
   };
 };
