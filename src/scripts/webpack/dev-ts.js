@@ -1,6 +1,6 @@
 import minimist from 'minimist';
 import webpackServer from 'webpack-dev-server';
-import webpackConfig from './webpack.config.js';
+import webpackConfig from './webpack.dev.js';
 import compiler from './compiler';
 import getConfig from './config';
 import getWebpackConfig from './getWebpackConfig';
