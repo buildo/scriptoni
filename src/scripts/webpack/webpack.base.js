@@ -57,7 +57,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel'), bundleA
       }),
       new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
     ].concat(
-      bundleAnalyzer ? [new BundleAnalyzerPlugin({ generateStatsFile: true })] : []
+      bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []
     ),
 
     module: {
