@@ -6,12 +6,13 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import fs from 'fs';
 
 const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
 
 
-export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
+export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel'), bundleAnalyzer }) => {
 
   const BabelLoader = {
     loader: 'babel-loader',
@@ -55,7 +56,9 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
         syntax: 'scss'
       }),
       new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
-    ],
+    ].concat(
+      bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []
+    ),
 
     module: {
       rules: [
@@ -157,6 +160,14 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel') }) => {
 
     node: {
       constants: false
+    },
+
+    optimization: {
+      splitChunks: {
+        // splitting all vendor modules outside the main chunk
+        chunks: 'all',
+        minSize: 0
+      }
     }
   };
 };
