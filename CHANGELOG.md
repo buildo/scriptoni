@@ -2,6 +2,13 @@
 
 
 
+## [v0.17.0](https://github.com/buildo/scriptoni/tree/v0.17.0) (2018-11-09)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.16.0...v0.17.0)
+
+#### Breaking:
+
+- Drop support for JS webpack builds [#223](https://github.com/buildo/scriptoni/issues/223)
+
 ## [v0.16.0](https://github.com/buildo/scriptoni/tree/v0.16.0) (2018-11-09)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.2...v0.16.0)
 
