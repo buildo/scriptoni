@@ -30,9 +30,9 @@ function clean() {
 }
 
 // default NODE_ENV for webpack scripts
-if (script === 'web-build' || script === 'web-build-ts') {
+if (script === 'web-build-ts') {
   process.env.NODE_ENV = process.env.NODE_ENV || 'production';
-} else if (script === 'web-dev' || script === 'web-dev-ts') {
+} else if (script === 'web-dev-ts') {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 }
 
@@ -55,14 +55,6 @@ switch (script) {
     break;
   case 'stylefmt':
     exit(spawnScript('stylelint/stylefmt'));
-    break;
-  case 'web-dev':
-    clean();
-    exit(spawnScript('webpack/dev'));
-    break;
-  case 'web-build':
-    clean();
-    exit(spawnScript('webpack/build'));
     break;
   case 'web-dev-ts':
     clean();

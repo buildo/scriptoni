@@ -88,8 +88,8 @@ Bundling your application with webpack is awesome. What's less awesome is having
 Add these scripts to your `package.json`:
 
 ```json
-"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev -c ./config",
-"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build -c ./config"
+"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev-ts -c ./config",
+"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build-ts -c ./config"
 ```
 
 where:
@@ -107,7 +107,7 @@ The config dir for a project should include:
 
 The final config available to the source code is obtained merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
 
-Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni web-dev` (or `web-build`).
+Environment variables follow this rule: to affect e.g. the `title: t.String` config key, you can provide the `CONFIG_TITLE=title` variable before building using `scriptoni web-dev-ts` (or `web-build-ts`).
 
 The virtual 'config' module obtained is available as `import config from 'config'` anywhere in your code base.
 
@@ -154,11 +154,11 @@ As you can see, your function will receive the default webpack config as first a
 - `config`: the app config (see the previous chapter)
 - `paths`: the paths used by your project
 - `NODE_ENV`: 'development' or 'production'
-- `target`: one of `dev`, `build`, `dev-ts` or `build-ts`
+- `target`: one of `dev-ts` or `build-ts`
 
 As a last step, you can change the `start` and `build` scripts in your `package.json` file by adding `--webpackConfig ./webpack.config.js` and the end of both commands:
 
 ```json
-"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev -c ./config --webpackConfig ./webpack-config.js",
-"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build -c ./config --webpackConfig ./webpack-config.js"
+"start": "UV_THREADPOOL_SIZE=20 scriptoni web-dev-ts -c ./config --webpackConfig ./webpack-config.js",
+"build": "UV_THREADPOOL_SIZE=20 scriptoni web-build-ts -c ./config --webpackConfig ./webpack-config.js"
 ```
