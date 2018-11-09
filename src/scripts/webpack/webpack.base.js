@@ -9,10 +9,7 @@ import { getHtmlPluginConfig } from './util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import fs from 'fs';
 
-const JSLoader = t.enums.of(['babel', 'typescript'], 'JSLoader');
-
-
-export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel'), bundleAnalyzer }) => {
+export default ({ config, paths, NODE_ENV, bundleAnalyzer }) => {
 
   const BabelLoader = {
     loader: 'babel-loader',
@@ -24,8 +21,7 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel'), bundleA
       modules: [
         paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES
       ],
-      extensions: JSLoader(jsLoader) === JSLoader('typescript') ?
-        ['.js', '.ts', '.tsx', '.json'] : undefined
+      extensions: ['.js', '.ts', '.tsx', '.json']
     },
 
     stats: {
@@ -76,32 +72,22 @@ export default ({ config, paths, NODE_ENV, jsLoader = JSLoader('babel'), bundleA
           include: paths.SRC,
           exclude: paths.ASSETS
         },
-        ...(() => {
-          if (JSLoader(jsLoader) === JSLoader('babel')) {
-            // babel transpiler
-            return [{
-              test: /\.jsx?$/, // test for both js and jsx
-              use: [BabelLoader],
-              exclude: [paths.ASSETS],
-              include: [paths.SRC]
-            }];
-          }
 
-          // TypeScript transpiler
-          return [{
-            test: /\.tsx?$$/,
-            use: [BabelLoader, {
-              loader: 'ts-loader'
-            }],
-            exclude: [paths.ASSETS],
-            include: [paths.SRC]
-          }, {
-            test: /\.jsx?$$/,
-            use: [BabelLoader],
-            exclude: [paths.ASSETS],
-            include: [paths.SRC]
-          }];
-        })(),
+        // TypeScript transpiler
+        {
+          test: /\.tsx?$/,
+          use: [BabelLoader, {
+            loader: 'ts-loader'
+          }],
+          exclude: [paths.ASSETS],
+          include: [paths.SRC]
+        }, {
+          test: /\.jsx?$/,
+          use: [BabelLoader],
+          exclude: [paths.ASSETS],
+          include: [paths.SRC]
+        },
+
         // copy theme fonts
         {
           test: paths.THEME_FONTS,

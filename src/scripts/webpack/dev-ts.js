@@ -7,10 +7,7 @@ import getWebpackConfig from './getWebpackConfig';
 
 const args = minimist(process.argv.slice(2));
 
-const webpackConfigObject = getWebpackConfig(
-  options => webpackConfig({ ...options, jsLoader: 'typescript' }),
-  'dev-ts'
-);
+const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev-ts');
 
 const server = new webpackServer(compiler(webpackConfigObject), webpackConfigObject.devServer);
 
