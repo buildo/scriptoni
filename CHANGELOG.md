@@ -2,6 +2,24 @@
 
 
 
+## [v0.16.0](https://github.com/buildo/scriptoni/tree/v0.16.0) (2018-11-09)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.2...v0.16.0)
+
+#### Breaking:
+
+- upgrade TS to 3.1.x [#225](https://github.com/buildo/scriptoni/issues/225)
+- Split vendor modules bundle by default [#221](https://github.com/buildo/scriptoni/issues/221)
+
+#### New features:
+
+- Add a way to activate BundleAnalyzerPlugin [#219](https://github.com/buildo/scriptoni/issues/219)
+- more generic default entry in webpack [#216](https://github.com/buildo/scriptoni/issues/216)
+
+#### Fixes (bugs & defects):
+
+- Use mini-css-extract-plugin [#218](https://github.com/buildo/scriptoni/issues/218)
+- CI tests are failing with weird `SecurityError`s [#213](https://github.com/buildo/scriptoni/issues/213)
+
 ## [v0.15.2](https://github.com/buildo/scriptoni/tree/v0.15.2) (2018-08-27)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.15.1...v0.15.2)
 
