@@ -3,7 +3,7 @@
     "types": ["node", "jest"],
     "target": "es6",
     "module": "commonjs",
-    "outDir": "build",
+    "outDir": "lib",
     "sourceMap": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -11,11 +11,7 @@
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "pretty": true,
-    "lib": [
-      "es6", "es7", "es2017"
-    ]
+    "lib": ["es6", "es7", "es2017"]
   },
-  "include": [
-    "test"
-  ]
+  "include": ["src/**/*", "typings"]
 }

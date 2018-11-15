@@ -11,17 +11,15 @@
     "scriptoni": "./bin/scriptoni.js"
   },
   "scripts": {
-    "start": "babel -w src --out-dir lib",
-    "build": "rimraf lib/* && babel src --out-dir lib && npm run copy-files",
-    "copy-files": "babel-node src/copy-files.js",
-    "lint-style": "babel-node bin/scriptoni.js lint-style",
-    "lint-style-fix": "babel-node bin/scriptoni.js lint-style-fix",
-    "lint": "babel-node bin/scriptoni.js lint",
-    "metarpheus": "babel-node bin/scriptoni.js metarpheus",
-    "metarpheus-diff": "babel-node bin/scriptoni.js metarpheus-diff",
+    "build": "rimraf lib/* && tsc && yarn copy-files",
+    "copy-files": "ts-node ./copy-files.ts",
+    "lint-style": "node bin/scriptoni.js lint-style",
+    "lint-style-fix": "node bin/scriptoni.js lint-style-fix",
+    "metarpheus": "node bin/scriptoni.js metarpheus",
+    "metarpheus-diff": "node bin/scriptoni.js metarpheus-diff",
     "test": "NODE_ENV= jest",
-    "preversion": "npm run lint && npm test",
-    "prepublish": "npm run build",
+    "preversion": "yarn test",
+    "prepublish": "yarn build",
     "release-version": "smooth-release"
   },
   "repository": {
@@ -38,35 +36,44 @@
   },
   "homepage": "https://github.com/buildo/scriptoni#readme",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/compression-webpack-plugin": "^0.4.2",
+    "@types/debug": "^0.0.31",
+    "@types/diff": "^3.5.2",
+    "@types/html-webpack-plugin": "^3.2.0",
     "@types/jest": "^22.2.3",
-    "@types/lodash": "^4.14.108",
+    "@types/lodash": "^4.14.118",
+    "@types/mini-css-extract-plugin": "^0.2.0",
+    "@types/minimist": "^1.2.0",
     "@types/node": "^10.0.8",
     "@types/rimraf": "^2.0.2",
+    "@types/stylelint-webpack-plugin": "^0.1.2",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
+    "@types/webpack": "^4.4.19",
+    "@types/webpack-bundle-analyzer": "^2.13.0",
+    "@types/webpack-dev-server": "^3.1.1",
+    "@types/webpack-fail-plugin": "^1.0.7",
     "jest": "^23.5.0",
     "smooth-release": "^8.0.0",
-    "ts-jest": "^22.4.6"
+    "ts-jest": "^22.4.6",
+    "ts-node": "^7.0.1"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
-    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-preset-buildo": "^0.1.1",
-    "chalk": "^1.1.3",
+    "chalk": "^2.4.1",
     "compression-webpack-plugin": "^1.1.11",
     "cross-spawn": "^4.0.2",
     "css-loader": "^0.28.4",
     "debug": "^2.2.0",
     "diff": "^3.0.1",
-    "eslint": "^4.19.1",
-    "eslint-config-buildo": "github:buildo/eslint-config",
-    "eslint-loader": "^2.0.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
-    "io-ts": "^1.0.5",
+    "io-ts": "^1.4.1",
     "metarpheus": "^1.0.0",
     "metarpheus-io-ts": "^0.4.0",
-    "metarpheus-tcomb": "^0.2",
     "mini-css-extract-plugin": "^0.4.2",
     "minimist": "^1.2.0",
     "node-glob": "^1.2.0",
@@ -96,5 +103,23 @@
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-dev-server": "^3.1.4",
     "webpack-fail-plugin": "^2.0.0"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "./tsconfig.json"
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globalSetup": "<rootDir>/test/globalSetup.js"
   }
 }

@@ -1,23 +1,21 @@
-import fs from 'fs';
-import path from 'path';
-import { logger } from '../../util';
-import { runMetarpheusTcomb, runMetarpheusIoTs } from './run';
-import getMetarpheusConfig from './config';
-import minimist from 'minimist';
+import * as fs from "fs";
+import * as path from "path";
+import { logger, getArgs } from "../../util";
+import { runMetarpheusIoTs } from "./run";
+import getMetarpheusConfig from "./config";
 
-const args = minimist(process.argv.slice(2));
+const args = getArgs();
 
-function mkDirs(filePath) {
+function mkDirs(filePath: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    fs.mkdir(filePath, (error) => {
+    fs.mkdir(filePath, error => {
       if (error) {
-        if (error.code === 'ENOENT') {
+        if (error.code === "ENOENT") {
           return mkDirs(path.dirname(filePath))
             .then(() => mkDirs(filePath))
             .then(resolve)
             .catch(reject);
-        }
-        else {
+        } else {
           reject(error);
         }
       }
@@ -26,7 +24,7 @@ function mkDirs(filePath) {
   });
 }
 
-function mkDirsIfNotExist(filePath) {
+function mkDirsIfNotExist(filePath: string): Promise<void> {
   if (!fs.existsSync(filePath)) {
     return mkDirs(filePath);
   }
@@ -38,9 +36,7 @@ const metarpheusConfig = getMetarpheusConfig(args);
 const apiOutDir = path.dirname(metarpheusConfig.apiOut);
 const modelOutDir = path.dirname(metarpheusConfig.modelOut);
 
-const { model, api } = (() =>
-  (args.ts ? runMetarpheusIoTs : runMetarpheusTcomb)(metarpheusConfig, args)
-)();
+const { model, api } = runMetarpheusIoTs(metarpheusConfig, args);
 
 // create dirs if don't exist
 mkDirsIfNotExist(apiOutDir)
@@ -49,12 +45,12 @@ mkDirsIfNotExist(apiOutDir)
     // write api in api output file
     logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
     fs.writeFileSync(metarpheusConfig.apiOut, api);
-    logger.metarpheus('Finished!');
+    logger.metarpheus("Finished!");
 
     // write model in model output file
     logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
     fs.writeFileSync(metarpheusConfig.modelOut, model);
-    logger.metarpheus('Finished!');
+    logger.metarpheus("Finished!");
   })
   .catch(e => {
     logger.metarpheus(e);

@@ -1,8 +1,8 @@
-import fs from 'fs';
+import * as fs from 'fs';
 
 const localeFileMatch = /^[a-z]+\.json$/;
 
-export default function getSupportedLocales(localesPath) {
+export default function getSupportedLocales(localesPath: string): string[] {
   return fs.readdirSync(localesPath)
     .filter((localePath) => {
       return !!localeFileMatch.exec(localePath);
