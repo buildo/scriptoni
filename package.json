@@ -17,7 +17,7 @@
     "lint-style-fix": "node bin/scriptoni.js lint-style-fix",
     "metarpheus": "node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "node bin/scriptoni.js metarpheus-diff",
-    "test": "NODE_ENV= jest",
+    "test": "NODE_ENV= jest --runInBand",
     "preversion": "yarn test",
     "prepublish": "yarn build",
     "release-version": "smooth-release"
