@@ -2,6 +2,7 @@
   "name": "template-app",
   "version": "1.0.0",
   "scripts": {
+    "metarpheus": "node ../../bin/scriptoni.js metarpheus --metarpheusConfig ./metarpheus.config.test.js",
     "start": "node ../../bin/scriptoni.js web-dev-ts -c ./config",
     "build": "node ../../bin/scriptoni.js web-build-ts -c ./config",
     "lint": "node ../../bin/scriptoni.js lint",
