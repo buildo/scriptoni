@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`metarpheus metarpheusConfig option should read the correct config file 1`] = `
+"
+export default function getRoutes(config: RouteConfig) {
+  return {
+
+  }
+}"
+`;
+
+exports[`metarpheus metarpheusConfig option should read the correct config file 2`] = `
+"// DO NOT EDIT MANUALLY - metarpheus-generated
+import * as t from 'io-ts'
+
+"
+`;

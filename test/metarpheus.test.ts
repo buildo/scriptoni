@@ -1,26 +1,26 @@
-import { runCommands, templateDir } from "./utils";
-import * as fs from "fs";
-import * as rimraf from "rimraf";
+import * as path from 'path';
+import { runCommands, templateDir } from './utils';
+import * as fs from 'fs';
+import * as rimraf from 'rimraf';
 
-jest.setTimeout(10 * 60 * 1000);
+const metarpheusOutPath = path.resolve(__dirname, 'template-app/src/metarpheus');
 
-describe("metarpheus", () => {
-  describe("metarpheusConfig option", () => {
-    it("should read the correct config file", () => {
-      const destinationDir = `${templateDir}/src/metarpheus/`;
-      return runCommands([
-        `cd ${templateDir}`,
-        // this will fail if the `metarpheusConfig` param is not considered,
-        // since the default config file that's used otherwise imports scala from an inexisting folder
-        "yarn metarpheus"
-      ]).then(() => {
-        // checking that the directory has been created and then
-        // removing it so that it isn't included in the build afterwards
-        if (fs.existsSync(destinationDir)) {
-          rimraf.sync(destinationDir);
-        } else {
-          throw new Error(`${destinationDir} does not exist!`);
-        }
+afterAll(() => {
+  rimraf.sync(metarpheusOutPath);
+});
+
+describe('metarpheus', () => {
+  describe('metarpheusConfig option', () => {
+    it('should read the correct config file', () => {
+      const apiPath = path.resolve(metarpheusOutPath, 'api.ts');
+      const modelsPath = path.resolve(metarpheusOutPath, 'model.ts');
+
+      return runCommands([`cd ${templateDir}`, 'yarn metarpheus']).then(() => {
+        expect(fs.existsSync(apiPath)).toBeTruthy();
+        expect(fs.existsSync(modelsPath)).toBeTruthy();
+
+        expect(fs.readFileSync(apiPath, { encoding: 'utf8' })).toMatchSnapshot();
+        expect(fs.readFileSync(modelsPath, { encoding: 'utf8' })).toMatchSnapshot();
       });
     });
   });
