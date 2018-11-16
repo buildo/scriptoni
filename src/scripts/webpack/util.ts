@@ -1,3 +1,5 @@
+import * as t from "io-ts";
+import { ThrowReporter } from "io-ts/lib/ThrowReporter";
 import { Paths } from "./paths";
 import { Config } from "../../model";
 
@@ -25,3 +27,14 @@ export const statsOutputConfiguration = {
   timings: true,
   colors: true
 };
+
+export function valueOrThrow<O, I>(iotsType: t.Type<O, I>, value: I): O {
+  const validatedValue = iotsType.decode(value);
+
+  if (validatedValue.isLeft()) {
+    ThrowReporter.report(validatedValue);
+    return undefined as never;
+  } else {
+    return validatedValue.value;
+  }
+}

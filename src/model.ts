@@ -26,11 +26,23 @@ export type WebpackConfiguration = webpack.Configuration & {
   module: webpack.Module;
 };
 
-export type MetarpheusConfig = GetRoutesOptions & {
-  apiPrelude: string;
-  modelPrelude: string;
-  authRouteTermNames: string[];
-  modelsForciblyInUse: string[];
-  apiPaths: string[];
-  wiro: boolean;
+const metarpheusConfigProperties = {
+  isReadonly: t.boolean,
+  runtime: t.boolean,
+  newtypes: t.array(t.string),
+  optionalType: t.Type,
+  apiPaths: t.array(t.string),
+  modelOut: t.string,
+  apiOut: t.string,
+  authRouteTermNames: t.array(t.string),
+  apiPrelude: t.string,
+  modelPrelude: t.string,
+  modelsForciblyInUse: t.array(t.string),
+  wiro: t.boolean
 };
+
+export const PartialMetarpheusConfig = t.partial(metarpheusConfigProperties);
+export type PartialMetarpheusConfig = t.TypeOf<typeof PartialMetarpheusConfig>;
+
+export const MetarpheusConfig = t.interface(metarpheusConfigProperties);
+export type MetarpheusConfig = t.TypeOf<typeof MetarpheusConfig>;

@@ -1,29 +1,41 @@
 import * as fs from "fs";
 import * as path from "path";
 import { undefinedType } from "io-ts-codegen";
-import { Args } from "../../model";
+import { Args, MetarpheusConfig, PartialMetarpheusConfig } from "../../model";
+import { valueOrThrow } from "../webpack/util";
 
-export default function(args: Args) {
-  // get current working directory
-  const cwd = process.cwd();
-  // define user javascript config file path
-  const ujcFilePath = path.resolve(
-    cwd,
+const defaultConfig: MetarpheusConfig = {
+  isReadonly: false,
+  runtime: true,
+  newtypes: [],
+  optionalType: undefinedType,
+  wiro: false,
+  modelsForciblyInUse: [],
+  modelPrelude: "",
+  apiPrelude: "",
+  apiPaths: [path.resolve(process.cwd(), "../api/src/main/scala")],
+  modelOut: path.resolve(process.cwd(), "src/metarpheus/model.ts"),
+  apiOut: path.resolve(process.cwd(), "src/metarpheus/api.ts"),
+  authRouteTermNames: ["withRole"]
+};
+
+export default function(args: Args): MetarpheusConfig {
+  const userMetarpheusConfigPath = path.resolve(
+    process.cwd(),
     args.metarpheusConfig || "metarpheus-ts-config.js"
   );
 
-  // TODO: fs.existsSync is deprecated
-  const ujc = (fs.existsSync(ujcFilePath) && require(ujcFilePath)) || {};
+  if (fs.existsSync(userMetarpheusConfigPath)) {
+    const userMetarpheusConfig = valueOrThrow(
+      PartialMetarpheusConfig,
+      require(userMetarpheusConfigPath)
+    );
 
-  return {
-    isReadonly: false,
-    runtime: true,
-    newtypes: [],
-    optionalType: undefinedType,
-    apiPaths: [path.resolve(cwd, "../api/src/main/scala")],
-    modelOut: path.resolve(cwd, "src/metarpheus/model.ts"),
-    apiOut: path.resolve(cwd, "src/metarpheus/api.ts"),
-    authRouteTermNames: ["withRole"],
-    ...ujc
-  };
+    return {
+      ...defaultConfig,
+      ...userMetarpheusConfig
+    };
+  }
+
+  return defaultConfig;
 }
