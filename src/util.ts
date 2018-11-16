@@ -3,7 +3,7 @@ import * as path from "path";
 import * as debug from "debug";
 import * as minimist from "minimist";
 import { Args } from "./model";
-import { ThrowReporter } from "io-ts/lib/ThrowReporter";
+import { valueOrThrow } from "./scripts/webpack/util";
 
 debug.enable("scriptoni:*");
 
@@ -29,11 +29,5 @@ export const logger = {
 };
 
 export const getArgs = (): Args => {
-  const userArgs = Args.decode(minimist(process.argv.slice(2)));
-
-  if (userArgs.isLeft()) {
-    throw ThrowReporter.report(userArgs);
-  }
-
-  return userArgs.value;
+  return valueOrThrow(Args, minimist(process.argv.slice(2)) as any);
 };

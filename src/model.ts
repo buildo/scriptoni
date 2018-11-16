@@ -1,6 +1,5 @@
 import * as webpack from "webpack";
 import * as t from "io-ts";
-import { GetRoutesOptions } from "metarpheus-io-ts";
 
 export const Args = t.interface({
   _: t.array(t.string),
@@ -30,7 +29,7 @@ const metarpheusConfigProperties = {
   isReadonly: t.boolean,
   runtime: t.boolean,
   newtypes: t.array(t.string),
-  optionalType: t.Type,
+  optionalType: t.any,
   apiPaths: t.array(t.string),
   modelOut: t.string,
   apiOut: t.string,
