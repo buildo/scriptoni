@@ -24,7 +24,7 @@ export function runMetarpheusIoTs(
     metarpheusConfig.modelPrelude
   );
 
-  const api = `${metarpheusConfig.apiPrelude || ""}
+  const api = `${metarpheusConfig.apiPrelude}
 
 ${getRoutes(intermRep.routes, intermRep.models, metarpheusConfig)}
 `;

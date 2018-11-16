@@ -32,11 +32,11 @@ if (script === "web-build-ts") {
 }
 
 switch (script) {
-  case "metarpheus-ts":
-    exit(spawnScript("metarpheus", ["--ts"]));
+  case "metarpheus":
+    exit(spawnScript("metarpheus"));
     break;
-  case "metarpheus-ts-diff":
-    exit(spawnScript("metarpheus-diff", ["--ts"]));
+  case "metarpheus-diff":
+    exit(spawnScript("metarpheus-diff"));
     break;
   case "lint-style":
     exit(spawnScript("stylelint"));
@@ -44,13 +44,13 @@ switch (script) {
   case "stylefmt":
     exit(spawnScript("stylelint/stylefmt"));
     break;
-  case "web-dev-ts":
+  case "web-dev":
     cleanBuildFolder();
-    exit(spawnScript("webpack/dev-ts"));
+    exit(spawnScript("webpack/dev"));
     break;
-  case "web-build-ts":
+  case "web-build":
     cleanBuildFolder();
-    exit(spawnScript("webpack/build-ts"));
+    exit(spawnScript("webpack/build"));
     break;
   case "prettier-write":
     exit(spawnScript("prettier/write"));
