@@ -13,8 +13,7 @@
     "es6-promise": "^4.2.2",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "scriptoni": "../../"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",
