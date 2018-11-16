@@ -7,8 +7,7 @@ export const Args = t.interface({
   paths: t.union([t.undefined, t.string]),
   webpackConfig: t.union([t.undefined, t.string]),
   metarpheusConfig: t.union([t.undefined, t.string]),
-  bundleAnalyzer: t.union([t.undefined, t.boolean]),
-  wiro: t.union([t.undefined, t.boolean])
+  bundleAnalyzer: t.union([t.undefined, t.boolean])
 });
 export type Args = t.TypeOf<typeof Args>;
 
@@ -28,16 +27,12 @@ export type WebpackConfiguration = webpack.Configuration & {
 const metarpheusConfigProperties = {
   isReadonly: t.boolean,
   runtime: t.boolean,
-  newtypes: t.array(t.string),
-  optionalType: t.any,
   apiPaths: t.array(t.string),
   modelOut: t.string,
   apiOut: t.string,
-  authRouteTermNames: t.array(t.string),
   apiPrelude: t.string,
   modelPrelude: t.string,
-  modelsForciblyInUse: t.array(t.string),
-  wiro: t.boolean
+  modelsForciblyInUse: t.array(t.string)
 };
 
 export const PartialMetarpheusConfig = t.partial(metarpheusConfigProperties);

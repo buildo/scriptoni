@@ -10,7 +10,7 @@ const args = getArgs();
 
 const metarpheusConfig = getMetarpheusConfig(args);
 
-const { model, api } = runMetarpheusIoTs(metarpheusConfig, args);
+const { model, api } = runMetarpheusIoTs(metarpheusConfig);
 
 function colorLine(line: string): string {
   switch (line[0]) {

@@ -36,7 +36,7 @@ const metarpheusConfig = getMetarpheusConfig(args);
 const apiOutDir = path.dirname(metarpheusConfig.apiOut);
 const modelOutDir = path.dirname(metarpheusConfig.modelOut);
 
-const { model, api } = runMetarpheusIoTs(metarpheusConfig, args);
+const { model, api } = runMetarpheusIoTs(metarpheusConfig);
 
 // create dirs if don't exist
 mkDirsIfNotExist(apiOutDir)
