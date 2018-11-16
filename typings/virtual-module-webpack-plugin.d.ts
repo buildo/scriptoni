@@ -1,1 +1,1 @@
-declare module "virtual-module-webpack-plugin";
+declare module 'virtual-module-webpack-plugin';

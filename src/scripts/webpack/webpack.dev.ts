@@ -1,7 +1,7 @@
-import * as webpack from "webpack";
-import WebpackBase, { WebpackConfigBuilderInput } from "./webpack.base";
-import { statsOutputConfiguration } from "./util";
-import { WebpackConfiguration } from "../../model";
+import * as webpack from 'webpack';
+import WebpackBase, { WebpackConfigBuilderInput } from './webpack.base';
+import { statsOutputConfiguration } from './util';
+import { WebpackConfiguration } from '../../model';
 
 export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   const base = WebpackBase(input);
@@ -10,11 +10,11 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   return {
     ...base,
 
-    mode: "development",
+    mode: 'development',
 
     entry: [
       `webpack-dev-server/client?http://0.0.0.0:${config.port}/`,
-      "webpack/hot/dev-server",
+      'webpack/hot/dev-server',
       paths.ENTRY
     ],
 
@@ -26,7 +26,7 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
       historyApiFallback: true
     },
 
-    devtool: (config.devTool as any) || "source-map",
+    devtool: (config.devTool as any) || 'source-map',
 
     plugins: [...base.plugins, new webpack.HotModuleReplacementPlugin()],
 
@@ -39,10 +39,10 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
           test: /\.css?$/,
           use: [
             {
-              loader: "style-loader"
+              loader: 'style-loader'
             },
             {
-              loader: "css-loader"
+              loader: 'css-loader'
             }
           ]
         },
@@ -52,16 +52,16 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
           exclude: paths.VARIABLES_MATCH,
           use: [
             {
-              loader: "style-loader"
+              loader: 'style-loader'
             },
             {
-              loader: "css-loader"
+              loader: 'css-loader'
             },
             {
-              loader: "resolve-url-loader"
+              loader: 'resolve-url-loader'
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
                 sourceMap: true
               }

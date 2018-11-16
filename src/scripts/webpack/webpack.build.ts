@@ -1,10 +1,10 @@
-import * as webpack from "webpack";
-import * as CompressionPlugin from "compression-webpack-plugin";
-import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpackFailPlugin = require("webpack-fail-plugin");
-import * as UglifyJsPlugin from "uglifyjs-webpack-plugin";
-import WebpackBase, { WebpackConfigBuilderInput } from "./webpack.base";
-import { WebpackConfiguration } from "../../model";
+import * as webpack from 'webpack';
+import * as CompressionPlugin from 'compression-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpackFailPlugin = require('webpack-fail-plugin');
+import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import WebpackBase, { WebpackConfigBuilderInput } from './webpack.base';
+import { WebpackConfiguration } from '../../model';
 
 export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   const base = WebpackBase(input);
@@ -14,11 +14,11 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
     // cause failed production builds to fail faster
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new MiniCssExtractPlugin({ filename: "[name].style.[hash].min.css" }),
+    new MiniCssExtractPlugin({ filename: '[name].style.[hash].min.css' }),
     webpackFailPlugin // This is needed for TS builds because of https://github.com/TypeStrong/ts-loader/pull/172
   ];
 
-  if (NODE_ENV === "production") {
+  if (NODE_ENV === 'production') {
     plugins.unshift(
       new CompressionPlugin({
         test: /\.js$|\.css$/
@@ -45,11 +45,11 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
 
     bail: true,
 
-    mode: "production",
+    mode: 'production',
 
     entry: paths.ENTRY,
 
-    devtool: "source-map",
+    devtool: 'source-map',
 
     plugins: [...base.plugins, ...plugins],
 
@@ -64,7 +64,7 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
               loader: MiniCssExtractPlugin.loader
             },
             {
-              loader: "css-loader"
+              loader: 'css-loader'
             }
           ]
         } as webpack.Rule,
@@ -78,14 +78,14 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
               options: { sourceMap: true }
             },
             {
-              loader: "resolve-url-loader"
+              loader: 'resolve-url-loader'
             },
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: { sourceMap: true }
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: { sourceMap: true }
             }
           ]

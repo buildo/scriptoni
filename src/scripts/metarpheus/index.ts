@@ -1,8 +1,8 @@
-import * as fs from "fs";
-import * as path from "path";
-import { logger, getArgs } from "../../util";
-import { runMetarpheusIoTs } from "./run";
-import getMetarpheusConfig from "./config";
+import * as fs from 'fs';
+import * as path from 'path';
+import { logger, getArgs } from '../../util';
+import { runMetarpheusIoTs } from './run';
+import getMetarpheusConfig from './config';
 
 const args = getArgs();
 
@@ -10,7 +10,7 @@ function mkDirs(filePath: string): Promise<void> {
   return new Promise((resolve, reject) => {
     fs.mkdir(filePath, error => {
       if (error) {
-        if (error.code === "ENOENT") {
+        if (error.code === 'ENOENT') {
           return mkDirs(path.dirname(filePath))
             .then(() => mkDirs(filePath))
             .then(resolve)
@@ -45,12 +45,12 @@ mkDirsIfNotExist(apiOutDir)
     // write api in api output file
     logger.metarpheus(`Writing ${metarpheusConfig.apiOut}`);
     fs.writeFileSync(metarpheusConfig.apiOut, api);
-    logger.metarpheus("Finished!");
+    logger.metarpheus('Finished!');
 
     // write model in model output file
     logger.metarpheus(`Writing ${metarpheusConfig.modelOut}`);
     fs.writeFileSync(metarpheusConfig.modelOut, model);
-    logger.metarpheus("Finished!");
+    logger.metarpheus('Finished!');
   })
   .catch(e => {
     logger.metarpheus(e);

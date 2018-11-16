@@ -21,4 +21,4 @@ module.exports = function runCommands(commands) {
       reject(e);
     }
   });
-}
+};

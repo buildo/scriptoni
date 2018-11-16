@@ -1,5 +1,5 @@
-import * as webpack from "webpack";
-import * as t from "io-ts";
+import * as webpack from 'webpack';
+import * as t from 'io-ts';
 
 export const Args = t.interface({
   _: t.array(t.string),

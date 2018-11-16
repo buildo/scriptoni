@@ -1,12 +1,8 @@
-import { execSync } from "child_process";
-import { Args } from "../model";
-import { getArgs } from "../util";
+import { execSync } from 'child_process';
+import { Args } from '../model';
+import { getArgs } from '../util';
 
-export default function execCommand(
-  cmd: string,
-  defaultArgs: Args,
-  logger: debug.IDebugger
-) {
+export default function execCommand(cmd: string, defaultArgs: Args, logger: debug.IDebugger) {
   const userArgs = getArgs();
 
   const args: Args = {
@@ -19,20 +15,20 @@ export default function execCommand(
     cmd,
     ...args._,
     ...(Object.keys(args) as (keyof Args)[])
-      .filter(k => k !== "_")
+      .filter(k => k !== '_')
       .map(k => {
-        if (typeof args[k] === "boolean") {
+        if (typeof args[k] === 'boolean') {
           return `--${k}`;
         } else {
           return `--${k} ${args[k]}`;
         }
       })
-  ].join(" ");
+  ].join(' ');
 
   logger(`Running  ${command}`);
 
   try {
-    execSync(command, { stdio: "inherit" });
+    execSync(command, { stdio: 'inherit' });
   } catch (err) {
     process.exit(1);
   }

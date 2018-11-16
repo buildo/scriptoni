@@ -1,20 +1,20 @@
-import * as webpack from "webpack";
-import * as HTMLPlugin from "html-webpack-plugin";
-import * as ProgressBarPlugin from "progress-bar-webpack-plugin";
-import * as StyleLintPlugin from "stylelint-webpack-plugin";
-import * as VirtualModulePlugin from "virtual-module-webpack-plugin";
-import getSupportedLocales from "./supportedLocales";
-import { getHtmlPluginConfig } from "./util";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import * as fs from "fs";
-import { Paths } from "./paths";
-import { Config, Args, WebpackConfiguration } from "../../model";
+import * as webpack from 'webpack';
+import * as HTMLPlugin from 'html-webpack-plugin';
+import * as ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import * as StyleLintPlugin from 'stylelint-webpack-plugin';
+import * as VirtualModulePlugin from 'virtual-module-webpack-plugin';
+import getSupportedLocales from './supportedLocales';
+import { getHtmlPluginConfig } from './util';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import * as fs from 'fs';
+import { Paths } from './paths';
+import { Config, Args, WebpackConfiguration } from '../../model';
 
 export type WebpackConfigBuilderInput = {
   config: Config;
   paths: Paths;
   NODE_ENV: string | undefined;
-  bundleAnalyzer: Args["bundleAnalyzer"];
+  bundleAnalyzer: Args['bundleAnalyzer'];
 };
 
 export default ({
@@ -24,19 +24,14 @@ export default ({
   bundleAnalyzer
 }: WebpackConfigBuilderInput): WebpackConfiguration => {
   const BabelLoader = {
-    loader: "babel-loader",
-    options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: "utf8" }))
+    loader: 'babel-loader',
+    options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
   };
 
   return {
     resolve: {
-      modules: [
-        paths.SRC,
-        paths.COMPONENTS,
-        paths.BASIC_COMPONENTS,
-        paths.NODE_MODULES
-      ],
-      extensions: [".js", ".ts", ".tsx", ".json"]
+      modules: [paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES],
+      extensions: ['.js', '.ts', '.tsx', '.json']
     },
 
     stats: {
@@ -44,11 +39,11 @@ export default ({
     },
 
     output: {
-      library: "webclient",
-      libraryTarget: "var",
+      library: 'webclient',
+      libraryTarget: 'var',
       path: paths.BUILD,
-      filename: "[name].bundle.[hash].js",
-      publicPath: "/"
+      filename: '[name].bundle.[hash].js',
+      publicPath: '/'
     },
 
     plugins: [
@@ -58,15 +53,13 @@ export default ({
       }),
       new ProgressBarPlugin(),
       new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
-        "process.env.__supportedLocales__": JSON.stringify(
-          getSupportedLocales(paths.LOCALES)
-        )
+        'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+        'process.env.__supportedLocales__': JSON.stringify(getSupportedLocales(paths.LOCALES))
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new StyleLintPlugin({
-        files: ["**/*.scss"],
-        syntax: "scss"
+        files: ['**/*.scss'],
+        syntax: 'scss'
       }),
       new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
     ].concat(bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []),
@@ -79,7 +72,7 @@ export default ({
           use: [
             BabelLoader,
             {
-              loader: "ts-loader"
+              loader: 'ts-loader'
             }
           ],
           exclude: [paths.ASSETS],
@@ -97,9 +90,9 @@ export default ({
           test: paths.THEME_FONTS,
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                name: "[path][name].[ext]",
+                name: '[path][name].[ext]',
                 context: paths.THEME
               }
             }
@@ -111,9 +104,9 @@ export default ({
           exclude: [paths.ASSETS],
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                name: "[path][name].[ext]"
+                name: '[path][name].[ext]'
               }
             }
           ]
@@ -126,11 +119,11 @@ export default ({
               ...BabelLoader,
               options: {
                 ...BabelLoader.options,
-                presets: ["react"]
+                presets: ['react']
               }
             },
             {
-              loader: "svg-react-loader"
+              loader: 'svg-react-loader'
             }
           ]
         },
@@ -139,7 +132,7 @@ export default ({
           test: paths.VARIABLES_MATCH,
           use: [
             {
-              loader: "sass-variables-loader"
+              loader: 'sass-variables-loader'
             }
           ]
         },
@@ -148,9 +141,9 @@ export default ({
           include: [paths.ASSETS],
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                name: "[path][name].[ext]",
+                name: '[path][name].[ext]',
                 context: paths.ASSETS
               }
             }
@@ -166,7 +159,7 @@ export default ({
     optimization: {
       splitChunks: {
         // splitting all vendor modules outside the main chunk
-        chunks: "all",
+        chunks: 'all',
         minSize: 0
       }
     }

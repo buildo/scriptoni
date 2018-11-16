@@ -1,19 +1,19 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as t from "io-ts";
-import omit = require("lodash/omit");
-import { Args, Config } from "../../model";
+import * as fs from 'fs';
+import * as path from 'path';
+import * as t from 'io-ts';
+import omit = require('lodash/omit');
+import { Args, Config } from '../../model';
 
 const defaultConfigType = t.interface(
   {
     bundle: t.interface({})
   },
-  "Config"
+  'Config'
 );
 
 // Get path for user configuration, default to './config' from user current working directory
 const getConfigRelativePath = (args: Args): string => {
-  const configRelativePath = args.c || "./config";
+  const configRelativePath = args.c || './config';
   return path.resolve(process.cwd(), configRelativePath);
 };
 
@@ -24,12 +24,12 @@ const jsConfigVariableToEnvConfigVariable = (s: string): string =>
 // try to read and parse a json file
 const readOptionalConfigFile = (fullPath: string) => {
   try {
-    const contents = fs.readFileSync(fullPath, "utf8");
+    const contents = fs.readFileSync(fullPath, 'utf8');
     try {
       return JSON.parse(contents);
     } catch (e) {
       console.log();
-      console.log("ERR: invalid JSON in ", fullPath);
+      console.log('ERR: invalid JSON in ', fullPath);
       process.exit(1);
     }
   } catch (e) {
@@ -39,7 +39,7 @@ const readOptionalConfigFile = (fullPath: string) => {
 
 // try to load configuration type from the user project, fallback on BaseConfig
 const getConfigType = (configFolderPath: string) => {
-  const configTypePath = path.resolve(configFolderPath, "./Config.js");
+  const configTypePath = path.resolve(configFolderPath, './Config.js');
   if (!fs.existsSync(configTypePath)) {
     console.warn(`
         No Config type definition file found in ${configTypePath}, using the default one...
@@ -69,14 +69,13 @@ export default function getConfig(args: Args): Config {
   const configFolderPath = getConfigRelativePath(args);
 
   // load NODE_ENV related configuration
-  const referenceConfigFilePath = path.resolve(
-    configFolderPath,
-    `./${process.env.NODE_ENV}.json`
-  );
+  const referenceConfigFilePath = path.resolve(configFolderPath, `./${process.env.NODE_ENV}.json`);
   const referenceConfig = readOptionalConfigFile(referenceConfigFilePath);
 
+  console.log('\nciao\n', referenceConfigFilePath, referenceConfig);
+
   // load local configuration
-  const localConfigFilePath = path.resolve(configFolderPath, "./local.json");
+  const localConfigFilePath = path.resolve(configFolderPath, './local.json');
   const localConfig = readOptionalConfigFile(localConfigFilePath);
 
   const fileConfig = {
@@ -92,7 +91,7 @@ export default function getConfig(args: Args): Config {
   const ConfigType = getConfigType(configFolderPath);
 
   // merge environment config values into fileConfig
-  const topLevelKeys = Object.keys(omit(ConfigType.meta.props, "bundle"));
+  const topLevelKeys = Object.keys(omit(ConfigType.meta.props, 'bundle'));
   const bundleKeys = Object.keys(ConfigType.meta.props.bundle.meta.props);
   const config = {
     ...fileConfig,
@@ -104,9 +103,7 @@ export default function getConfig(args: Args): Config {
   };
 
   if (!ConfigType.is(config)) {
-    throw new Error(
-      `Configuration is invalid! ${JSON.stringify(config, null, 4)}`
-    );
+    throw new Error(`Configuration is invalid! ${JSON.stringify(config, null, 4)}`);
   }
   return ConfigType(config);
 }

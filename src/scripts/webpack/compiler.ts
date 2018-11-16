@@ -8,7 +8,7 @@ export default function compiler(webpackConfig: webpack.Configuration) {
     logger.webpack('Start compiling...');
   });
 
-  compiler.plugin('failed', (err) => {
+  compiler.plugin('failed', err => {
     logger.webpack(err);
   });
 
