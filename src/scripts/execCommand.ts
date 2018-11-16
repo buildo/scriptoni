@@ -15,7 +15,7 @@ export default function execCommand(cmd: string, defaultArgs: Args, logger: debu
     cmd,
     ...args._,
     ...(Object.keys(args) as (keyof Args)[])
-      .filter(k => k !== '_')
+      .filter(k => k !== '_' && typeof args[k] !== 'undefined')
       .map(k => {
         if (typeof args[k] === 'boolean') {
           return `--${k}`;
