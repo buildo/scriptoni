@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "metarpheus": "node ../../bin/scriptoni.js metarpheus --metarpheusConfig ./metarpheus.config.test.js",
-    "start": "node ../../bin/scriptoni.js web-dev-ts -c ./config",
-    "build": "node ../../bin/scriptoni.js web-build-ts -c ./config",
-    "lint": "node ../../bin/scriptoni.js lint",
-    "lint-fix": "node ../../bin/scriptoni.js lint --fix",
+    "start": "node ../../bin/scriptoni.js web-dev -c ./config",
+    "build": "node ../../bin/scriptoni.js web-build -c ./config",
     "lint-style": "node ../../bin/scriptoni.js lint-style"
   },
   "dependencies": {

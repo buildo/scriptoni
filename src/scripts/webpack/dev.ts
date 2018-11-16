@@ -7,7 +7,7 @@ import { getArgs } from "../../util";
 
 const args = getArgs();
 
-const webpackConfigObject = getWebpackConfig(webpackConfig, "dev-ts", args);
+const webpackConfigObject = getWebpackConfig(webpackConfig, "dev", args);
 
 const server = new webpackServer(
   compiler(webpackConfigObject),

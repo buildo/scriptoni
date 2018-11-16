@@ -1,46 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`webpack build-ts built files should not change size 1`] = `
+exports[`webpack build built files should not change size 1`] = `
 Array [
   Object {
-    "name": "1.bundle.js",
-    "size": 0,
-  },
-  Object {
-    "name": "1.bundle.js.map",
-    "size": 0,
-  },
-  Object {
     "name": "2.bundle.js",
-    "size": 0,
-  },
-  Object {
-    "name": "2.bundle.js.map",
-    "size": 0,
-  },
-  Object {
-    "name": "4.bundle.js",
     "size": 7000,
   },
   Object {
-    "name": "4.bundle.js.gz",
+    "name": "2.bundle.js.gz",
     "size": 1000,
   },
   Object {
-    "name": "4.bundle.js.map",
+    "name": "2.bundle.js.map",
     "size": 13000,
   },
   Object {
-    "name": "5.bundle.js",
+    "name": "3.bundle.js",
     "size": 1000,
   },
   Object {
-    "name": "5.bundle.js.gz",
+    "name": "3.bundle.js.gz",
+    "size": 0,
+  },
+  Object {
+    "name": "3.bundle.js.map",
+    "size": 3000,
+  },
+  Object {
+    "name": "4.bundle.js",
+    "size": 0,
+  },
+  Object {
+    "name": "4.bundle.js.map",
+    "size": 0,
+  },
+  Object {
+    "name": "5.bundle.js",
     "size": 0,
   },
   Object {
     "name": "5.bundle.js.map",
-    "size": 3000,
+    "size": 0,
   },
   Object {
     "name": "index.html",
@@ -72,7 +72,7 @@ Array [
   },
   Object {
     "name": "vendors~main.bundle.js",
-    "size": 626000,
+    "size": 625000,
   },
   Object {
     "name": "vendors~main.bundle.js.gz",
@@ -97,17 +97,17 @@ Array [
 ]
 `;
 
-exports[`webpack build-ts built files should stay the same 1`] = `
+exports[`webpack build built files should stay the same 1`] = `
 Array [
-  "1.bundle.js",
-  "1.bundle.js.map",
   "2.bundle.js",
+  "2.bundle.js.gz",
   "2.bundle.js.map",
+  "3.bundle.js",
+  "3.bundle.js.gz",
+  "3.bundle.js.map",
   "4.bundle.js",
-  "4.bundle.js.gz",
   "4.bundle.js.map",
   "5.bundle.js",
-  "5.bundle.js.gz",
   "5.bundle.js.map",
   "index.html",
   "main.bundle.js",

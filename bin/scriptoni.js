@@ -25,9 +25,9 @@ function cleanBuildFolder() {
 }
 
 // default NODE_ENV for webpack scripts
-if (script === "web-build-ts") {
+if (script === "web-build") {
   process.env.NODE_ENV = process.env.NODE_ENV || "production";
-} else if (script === "web-dev-ts") {
+} else if (script === "web-dev") {
   process.env.NODE_ENV = process.env.NODE_ENV || "development";
 }
 

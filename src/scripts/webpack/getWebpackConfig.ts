@@ -10,7 +10,7 @@ const NODE_ENV = process.env.NODE_ENV;
 
 export default function getWebpackConfig(
   webpackConfigFn: (input: WebpackConfigBuilderInput) => WebpackConfiguration,
-  target: "dev-ts" | "build-ts",
+  target: "dev" | "build",
   args: Args
 ) {
   const config = getConfig(args);
