@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Args, MetarpheusConfig, PartialMetarpheusConfig } from '../../model';
-import { valueOrThrow } from '../webpack/util';
+import { valueOrThrow } from '../../util';
 
 const defaultConfig: MetarpheusConfig = {
   isReadonly: false,

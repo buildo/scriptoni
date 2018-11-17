@@ -1,8 +1,8 @@
 import * as path from 'path';
 import * as t from 'io-ts';
 import { Args, Paths } from '../../model';
-import { valueOrThrow } from './util';
 import * as fs from 'fs';
+import { valueOrThrow } from '../../util';
 
 export default function getPaths(args: Args): Paths {
   const pathsConfigPath = path.resolve(process.cwd(), args.paths);

@@ -1,5 +1,3 @@
-import * as t from 'io-ts';
-import { ThrowReporter } from 'io-ts/lib/ThrowReporter';
 import { Config, Paths } from '../../model';
 
 export function getHtmlPluginConfig(NODE_ENV: string | undefined, config: Config, paths: Paths) {
@@ -22,14 +20,3 @@ export const statsOutputConfiguration = {
   timings: true,
   colors: true
 };
-
-export function valueOrThrow<O, I>(iotsType: t.Type<O, I>, value: I): O {
-  const validatedValue = iotsType.decode(value);
-
-  if (validatedValue.isLeft()) {
-    ThrowReporter.report(validatedValue);
-    return undefined as never;
-  } else {
-    return validatedValue.value;
-  }
-}
