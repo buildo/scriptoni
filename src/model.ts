@@ -14,7 +14,7 @@ export type Args = t.TypeOf<typeof Args>;
 export const Config = t.interface({
   port: t.number,
   title: t.union([t.undefined, t.string]),
-  devTool: t.union([t.undefined, t.string]),
+  devTool: t.string,
   bundle: t.dictionary(t.string, t.any)
 });
 export type Config = t.TypeOf<typeof Config>;

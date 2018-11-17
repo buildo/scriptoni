@@ -26,7 +26,7 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
       historyApiFallback: true
     },
 
-    devtool: (config.devTool as any) || 'source-map',
+    devtool: config.devTool as any,
 
     plugins: [...base.plugins, new webpack.HotModuleReplacementPlugin()],
 
