@@ -2,7 +2,7 @@ const resolve = require('path').resolve;
 const runCommands = require('./runCommands');
 
 const scriptoniDir = resolve(__dirname, '..');
-const templateDir = resolve(__dirname);
+const templateDir = resolve(__dirname, 'template-app');
 
 module.exports = () => {
   console.log();

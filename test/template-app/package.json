@@ -8,12 +8,13 @@
     "lint-style": "node ../../bin/scriptoni.js lint-style"
   },
   "dependencies": {
-    "@buildo/bento": "^6.0.0",
+    "@buildo/bento": "^8.2.0",
     "classnames": "^2.2.5",
     "es6-promise": "^4.2.2",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "scriptoni": "../../"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",
