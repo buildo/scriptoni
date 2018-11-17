@@ -1,7 +1,6 @@
 import * as t from 'io-ts';
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter';
-import { Paths } from './paths';
-import { Config } from '../../model';
+import { Config, Paths } from '../../model';
 
 export function getHtmlPluginConfig(NODE_ENV: string | undefined, config: Config, paths: Paths) {
   return {

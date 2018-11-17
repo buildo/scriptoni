@@ -7,8 +7,7 @@ import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import * as fs from 'fs';
-import { Paths } from './paths';
-import { Config, Args, WebpackConfiguration } from '../../model';
+import { Config, Args, WebpackConfiguration, Paths } from '../../model';
 
 export type WebpackConfigBuilderInput = {
   config: Config;

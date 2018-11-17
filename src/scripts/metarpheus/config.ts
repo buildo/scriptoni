@@ -15,10 +15,7 @@ const defaultConfig: MetarpheusConfig = {
 };
 
 export default function(args: Args): MetarpheusConfig {
-  const userMetarpheusConfigPath = path.resolve(
-    process.cwd(),
-    args.metarpheusConfig || 'metarpheus-ts-config.js'
-  );
+  const userMetarpheusConfigPath = path.resolve(process.cwd(), args.metarpheusConfig);
 
   if (fs.existsSync(userMetarpheusConfigPath)) {
     const userMetarpheusConfig = valueOrThrow(

@@ -1,33 +1,18 @@
 import * as path from 'path';
 import * as t from 'io-ts';
-import { loadFileFromArgument } from '../../util';
-import { Args } from '../../model';
+import { Args, Paths } from '../../model';
 import { valueOrThrow } from './util';
-
-const Paths = t.interface({
-  ROOT: t.string,
-  SRC: t.string,
-  ENTRY: t.string,
-  LOCALES: t.string,
-  THEME: t.string,
-  THEME_FONTS: t.string,
-  BUILD: t.string,
-  ASSETS: t.string,
-  NODE_MODULES: t.string,
-  COMPONENTS: t.string,
-  BASIC_COMPONENTS: t.string,
-  VIRTUAL_CONFIG: t.string,
-  TEMPLATE: t.string,
-  VARIABLES_MATCH: t.any, // regex
-  BABELRC: t.string
-});
-export type Paths = t.TypeOf<typeof Paths>;
+import * as fs from 'fs';
 
 export default function getPaths(args: Args): Paths {
-  const userPaths = loadFileFromArgument(args, 'paths', './paths.js') || {};
+  const pathsConfigPath = path.resolve(process.cwd(), args.paths);
+  const userPaths = fs.existsSync(pathsConfigPath)
+    ? valueOrThrow(t.partial(Paths.props), require(pathsConfigPath))
+    : {};
+
   const ROOT = userPaths.ROOT || process.cwd();
 
-  return valueOrThrow(Paths, {
+  return {
     // defaultPaths
     ROOT,
     SRC: path.resolve(ROOT, 'src'),
@@ -46,5 +31,5 @@ export default function getPaths(args: Args): Paths {
     BABELRC: path.resolve(ROOT, '.babelrc'),
     // give priority to user custom paths
     ...userPaths
-  });
+  };
 }

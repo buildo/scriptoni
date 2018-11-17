@@ -11,12 +11,6 @@ const defaultConfigType = t.interface(
   'Config'
 );
 
-// Get path for user configuration, default to './config' from user current working directory
-const getConfigRelativePath = (args: Args): string => {
-  const configRelativePath = args.c || './config';
-  return path.resolve(process.cwd(), configRelativePath);
-};
-
 // convert js config variable to env variable and prefix it with 'CONFIG_'
 const jsConfigVariableToEnvConfigVariable = (s: string): string =>
   `CONFIG_${s.replace(/[A-Z]/g, m => `_${m[0]}`).toUpperCase()}`;
@@ -66,7 +60,7 @@ const getConfigurationFromEnv = (keys: string[]) => {
 
 export default function getConfig(args: Args): Config {
   // get user configuration folder path
-  const configFolderPath = getConfigRelativePath(args);
+  const configFolderPath = path.resolve(process.cwd(), args.c);
 
   // load NODE_ENV related configuration
   const referenceConfigFilePath = path.resolve(configFolderPath, `./${process.env.NODE_ENV}.json`);
