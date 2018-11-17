@@ -3,7 +3,13 @@ import { runCommands, templateDir } from './utils';
 import * as fs from 'fs';
 import * as rimraf from 'rimraf';
 
-const metarpheusOutPath = path.resolve(__dirname, 'template-app/src/metarpheus');
+const config = require('./template-app/metarpheus.config.test');
+
+const metarpheusDir = config.apiOut
+  .split('/')
+  .slice(0, -1)
+  .join('/');
+const metarpheusOutPath = path.resolve(templateDir, metarpheusDir);
 
 afterAll(() => {
   rimraf.sync(metarpheusOutPath);
@@ -12,8 +18,8 @@ afterAll(() => {
 describe('metarpheus', () => {
   describe('metarpheusConfig option', () => {
     it('should read the correct config file', () => {
-      const apiPath = path.resolve(metarpheusOutPath, 'api.ts');
-      const modelsPath = path.resolve(metarpheusOutPath, 'model.ts');
+      const apiPath = path.resolve(templateDir, config.apiOut);
+      const modelsPath = path.resolve(templateDir, config.modelOut);
 
       return runCommands([`cd ${templateDir}`, 'yarn metarpheus']).then(() => {
         expect(fs.existsSync(apiPath)).toBeTruthy();
