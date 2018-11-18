@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as t from 'io-ts';
 import omit = require('lodash/omit');
 import snakeCase = require('lodash/snakeCase');
-import { Config, ScriptoniOptions } from '../../model';
+import { WebpackOptions, ScriptoniOptions } from '../../model';
 import { valueOrThrow } from '../../util';
 
 const getJSONConfiguration = (fullPath: string): { [k: string]: any } => {
@@ -41,7 +41,7 @@ const getConfigurationFromEnv = (keys: string[]) => {
   );
 };
 
-export default function getConfig(options: ScriptoniOptions): Config {
+export default function getWebpackOptions(options: ScriptoniOptions): WebpackOptions {
   const configFolderPath = path.resolve(process.cwd(), options.c);
 
   // get user's configuration validator
@@ -76,11 +76,11 @@ export default function getConfig(options: ScriptoniOptions): Config {
   // validate against user's validator
   valueOrThrow(ConfigValidator, config);
 
-  const defaultConfig: Partial<Config> = {
+  const defaultConfig: Partial<WebpackOptions> = {
     devTool: 'source-map',
     port: 3000
   };
 
   // validate against scriptoni's validator
-  return valueOrThrow(Config, { ...defaultConfig, ...config });
+  return valueOrThrow(WebpackOptions, { ...defaultConfig, ...config });
 }

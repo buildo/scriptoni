@@ -10,13 +10,13 @@ export const ScriptoniOptions = t.interface({
 });
 export type ScriptoniOptions = t.TypeOf<typeof ScriptoniOptions>;
 
-export const Config = t.interface({
+export const WebpackOptions = t.interface({
   port: t.number,
   title: t.union([t.undefined, t.string]),
   devTool: t.string,
   bundle: t.dictionary(t.string, t.any)
 });
-export type Config = t.TypeOf<typeof Config>;
+export type WebpackOptions = t.TypeOf<typeof WebpackOptions>;
 
 export type WebpackConfiguration = webpack.Configuration & {
   plugins: webpack.Plugin[];
