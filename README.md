@@ -130,7 +130,7 @@ Let's say, for example, you want to change the output library.
 You can provide a `webpack.config.js` file in the root directory of your project, with the following content:
 
 ```js
-module.exports = (defaultConfig, { config, paths, NODE_ENV, bundleAnalyzer }) => ({
+module.exports = (defaultConfig, { config, paths, NODE_ENV, bundleAnalyzer, target }) => ({
   ...defaultConfig,
   output: {
     ...config.output,

@@ -8,11 +8,16 @@ import { WebpackConfigBuilderInput } from './webpack.base';
 
 const NODE_ENV = process.env.NODE_ENV;
 
+type CustomizeFunction = (
+  defaultConfiguration: WebpackConfiguration,
+  options: WebpackConfigBuilderInput & { target: 'dev' | 'build' }
+) => WebpackConfiguration;
+
 export default function getWebpackConfig(
   webpackConfigFn: (input: WebpackConfigBuilderInput) => WebpackConfiguration,
   target: 'dev' | 'build',
   options: ScriptoniOptions
-) {
+): WebpackConfiguration {
   const config = getConfig(options);
 
   const paths = getPaths(options);
@@ -22,7 +27,7 @@ export default function getWebpackConfig(
   const customConfig = options.webpackConfig
     ? path.join(process.cwd(), options.webpackConfig)
     : undefined;
-  const customizeConfigFn = customConfig ? require(customConfig) : identity;
+  const customizeConfigFn: CustomizeFunction = customConfig ? require(customConfig) : identity;
 
   logger.webpack('platform', process.platform);
   logger.webpack('building with', `NODE_ENV=${NODE_ENV}`);
