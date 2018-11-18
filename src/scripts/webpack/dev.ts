@@ -9,6 +9,9 @@ const options = getScriptoniOptions();
 
 const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev', options);
 
-const server = new webpackServer(compiler(webpackConfigObject), webpackConfigObject.devServer);
+const server = new webpackServer(
+  compiler(webpackConfigObject),
+  webpackConfigObject.devServer || {}
+);
 
 server.listen(getConfig(options).port);
