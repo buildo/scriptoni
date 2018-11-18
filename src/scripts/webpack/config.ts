@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as t from 'io-ts';
 import omit = require('lodash/omit');
 import snakeCase = require('lodash/snakeCase');
-import { Args, Config } from '../../model';
+import { Config, ScriptoniOptions } from '../../model';
 import { valueOrThrow } from '../../util';
 
 const getJSONConfiguration = (fullPath: string): { [k: string]: any } => {
@@ -41,8 +41,8 @@ const getConfigurationFromEnv = (keys: string[]) => {
   );
 };
 
-export default function getConfig(args: Args): Config {
-  const configFolderPath = path.resolve(process.cwd(), args.c);
+export default function getConfig(options: ScriptoniOptions): Config {
+  const configFolderPath = path.resolve(process.cwd(), options.c);
 
   // get user's configuration validator
   const ConfigValidator = getConfigValidator(configFolderPath);

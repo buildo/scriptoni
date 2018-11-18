@@ -5,7 +5,7 @@ import execCommand from '../execCommand';
 const cwd = process.cwd();
 const cmd = path.resolve(cwd, 'node_modules', 'stylefmt', 'bin', 'cli.js');
 
-const defaultArgs: any = {
+const defaultArgs = {
   recursive: 'src/**/*.scss'
 };
 

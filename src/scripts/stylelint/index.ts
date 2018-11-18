@@ -5,7 +5,7 @@ import execCommand from '../execCommand';
 const cwd = process.cwd();
 const cmd = path.resolve(cwd, 'node_modules', 'stylelint', 'bin', 'stylelint.js');
 
-const defaultArgs: any = {
+const defaultArgs = {
   _: ['"src/**/*.scss"']
 };
 

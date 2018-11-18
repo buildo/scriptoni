@@ -3,12 +3,12 @@ import webpackConfig from './webpack.dev';
 import compiler from './compiler';
 import getConfig from './config';
 import getWebpackConfig from './getWebpackConfig';
-import { getArgs } from '../../util';
+import { getScriptoniOptions } from '../../util';
 
-const args = getArgs();
+const options = getScriptoniOptions();
 
-const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev', args);
+const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev', options);
 
 const server = new webpackServer(compiler(webpackConfigObject), webpackConfigObject.devServer);
 
-server.listen(getConfig(args).port);
+server.listen(getConfig(options).port);

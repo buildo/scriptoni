@@ -3,12 +3,12 @@ import { structuredPatch, createTwoFilesPatch } from 'diff';
 import chalk from 'chalk';
 import getMetarpheusConfig from '../metarpheus/config';
 import { runMetarpheusIoTs } from '../metarpheus/run';
-import { logger, getArgs } from '../../util';
+import { logger, getScriptoniOptions } from '../../util';
 
 const { green, red } = chalk;
-const args = getArgs();
+const options = getScriptoniOptions();
 
-const metarpheusConfig = getMetarpheusConfig(args);
+const metarpheusConfig = getMetarpheusConfig(options);
 
 const { model, api } = runMetarpheusIoTs(metarpheusConfig);
 

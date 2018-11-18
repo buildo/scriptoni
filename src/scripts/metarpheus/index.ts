@@ -1,10 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { logger, getArgs } from '../../util';
+import { logger, getScriptoniOptions } from '../../util';
 import { runMetarpheusIoTs } from './run';
 import getMetarpheusConfig from './config';
 
-const args = getArgs();
+const options = getScriptoniOptions();
 
 function mkDirs(filePath: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ function mkDirsIfNotExist(filePath: string): Promise<void> {
   return Promise.resolve();
 }
 
-const metarpheusConfig = getMetarpheusConfig(args);
+const metarpheusConfig = getMetarpheusConfig(options);
 
 const apiOutDir = path.dirname(metarpheusConfig.apiOut);
 const modelOutDir = path.dirname(metarpheusConfig.modelOut);

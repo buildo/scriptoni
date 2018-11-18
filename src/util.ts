@@ -2,7 +2,7 @@ import * as debug from 'debug';
 import * as minimist from 'minimist';
 import * as t from 'io-ts';
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter';
-import { Args } from './model';
+import { ScriptoniOptions } from './model';
 
 debug.enable('scriptoni:*');
 
@@ -13,12 +13,6 @@ export const logger = {
   lintStyle: debug('scriptoni:lint-style'),
   webpack: debug('scriptoni:webpack'),
   prettier: debug('scriptoni:prettier')
-};
-
-const defaultArgs: Partial<Args> = {
-  paths: './paths.js',
-  metarpheusConfig: 'metarpheus-ts-config.js',
-  c: './config'
 };
 
 export function valueOrThrow<O, I>(iotsType: t.Type<O, I>, value: I): O {
@@ -32,10 +26,22 @@ export function valueOrThrow<O, I>(iotsType: t.Type<O, I>, value: I): O {
   }
 }
 
-export const getArgs = (): Args => {
+export const getParsedArgs = () => {
+  return minimist(process.argv.slice(2));
+};
+
+const defaultScriptoniOptions: ScriptoniOptions = {
+  paths: './paths.js',
+  metarpheusConfig: 'metarpheus-ts-config.js',
+  c: './config',
+  webpackConfig: undefined,
+  bundleAnalyzer: undefined
+};
+
+export const getScriptoniOptions = (): ScriptoniOptions => {
   const args = {
-    ...defaultArgs,
-    ...minimist(process.argv.slice(2))
+    ...defaultScriptoniOptions,
+    ...getParsedArgs()
   };
-  return valueOrThrow(Args, args as any);
+  return valueOrThrow(ScriptoniOptions, args);
 };

@@ -1,28 +1,29 @@
 import { execSync } from 'child_process';
-import { Args } from '../model';
-import { getArgs } from '../util';
+import { getParsedArgs } from '../util';
+import minimist = require('minimist');
+import omit = require('lodash/omit');
+import { ScriptoniOptions } from '../model';
 
-export default function execCommand(cmd: string, defaultArgs: Args, logger: debug.IDebugger) {
-  const userArgs = getArgs();
+export default function execCommand(
+  cmd: string,
+  defaultArgs: { _?: string[] } & { [k: string]: any },
+  logger: debug.IDebugger
+) {
+  // do not pass scriptoni's CLI options to the third-party command
+  const commandArgs = omit(getParsedArgs(), Object.keys(ScriptoniOptions.props));
 
-  const args: Args = {
+  const args: minimist.ParsedArgs = {
     ...defaultArgs,
-    ...userArgs,
-    _: userArgs._.length > 0 ? userArgs._ : ((defaultArgs._ || []) as any)
+    ...commandArgs,
+    _: commandArgs._.length > 0 ? commandArgs._ : defaultArgs._ || []
   };
 
   const command = [
     cmd,
     ...args._,
-    ...(Object.keys(args) as (keyof Args)[])
-      .filter(k => k !== '_' && typeof args[k] !== 'undefined')
-      .map(k => {
-        if (typeof args[k] === 'boolean') {
-          return `--${k}`;
-        } else {
-          return `--${k} ${args[k]}`;
-        }
-      })
+    ...Object.keys(args)
+      .filter(k => k !== '_')
+      .map(k => (typeof args[k] === 'boolean' ? `--${k}` : `--${k} ${args[k]}`))
   ].join(' ');
 
   logger(`Running  ${command}`);

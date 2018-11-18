@@ -1,15 +1,14 @@
 import * as webpack from 'webpack';
 import * as t from 'io-ts';
 
-export const Args = t.interface({
-  _: t.array(t.string),
+export const ScriptoniOptions = t.interface({
   c: t.string,
   paths: t.string,
   webpackConfig: t.union([t.undefined, t.string]),
   metarpheusConfig: t.string,
   bundleAnalyzer: t.union([t.undefined, t.boolean])
 });
-export type Args = t.TypeOf<typeof Args>;
+export type ScriptoniOptions = t.TypeOf<typeof ScriptoniOptions>;
 
 export const Config = t.interface({
   port: t.number,
