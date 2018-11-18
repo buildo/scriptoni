@@ -17,7 +17,7 @@ A set of shared scripts for your front-end apps.
 
 ### `metarpheus`
 
-Metarpheus generates tcomb-annotated TS models based on your Scala API. To use,
+Metarpheus generates io-ts-annotated TS models based on your Scala API. To use,
 add this script to your `package.json`:
 
 ```js
@@ -91,7 +91,7 @@ where:
 **`./config` directory**
 
 The `config` directory should include:
-- a `Config.js` file. It should export a `tcomb` type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
+- a `Config.js` file. It should export a `io-ts` type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
 - any of `production.json`, `development.json`, `local.json` (all are optional): production and development should be tracked in version control, they are the default/base for `NODE_ENV=production` and `=development`, respectively. `local.json` is inteded to be used for custom, per-developer config tweaks, and should not be committed.
 
 The final configuration used to run webpack is obtained by merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
