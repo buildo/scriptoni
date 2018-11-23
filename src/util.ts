@@ -27,7 +27,7 @@ export function valueOrThrow<O, I>(iotsType: t.Type<O, I>, value: I): O {
 }
 
 export const getParsedArgs = () => {
-  return minimist(process.argv.slice(2));
+  return minimist(process.argv.slice(3)); // first arg is scriptoni's script (ex: web-build, metarpheus...)
 };
 
 export const getMetarpheusCLIOptions = (): MetarpheusCLIOptions => {
