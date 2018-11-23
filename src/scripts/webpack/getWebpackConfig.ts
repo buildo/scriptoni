@@ -6,8 +6,6 @@ import { logger } from '../../util';
 import { WebpackConfiguration, WebpackCLIOptions } from '../../model';
 import { WebpackConfigBuilderInput } from './webpack.base';
 
-const NODE_ENV = process.env.NODE_ENV;
-
 type CustomizeFunction = (
   defaultConfiguration: WebpackConfiguration,
   options: WebpackConfigBuilderInput & { target: 'dev' | 'build' }
@@ -30,10 +28,15 @@ export default function getWebpackConfig(
   const customizeConfigFn: CustomizeFunction = customConfig ? require(customConfig) : identity;
 
   logger.webpack('platform', process.platform);
-  logger.webpack('building with', `NODE_ENV=${NODE_ENV}`);
+  logger.webpack('building with', `NODE_ENV=${process.env.NODE_ENV}`);
   logger.webpack('Configuration', JSON.stringify(config, null, 4));
 
-  const webpackConfigBuilderInput = { config, paths, NODE_ENV, bundleAnalyzer };
+  const webpackConfigBuilderInput = {
+    config,
+    paths,
+    NODE_ENV: process.env.NODE_ENV,
+    bundleAnalyzer
+  };
   return customizeConfigFn(webpackConfigFn(webpackConfigBuilderInput), {
     ...webpackConfigBuilderInput,
     target

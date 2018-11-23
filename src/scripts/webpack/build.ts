@@ -6,9 +6,9 @@ import getWebpackConfig from './getWebpackConfig';
 import { WebpackCLIOptions } from '../../model';
 
 export default async (cliOptions: WebpackCLIOptions) => {
-  const webpackBuildObject = getWebpackConfig(webpackBuild, 'build', cliOptions);
+  const webpackConfiguration = getWebpackConfig(webpackBuild, 'build', cliOptions);
 
-  compiler(webpackBuildObject).run((err, stats) => {
+  compiler(webpackConfiguration).run((err, stats) => {
     if (err) {
       throw err;
     }
