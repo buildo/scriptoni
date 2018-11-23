@@ -9,4 +9,4 @@ const defaultArgs = {
   _: ['"src/**/*.scss"']
 };
 
-execCommand(cmd, defaultArgs, logger.lintStyle);
+export default async () => execCommand(cmd, defaultArgs, logger.lintStyle);

@@ -2,6 +2,7 @@ import execCommand from '../execCommand';
 import { logger } from '../../util';
 import getDefaultArgs from './getDefaultArgs';
 
-const defaultArgs = getDefaultArgs('write');
-
-execCommand('prettier', defaultArgs, logger.prettier);
+export default async () => {
+  const defaultArgs = getDefaultArgs('write');
+  return execCommand('prettier', defaultArgs, logger.prettier);
+};

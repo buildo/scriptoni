@@ -8,7 +8,7 @@ export default function execCommand(
   cmd: string,
   defaultArgs: { _?: string[] } & { [k: string]: any },
   logger: debug.IDebugger
-) {
+): Promise<void> {
   // do not pass scriptoni's CLI options to the third-party command
   const commandArgs = omit(getParsedArgs(), Object.keys(ScriptoniOptions.props));
 
@@ -28,9 +28,12 @@ export default function execCommand(
 
   logger(`Running  ${command}`);
 
-  try {
-    execSync(command, { stdio: 'inherit' });
-  } catch (err) {
-    process.exit(1);
-  }
+  return new Promise((resolve, reject) => {
+    try {
+      execSync(command, { stdio: 'inherit' });
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
 }

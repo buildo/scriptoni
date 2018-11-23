@@ -10,5 +10,5 @@ module.exports = () => {
   console.log('🕒 Preparing to run the tests! This will take a few minutes...');
   console.log('🕒 Please be patient (or smart and improve `scriptoni/test/globalSetup.js`)');
   console.log();
-  return runCommands([`cd ${scriptoniDir}`, 'yarn build', `cd ${templateDir}`, 'yarn']);
+  return runCommands([`cd ${scriptoniDir}`, 'yarn build', `cd ${templateDir}`]);
 };
