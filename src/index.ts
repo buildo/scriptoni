@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as t from 'io-ts';
 import * as rimraf from 'rimraf';
-import { logger, valueOrThrow } from './util';
+import { logger, valueOrThrow, getMetarpheusCLIOptions, getWebpackCLIOptions } from './util';
 import metarpheus from './scripts/metarpheus';
 import metarpheusDiff from './scripts/metarpheus-diff';
 import prettierWrite from './scripts/prettier/write';
@@ -41,19 +41,19 @@ if (script === 'web-build') {
 function runScript(script: Script): Promise<void> {
   switch (script) {
     case 'metarpheus':
-      return metarpheus();
+      return metarpheus(getMetarpheusCLIOptions());
     case 'metarpheus-diff':
-      return metarpheusDiff();
+      return metarpheusDiff(getMetarpheusCLIOptions());
     case 'lint-style':
       return stylelintCheck();
     case 'stylefmt':
       return stylelintWrite();
     case 'web-dev':
       cleanBuildFolder();
-      return webpackDev();
+      return webpackDev(getWebpackCLIOptions());
     case 'web-build':
       cleanBuildFolder();
-      return webpackBuild();
+      return webpackBuild(getWebpackCLIOptions());
     case 'prettier-write':
       return prettierWrite();
     case 'prettier-check':

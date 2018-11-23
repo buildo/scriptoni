@@ -3,17 +3,15 @@ import webpackConfig from './webpack.dev';
 import compiler from './compiler';
 import getConfig from './config';
 import getWebpackConfig from './getWebpackConfig';
-import { getScriptoniOptions } from '../../util';
+import { WebpackCLIOptions } from '../../model';
 
-export default async () => {
-  const options = getScriptoniOptions();
-
-  const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev', options);
+export default async (cliOptions: WebpackCLIOptions) => {
+  const webpackConfigObject = getWebpackConfig(webpackConfig, 'dev', cliOptions);
 
   const server = new webpackServer(
     compiler(webpackConfigObject),
     webpackConfigObject.devServer || {}
   );
 
-  server.listen(getConfig(options).port);
+  server.listen(getConfig(cliOptions).port);
 };

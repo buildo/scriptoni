@@ -1,10 +1,10 @@
 import * as path from 'path';
 import * as t from 'io-ts';
-import { ScriptoniOptions, Paths } from '../../model';
+import { WebpackCLIOptions, Paths } from '../../model';
 import * as fs from 'fs';
 import { valueOrThrow } from '../../util';
 
-export default function getPaths(options: ScriptoniOptions): Paths {
+export default function getPaths(options: WebpackCLIOptions): Paths {
   const pathsConfigPath = path.resolve(process.cwd(), options.paths);
   const userPaths = fs.existsSync(pathsConfigPath)
     ? valueOrThrow(t.partial(Paths.props), require(pathsConfigPath))

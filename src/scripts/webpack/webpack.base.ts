@@ -7,13 +7,18 @@ import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import * as fs from 'fs';
-import { ScriptoniOptions, WebpackOptions, WebpackConfiguration, Paths } from '../../model';
+import {
+  WebpackCLIOptions,
+  WebpackConfigurationOptions,
+  WebpackConfiguration,
+  Paths
+} from '../../model';
 
 export type WebpackConfigBuilderInput = {
-  config: WebpackOptions;
+  config: WebpackConfigurationOptions;
   paths: Paths;
   NODE_ENV: string | undefined;
-  bundleAnalyzer: ScriptoniOptions['bundleAnalyzer'];
+  bundleAnalyzer: WebpackCLIOptions['bundleAnalyzer'];
 };
 
 export default ({

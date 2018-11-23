@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ScriptoniOptions, MetarpheusConfig, PartialMetarpheusConfig } from '../../model';
+import { MetarpheusCLIOptions, MetarpheusConfig, PartialMetarpheusConfig } from '../../model';
 import { valueOrThrow } from '../../util';
 
 const defaultConfig: MetarpheusConfig = {
@@ -14,7 +14,7 @@ const defaultConfig: MetarpheusConfig = {
   apiOut: path.resolve(process.cwd(), 'src/metarpheus/api.ts')
 };
 
-export default function(options: ScriptoniOptions): MetarpheusConfig {
+export default function(options: MetarpheusCLIOptions): MetarpheusConfig {
   const userMetarpheusConfigPath = path.resolve(process.cwd(), options.metarpheusConfig);
 
   if (fs.existsSync(userMetarpheusConfigPath)) {

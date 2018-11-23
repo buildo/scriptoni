@@ -2,7 +2,7 @@ import * as debug from 'debug';
 import * as minimist from 'minimist';
 import * as t from 'io-ts';
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter';
-import { ScriptoniOptions } from './model';
+import { WebpackCLIOptions, MetarpheusCLIOptions } from './model';
 
 debug.enable('scriptoni:*');
 
@@ -30,18 +30,24 @@ export const getParsedArgs = () => {
   return minimist(process.argv.slice(2));
 };
 
-const defaultScriptoniOptions: ScriptoniOptions = {
-  paths: './paths.js',
-  metarpheusConfig: 'metarpheus-ts-config.js',
-  c: './config',
-  webpackConfig: undefined,
-  bundleAnalyzer: undefined
-};
-
-export const getScriptoniOptions = (): ScriptoniOptions => {
-  const args = {
-    ...defaultScriptoniOptions,
+export const getMetarpheusCLIOptions = (): MetarpheusCLIOptions => {
+  const args: unknown = {
     ...getParsedArgs()
   };
-  return valueOrThrow(ScriptoniOptions, args);
+  return valueOrThrow(MetarpheusCLIOptions, args);
+};
+
+export const getWebpackCLIOptions = (): WebpackCLIOptions => {
+  const defaultWebpackCLIOptions: WebpackCLIOptions = {
+    paths: './paths.js',
+    c: './config',
+    webpackConfig: undefined,
+    bundleAnalyzer: undefined
+  };
+
+  const args = {
+    ...defaultWebpackCLIOptions,
+    ...getParsedArgs()
+  };
+  return valueOrThrow(WebpackCLIOptions, args);
 };

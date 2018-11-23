@@ -1,22 +1,26 @@
 import * as webpack from 'webpack';
 import * as t from 'io-ts';
 
-export const ScriptoniOptions = t.interface({
+export const WebpackCLIOptions = t.interface({
   c: t.string,
   paths: t.string,
   webpackConfig: t.union([t.undefined, t.string]),
-  metarpheusConfig: t.string,
   bundleAnalyzer: t.union([t.undefined, t.boolean])
 });
-export type ScriptoniOptions = t.TypeOf<typeof ScriptoniOptions>;
+export type WebpackCLIOptions = t.TypeOf<typeof WebpackCLIOptions>;
 
-export const WebpackOptions = t.interface({
+export const MetarpheusCLIOptions = t.interface({
+  metarpheusConfig: t.string
+});
+export type MetarpheusCLIOptions = t.TypeOf<typeof MetarpheusCLIOptions>;
+
+export const WebpackConfigurationOptions = t.interface({
   port: t.number,
   title: t.union([t.undefined, t.string]),
   devTool: t.string,
   bundle: t.dictionary(t.string, t.any)
 });
-export type WebpackOptions = t.TypeOf<typeof WebpackOptions>;
+export type WebpackConfigurationOptions = t.TypeOf<typeof WebpackConfigurationOptions>;
 
 export type WebpackConfiguration = webpack.Configuration & {
   plugins: webpack.Plugin[];

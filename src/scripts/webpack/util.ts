@@ -1,8 +1,8 @@
-import { WebpackOptions, Paths } from '../../model';
+import { WebpackConfigurationOptions, Paths } from '../../model';
 
 export function getHtmlPluginConfig(
   NODE_ENV: string | undefined,
-  options: WebpackOptions,
+  options: WebpackConfigurationOptions,
   paths: Paths
 ) {
   return {

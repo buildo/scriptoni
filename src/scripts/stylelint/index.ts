@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { logger } from '../../util';
+import { logger, getParsedArgs } from '../../util';
 import execCommand from '../execCommand';
 
 const cwd = process.cwd();
@@ -9,4 +9,12 @@ const defaultArgs = {
   _: ['"src/**/*.scss"']
 };
 
-export default async () => execCommand(cmd, defaultArgs, logger.lintStyle);
+const parsedArgs = getParsedArgs();
+
+const args = {
+  ...defaultArgs,
+  ...parsedArgs,
+  _: parsedArgs._.length > 0 ? parsedArgs._ : defaultArgs._
+};
+
+export default async () => execCommand(cmd, args, logger.lintStyle);

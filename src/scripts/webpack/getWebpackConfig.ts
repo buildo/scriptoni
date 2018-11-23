@@ -3,7 +3,7 @@ import getPaths from './paths';
 import * as path from 'path';
 import identity = require('lodash/identity');
 import { logger } from '../../util';
-import { WebpackConfiguration, ScriptoniOptions } from '../../model';
+import { WebpackConfiguration, WebpackCLIOptions } from '../../model';
 import { WebpackConfigBuilderInput } from './webpack.base';
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -16,7 +16,7 @@ type CustomizeFunction = (
 export default function getWebpackConfig(
   webpackConfigFn: (input: WebpackConfigBuilderInput) => WebpackConfiguration,
   target: 'dev' | 'build',
-  options: ScriptoniOptions
+  options: WebpackCLIOptions
 ): WebpackConfiguration {
   const config = getConfig(options);
 

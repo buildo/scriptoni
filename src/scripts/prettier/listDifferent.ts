@@ -1,8 +1,13 @@
 import execCommand from '../execCommand';
-import { logger } from '../../util';
+import { logger, getParsedArgs } from '../../util';
 import getDefaultArgs from './getDefaultArgs';
 
 export default async () => {
   const defaultArgs = getDefaultArgs('list-different');
-  return execCommand('prettier', defaultArgs, logger.prettier);
+
+  const args = {
+    ...defaultArgs,
+    ...getParsedArgs()
+  };
+  return execCommand('prettier', args, logger.prettier);
 };

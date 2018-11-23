@@ -1,11 +1,12 @@
 import webpackBuild from './webpack.build';
 import compiler from './compiler';
-import { logger, getScriptoniOptions } from '../../util';
+import { logger } from '../../util';
 import { statsOutputConfiguration } from './util';
 import getWebpackConfig from './getWebpackConfig';
+import { WebpackCLIOptions } from '../../model';
 
-export default async () => {
-  const webpackBuildObject = getWebpackConfig(webpackBuild, 'build', getScriptoniOptions());
+export default async (cliOptions: WebpackCLIOptions) => {
+  const webpackBuildObject = getWebpackConfig(webpackBuild, 'build', cliOptions);
 
   compiler(webpackBuildObject).run((err, stats) => {
     if (err) {

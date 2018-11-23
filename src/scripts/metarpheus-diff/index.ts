@@ -3,7 +3,8 @@ import { structuredPatch, createTwoFilesPatch } from 'diff';
 import chalk from 'chalk';
 import getMetarpheusConfig from '../metarpheus/config';
 import { runMetarpheusIoTs } from '../metarpheus/run';
-import { logger, getScriptoniOptions } from '../../util';
+import { logger } from '../../util';
+import { MetarpheusCLIOptions } from '../../model';
 
 const { green, red } = chalk;
 
@@ -25,9 +26,8 @@ function colorizePatch(patch: string): string {
     .join('\n');
 }
 
-export default async () => {
-  const options = getScriptoniOptions();
-  const metarpheusConfig = getMetarpheusConfig(options);
+export default async (cliOptions: MetarpheusCLIOptions) => {
+  const metarpheusConfig = getMetarpheusConfig(cliOptions);
 
   const { model, api } = runMetarpheusIoTs(metarpheusConfig);
 
