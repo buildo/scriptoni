@@ -1,11 +1,17 @@
-export function getHtmlPluginConfig(NODE_ENV, config, paths) {
+import { WebpackConfigurationOptions, Paths } from '../../model';
+
+export function getHtmlPluginConfig(
+  NODE_ENV: string | undefined,
+  options: WebpackConfigurationOptions,
+  paths: Paths
+) {
   return {
     inject: false,
     bundle: NODE_ENV === 'production',
     minify: NODE_ENV === 'production' ? {} : false,
     template: paths.TEMPLATE,
-    title: config.title,
-    data: config.bundle
+    title: options.title,
+    data: options.bundle
   };
 }
 

@@ -1,30 +1,18 @@
-import path from 'path';
-import t from 'tcomb';
-import { loadFileFromArgument } from '../../util';
+import * as path from 'path';
+import * as t from 'io-ts';
+import { WebpackCLIOptions, Paths } from '../../model';
+import * as fs from 'fs';
+import { valueOrThrow } from '../../util';
 
-const Paths = t.interface({
-  ROOT: t.String,
-  SRC: t.String,
-  ENTRY: t.String,
-  LOCALES: t.String,
-  THEME: t.String,
-  THEME_FONTS: t.String,
-  BUILD: t.String,
-  ASSETS: t.String,
-  NODE_MODULES: t.String,
-  COMPONENTS: t.String,
-  BASIC_COMPONENTS: t.String,
-  VIRTUAL_CONFIG: t.String,
-  TEMPLATE: t.String,
-  VARIABLES_MATCH: t.Object, // regex
-  BABELRC: t.String
-});
+export default function getPaths(options: WebpackCLIOptions): Paths {
+  const pathsConfigPath = path.resolve(process.cwd(), options.paths);
+  const userPaths = fs.existsSync(pathsConfigPath)
+    ? valueOrThrow(t.partial(Paths.props), require(pathsConfigPath))
+    : {};
 
-export default function getPaths(args) {
-  const userPaths = loadFileFromArgument(args, 'paths', './paths.js') || {};
   const ROOT = userPaths.ROOT || process.cwd();
 
-  return Paths({
+  return {
     // defaultPaths
     ROOT,
     SRC: path.resolve(ROOT, 'src'),
@@ -43,6 +31,5 @@ export default function getPaths(args) {
     BABELRC: path.resolve(ROOT, '.babelrc'),
     // give priority to user custom paths
     ...userPaths
-  });
-
+  };
 }

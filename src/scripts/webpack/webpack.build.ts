@@ -1,12 +1,14 @@
-import webpack from 'webpack';
-import CompressionPlugin from 'compression-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import webpackFailPlugin from 'webpack-fail-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import WebpackBase from './webpack.base';
+import * as webpack from 'webpack';
+import * as CompressionPlugin from 'compression-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpackFailPlugin = require('webpack-fail-plugin');
+import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import WebpackBase, { WebpackConfigBuilderInput } from './webpack.base';
+import { WebpackConfiguration } from '../../model';
 
-export default ({ config, paths, NODE_ENV, ...options }) => {
-  const base = WebpackBase({ config, paths, NODE_ENV, ...options });
+export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
+  const base = WebpackBase(input);
+  const { paths, NODE_ENV } = input;
 
   const plugins = [
     // cause failed production builds to fail faster
@@ -17,21 +19,25 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
   ];
 
   if (NODE_ENV === 'production') {
-    plugins.unshift(new CompressionPlugin({
-      test: /\.js$|\.css$/
-    }));
+    plugins.unshift(
+      new CompressionPlugin({
+        test: /\.js$|\.css$/
+      })
+    );
 
-    plugins.unshift(new UglifyJsPlugin({
-      uglifyOptions: {
-        ecma: 8,
-        output: {
-          ecma: 5
-        }
-      },
-      parallel: true,
-      cache: true,
-      sourceMap: true
-    }));
+    plugins.unshift(
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          ecma: 8,
+          output: {
+            ecma: 5
+          }
+        },
+        parallel: true,
+        cache: true,
+        sourceMap: true
+      })
+    );
   }
 
   return {
@@ -61,7 +67,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
               loader: 'css-loader'
             }
           ]
-        },
+        } as webpack.Rule,
         // SASS
         {
           test: /\.scss$/,
@@ -70,7 +76,8 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: { sourceMap: true }
-            }, {
+            },
+            {
               loader: 'resolve-url-loader'
             },
             {
@@ -82,7 +89,7 @@ export default ({ config, paths, NODE_ENV, ...options }) => {
               options: { sourceMap: true }
             }
           ]
-        }
+        } as webpack.Rule
       ]
     }
   };

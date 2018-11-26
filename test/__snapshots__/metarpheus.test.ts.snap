@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`metarpheus metarpheusConfig option should read the correct config file 1`] = `
+"API_PRELUDE
+
+export default function getRoutes(config: RouteConfig) {
+  return {
+
+  }
+}"
+`;
+
+exports[`metarpheus metarpheusConfig option should read the correct config file 2`] = `
+"// DO NOT EDIT MANUALLY - metarpheus-generated
+import * as t from 'io-ts'
+
+MODEL_PRELUDE
+export interface Account {
+  id: string,
+  username: string,
+  email?: string,
+  publicKey: string
+}
+
+export const Account = t.interface({
+  id: t.string,
+  username: t.string,
+  email: t.union([
+    t.string,
+    t.undefined
+  ]),
+  publicKey: t.string
+}, 'Account')"
+`;

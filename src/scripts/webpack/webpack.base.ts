@@ -1,15 +1,32 @@
-import webpack from 'webpack';
-import HTMLPlugin from 'html-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import StyleLintPlugin from 'stylelint-webpack-plugin';
-import VirtualModulePlugin from 'virtual-module-webpack-plugin';
+import * as webpack from 'webpack';
+import * as HTMLPlugin from 'html-webpack-plugin';
+import * as ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import * as StyleLintPlugin from 'stylelint-webpack-plugin';
+import * as VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import fs from 'fs';
+import * as fs from 'fs';
+import {
+  WebpackCLIOptions,
+  WebpackConfigurationOptions,
+  WebpackConfiguration,
+  Paths
+} from '../../model';
 
-export default ({ config, paths, NODE_ENV, bundleAnalyzer }) => {
+export type WebpackConfigBuilderInput = {
+  config: WebpackConfigurationOptions;
+  paths: Paths;
+  NODE_ENV: string | undefined;
+  bundleAnalyzer: WebpackCLIOptions['bundleAnalyzer'];
+};
 
+export default ({
+  config,
+  paths,
+  NODE_ENV,
+  bundleAnalyzer
+}: WebpackConfigBuilderInput): WebpackConfiguration => {
   const BabelLoader = {
     loader: 'babel-loader',
     options: JSON.parse(fs.readFileSync(paths.BABELRC, { encoding: 'utf8' }))
@@ -17,9 +34,7 @@ export default ({ config, paths, NODE_ENV, bundleAnalyzer }) => {
 
   return {
     resolve: {
-      modules: [
-        paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES
-      ],
+      modules: [paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES],
       extensions: ['.js', '.ts', '.tsx', '.json']
     },
 
@@ -47,40 +62,27 @@ export default ({ config, paths, NODE_ENV, bundleAnalyzer }) => {
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new StyleLintPlugin({
-        files: '**/*.scss',
+        files: ['**/*.scss'],
         syntax: 'scss'
       }),
       new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
-    ].concat(
-      bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []
-    ),
+    ].concat(bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []),
 
     module: {
       rules: [
-        // linting with eslint
-        {
-          enforce: 'pre',
-          test: /\.jsx?$/, // test for both js and jsx
-          use: [{
-            loader: 'eslint-loader',
-            options: {
-              failOnError: NODE_ENV === 'production',
-              failOnWarning: NODE_ENV === 'production'
-            }
-          }],
-          include: paths.SRC,
-          exclude: paths.ASSETS
-        },
-
         // TypeScript transpiler
         {
           test: /\.tsx?$/,
-          use: [BabelLoader, {
-            loader: 'ts-loader'
-          }],
+          use: [
+            BabelLoader,
+            {
+              loader: 'ts-loader'
+            }
+          ],
           exclude: [paths.ASSETS],
           include: [paths.SRC]
-        }, {
+        },
+        {
           test: /\.jsx?$/,
           use: [BabelLoader],
           exclude: [paths.ASSETS],
@@ -90,55 +92,66 @@ export default ({ config, paths, NODE_ENV, bundleAnalyzer }) => {
         // copy theme fonts
         {
           test: paths.THEME_FONTS,
-          use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              context: paths.THEME
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+                context: paths.THEME
+              }
             }
-          }]
+          ]
         },
         // copy png and jpg images
         {
           test: /\.(png|jpg)$/,
           exclude: [paths.ASSETS],
-          use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]'
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]'
+              }
             }
-          }]
+          ]
         },
         // copy svg images
         {
           test: /\.svg$/,
-          use: [{
-            ...BabelLoader,
-            options: {
-              ...BabelLoader.options,
-              presets: ['react']
+          use: [
+            {
+              ...BabelLoader,
+              options: {
+                ...BabelLoader.options,
+                presets: ['react']
+              }
+            },
+            {
+              loader: 'svg-react-loader'
             }
-          }, {
-            loader: 'svg-react-loader'
-          }]
+          ]
         },
         // import sass variables in JS
         {
           test: paths.VARIABLES_MATCH,
-          use: [{
-            loader: 'sass-variables-loader'
-          }]
+          use: [
+            {
+              loader: 'sass-variables-loader'
+            }
+          ]
         },
         // copy generic assets, if any
         {
           include: [paths.ASSETS],
-          use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              context: paths.ASSETS
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+                context: paths.ASSETS
+              }
             }
-          }]
+          ]
         }
       ]
     },

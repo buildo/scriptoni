@@ -6,6 +6,6 @@ import io.circe.generic.JsonCodec
 @JsonCodec case class Account(
   id: String,
   username: String,
-  email: String,
+  email: Option[String],
   publicKey: String
 )

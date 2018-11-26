@@ -13,9 +13,7 @@
     "jsx": "react",
     "removeComments": true,
     "experimentalDecorators": true,
-    "lib": [
-      "es6", "dom"
-    ],
+    "lib": ["es6", "dom"],
     "paths": {
       "model": ["src/model"],
       "HTTPAPI": ["src/HTTPAPI"],
@@ -24,18 +22,9 @@
       "queries": ["src/queries"],
       "commands": ["src/commands"],
       "transitions": ["src/transitions"],
-      "*": [
-        "src/components/Basic/*",
-        "src/components/*",
-        "src/*"
-      ]
+      "*": ["src/components/Basic/*", "src/components/*", "src/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "test/template-app"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "test/template-app"]
 }
