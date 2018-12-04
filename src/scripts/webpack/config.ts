@@ -56,9 +56,8 @@ export default function getWebpackOptions(options: WebpackCLIOptions): WebpackCo
 
   // get env variables configuration
   const topLevelKeys = Object.keys(omit(ConfigValidator.props, 'bundle'));
-  const bundleKeys =
-    ConfigValidator.props.bundle && typeof ConfigValidator.props.bundle.props === 'object'
-      ? Object.keys(ConfigValidator.props.bundle.props)
+  const bundleKeys = ConfigValidator.props && typeof ConfigValidator.props === 'object'
+      ? Object.keys(ConfigValidator.props)
       : [];
 
   // merge configurations in single object (env > local > reference)
