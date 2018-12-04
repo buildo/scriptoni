@@ -2,6 +2,13 @@
 
 
 
+## [v1.0.0](https://github.com/buildo/scriptoni/tree/v1.0.0) (2018-12-04)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v0.17.0...v1.0.0)
+
+#### Breaking:
+
+- rewrite in TS [#196](https://github.com/buildo/scriptoni/issues/196)
+
 ## [v0.17.0](https://github.com/buildo/scriptoni/tree/v0.17.0) (2018-11-09)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.16.0...v0.17.0)
 
