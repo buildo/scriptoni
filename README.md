@@ -91,7 +91,7 @@ where:
 **`./config` directory**
 
 The `config` directory should include:
-- a `Config.js` file. It should export a `io-ts` type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
+- a `Config.ts` file. It should export a `io-ts` type validating the configuration. Currently only `port` is strictly required by scriptoni webpack to work
 - any of `production.json`, `development.json`, `local.json` (all are optional): production and development should be tracked in version control, they are the default/base for `NODE_ENV=production` and `=development`, respectively. `local.json` is inteded to be used for custom, per-developer config tweaks, and should not be committed.
 
 The final configuration used to run webpack is obtained by merging `development.json` (`production.json` if `NODE_ENV=production`), `local.json` (which takes precedence) and (with maximum priority) environment variables corresponding to single config keys.
@@ -102,7 +102,7 @@ The virtual 'config' module obtained is available as `import config from 'config
 
 Not every config keys is actually part of the final bundle, In other words, not every config key is visible to TS code when importing from 'config'. The bundled configs should be specified as part of a sub-key `bundle`:
 ```js
-// config/Config.js
+// config/Config.ts
 t.interface({
   port: t.Integer,
   bundle: t.interface({

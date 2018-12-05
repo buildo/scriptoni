@@ -13,7 +13,7 @@ const getJSONConfiguration = (fullPath: string): { [k: string]: any } => {
 };
 
 const getConfigValidator = (configFolderPath: string): t.InterfaceType<any> => {
-  const configTypePath = path.resolve(configFolderPath, './Config.js');
+  const configTypePath = path.resolve(configFolderPath, './Config.ts');
 
   if (!fs.existsSync(configTypePath)) {
     throw new Error(`No Config type definition file found in ${configTypePath}`);
@@ -56,7 +56,8 @@ export default function getWebpackOptions(options: WebpackCLIOptions): WebpackCo
 
   // get env variables configuration
   const topLevelKeys = Object.keys(omit(ConfigValidator.props, 'bundle'));
-  const bundleKeys = ConfigValidator.props && typeof ConfigValidator.props === 'object'
+  const bundleKeys = 
+    ConfigValidator.props && typeof ConfigValidator.props === 'object'
       ? Object.keys(ConfigValidator.props)
       : [];
 
