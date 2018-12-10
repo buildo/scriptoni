@@ -2,6 +2,14 @@
 
 
 
+## [v1.0.1](https://github.com/buildo/scriptoni/tree/v1.0.1) (2018-12-10)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v1.0.0...v1.0.1)
+
+#### Fixes (bugs & defects):
+
+- TypeError: Cannot read property 'ts' of undefined [#231](https://github.com/buildo/scriptoni/issues/231)
+- scriptoni web-dev does not work [#229](https://github.com/buildo/scriptoni/issues/229)
+
 ## [v1.0.0](https://github.com/buildo/scriptoni/tree/v1.0.0) (2018-12-04)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v0.17.0...v1.0.0)
 
