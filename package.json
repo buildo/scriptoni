@@ -94,7 +94,7 @@
     "stylelint-config-buildo": "github:buildo/stylelint-config",
     "stylelint-webpack-plugin": "^0.10.4",
     "svg-react-loader": "^0.4.4",
-    "ts-loader": "^4.2.0",
+    "ts-loader": "^5.3.1",
     "typescript": "^3.1.6",
     "uglifyjs-webpack-plugin": "^1.2.3",
     "virtual-module-webpack-plugin": "^0.4.0",
