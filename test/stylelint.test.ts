@@ -5,7 +5,7 @@ import { runCommands, templateDir } from './utils';
 describe('stylelint check', () => {
   it('no errors in template', async () => {
     return runCommands([`cd ${templateDir}`, 'yarn lint-style']);
-  });
+  }, 20000);
 
   it('exits with 1 if has errors', async () => {
     fs.writeFileSync(path.resolve(templateDir, 'src/temp.scss'), '.input { margin-left: 5px }');
@@ -16,5 +16,5 @@ describe('stylelint check', () => {
 
     // has found errors
     expect(exitCode).toBe(1);
-  });
+  }, 20000);
 });

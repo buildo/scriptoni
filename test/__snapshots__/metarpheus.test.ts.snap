@@ -22,13 +22,14 @@ export interface Account {
   publicKey: string
 }
 
-export const Account = t.interface({
-  id: t.string,
-  username: t.string,
-  email: t.union([
-    t.string,
-    t.undefined
-  ]),
-  publicKey: t.string
-}, 'Account')"
+export const Account = t.intersection([
+  t.interface({
+    id: t.string,
+    username: t.string,
+    publicKey: t.string
+  }),
+  t.partial({
+    email: t.string
+  })
+])"
 `;
