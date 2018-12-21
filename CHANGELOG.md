@@ -2,6 +2,13 @@
 
 
 
+## [v2.0.0](https://github.com/buildo/scriptoni/tree/v2.0.0) (2018-12-21)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v1.0.1...v2.0.0)
+
+#### Breaking:
+
+- upgrade metarpheus-io-ts [#235](https://github.com/buildo/scriptoni/issues/235)
+
 ## [v1.0.1](https://github.com/buildo/scriptoni/tree/v1.0.1) (2018-12-10)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v1.0.0...v1.0.1)
 
