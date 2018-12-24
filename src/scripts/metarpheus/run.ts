@@ -22,7 +22,11 @@ export function runMetarpheusIoTs(metarpheusConfig: MetarpheusConfig) {
   logger.metarpheus('Starting metarpheus-io-ts');
   const model = getModels(
     intermRep.models,
-    { isReadonly: metarpheusConfig.isReadonly, runtime: metarpheusConfig.runtime },
+    {
+      isReadonly: metarpheusConfig.isReadonly,
+      runtime: metarpheusConfig.runtime,
+      useLegacyNewtype: metarpheusConfig.useLegacyNewtype
+    },
     metarpheusConfig.modelPrelude
   );
 

@@ -7,6 +7,7 @@ const defaultConfig: MetarpheusConfig = {
   isReadonly: false,
   runtime: true,
   modelsForciblyInUse: [],
+  useLegacyNewtype: false,
   modelPrelude: '',
   apiPrelude: '',
   apiPaths: [path.resolve(process.cwd(), '../api/src/main/scala')],
