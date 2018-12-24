@@ -35,7 +35,8 @@ const metarpheusConfigProperties = {
   apiOut: t.string,
   apiPrelude: t.string,
   modelPrelude: t.string,
-  modelsForciblyInUse: t.array(t.string)
+  modelsForciblyInUse: t.array(t.string),
+  useLegacyNewtype: t.boolean
 };
 
 export const PartialMetarpheusConfig = t.partial(metarpheusConfigProperties);
