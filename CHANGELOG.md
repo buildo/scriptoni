@@ -2,6 +2,20 @@
 
 
 
+## [v3.0.0](https://github.com/buildo/scriptoni/tree/v3.0.0) (2018-12-27)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v2.0.2...v3.0.0)
+
+#### Breaking:
+
+- upgrade metarpheus-io-ts [#241](https://github.com/buildo/scriptoni/issues/241)
+
+## [v2.0.2](https://github.com/buildo/scriptoni/tree/v2.0.2) (2018-12-27)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v2.0.1...v2.0.2)
+
+#### Fixes (bugs & defects):
+
+- apiPrelude should not default to '' [#239](https://github.com/buildo/scriptoni/issues/239)
+
 ## [v2.0.1](https://github.com/buildo/scriptoni/tree/v2.0.1) (2018-12-24)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v2.0.0...v2.0.1)
 
