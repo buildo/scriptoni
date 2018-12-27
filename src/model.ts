@@ -33,8 +33,8 @@ const metarpheusConfigProperties = {
   apiPaths: t.array(t.string),
   modelOut: t.string,
   apiOut: t.string,
-  apiPrelude: t.string,
-  modelPrelude: t.string,
+  apiPrelude: t.union([t.string, t.undefined]),
+  modelPrelude: t.union([t.string, t.undefined]),
   modelsForciblyInUse: t.array(t.string),
   useLegacyNewtype: t.boolean
 };

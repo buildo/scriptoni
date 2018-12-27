@@ -8,8 +8,8 @@ const defaultConfig: MetarpheusConfig = {
   runtime: true,
   modelsForciblyInUse: [],
   useLegacyNewtype: false,
-  modelPrelude: '',
-  apiPrelude: '',
+  modelPrelude: undefined,
+  apiPrelude: undefined,
   apiPaths: [path.resolve(process.cwd(), '../api/src/main/scala')],
   modelOut: path.resolve(process.cwd(), 'src/metarpheus/model.ts'),
   apiOut: path.resolve(process.cwd(), 'src/metarpheus/api.ts')
