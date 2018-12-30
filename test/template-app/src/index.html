@@ -15,10 +15,10 @@
     </script>
 
     <!-- CSS Bundle -->
-    <% for (var chunk in htmlWebpackPlugin.files.chunks.main.css) { %>
+    <% for (var chunk in htmlWebpackPlugin.files.css) { %>
       <link
         rel="stylesheet"
-        href="<%= htmlWebpackPlugin.options.buildPath %><%= htmlWebpackPlugin.files.chunks.main.css[chunk]%>"
+        href="<%= htmlWebpackPlugin.options.buildPath %><%= htmlWebpackPlugin.files.css[chunk]%>"
         media="all"
       />
     <% } %>
