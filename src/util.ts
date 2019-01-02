@@ -10,7 +10,6 @@ export const logger = {
   bin: debug('scriptoni:bin'),
   metarpheus: debug('scriptoni:metarpheus'),
   metarpheusDiff: debug('scriptoni:metarpheus-diff'),
-  lintStyle: debug('scriptoni:lint-style'),
   webpack: debug('scriptoni:webpack'),
   prettier: debug('scriptoni:prettier')
 };

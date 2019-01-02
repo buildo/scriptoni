@@ -13,8 +13,6 @@
   "scripts": {
     "build": "rimraf lib/* && tsc && yarn copy-files",
     "copy-files": "ts-node ./copy-files.ts",
-    "lint-style": "node bin/scriptoni.js lint-style",
-    "lint-style-fix": "node bin/scriptoni.js lint-style-fix",
     "metarpheus": "node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "node bin/scriptoni.js metarpheus-diff",
     "test": "NODE_ENV= jest --runInBand",
