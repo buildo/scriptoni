@@ -6,7 +6,6 @@ const copyToLib = (file: string) => {
 };
 
 const files = [
-  'scripts/stylelint/stylelintrc.json',
   'scripts/webpack/tsconfig.json',
   'scripts/prettier/.prettierrc.js'
 ];
