@@ -21,10 +21,13 @@ value will thus be undefined.
 
 const queries = declareQueries({ randomName });
 
-const HelloName = queries(({ randomName }: typeof queries.Props) => (
-  !randomName.ready ? <View>...</View> : <FormattedMessage id='Hello.hello' values={{ name: randomName.value }} />
-));
-
+const HelloName = queries(({ randomName }: typeof queries.Props) =>
+  !randomName.ready ? (
+    <View>...</View>
+  ) : (
+    <FormattedMessage id="Hello.hello" values={{ name: randomName.value }} />
+  )
+);
 
 /*
 
@@ -38,10 +41,10 @@ it could be available indefinitely.
 */
 
 type State = {
-  value: string,
-  length: number,
-  showError: boolean
-}
+  value: string;
+  length: number;
+  showError: boolean;
+};
 
 export default class Hello extends React.Component<{}, State> {
   state = {
@@ -63,7 +66,7 @@ export default class Hello extends React.Component<{}, State> {
     } else {
       this.setState({ value, showError: true });
     }
-  }
+  };
 
   render() {
     const {
@@ -72,22 +75,18 @@ export default class Hello extends React.Component<{}, State> {
     } = this;
 
     return (
-      <View column className='hello'>
-        <View vAlignContent='center'>
-          <View className='label'>length:</View>
-          <input
-            type='number'
-            value={value}
-            onChange={onLengthChange}
-          />
+      <View column className="hello">
+        <View vAlignContent="center">
+          <View className="label">length:</View>
+          <input type="number" value={value} onChange={onLengthChange} />
           {showError && (
-            <span className='warning'>
-              <FormattedMessage id='Hello.warningLength' />
+            <span className="warning">
+              <FormattedMessage id="Hello.warningLength" />
             </span>
           )}
         </View>
         <HelloName length={length} />
       </View>
-    )
+    );
   }
 }
