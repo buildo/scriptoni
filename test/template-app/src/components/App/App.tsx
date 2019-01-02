@@ -25,7 +25,7 @@ class App extends React.Component<typeof queries.Props> {
   render() {
     const { currentView } = this.props;
     return (
-      <View column className='app'>
+      <View column className="app">
         <h1>Bento App</h1>
         <SwitchViewDropdown />
         {currentView.ready && currentView.value === 'hello' && <Hello />}

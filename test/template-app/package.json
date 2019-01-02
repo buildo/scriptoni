@@ -4,8 +4,7 @@
   "scripts": {
     "metarpheus": "node ../../bin/scriptoni.js metarpheus --metarpheusConfig ./metarpheus.config.test.js",
     "start": "node ../../bin/scriptoni.js web-dev -c ./config",
-    "build": "node ../../bin/scriptoni.js web-build -c ./config",
-    "lint-style": "node ../../bin/scriptoni.js lint-style"
+    "build": "node ../../bin/scriptoni.js web-build -c ./config"
   },
   "dependencies": {
     "@buildo/bento": "^8.2.0",
