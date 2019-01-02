@@ -37,41 +37,6 @@ If this file is found, it will be merged with [scriptoni's default configuration
 Its configuration is identical to the one of the `metarpheus` script.
 
 
-### `stylelint`
-
-`stylelint` is used to enforce coding style to your sass files. Scriptoni provides a basic configuration for it, extending buildo's shared config: [stylelint-config](https://github.com/buildo/stylelint-config/).
-
-To use this tool:
-
-add the following script to your `package.json`:
-
-```json
-"lint-style": "scriptoni lint-style"
-```
-
-add a `.stylelintrc` file in the root folder of your project structured as follows:
-
-```js
-{
-  "extends": "./node_modules/scriptoni/lib/scripts/stylelint/stylelintrc.json"
-  // your custom rules here
-  ...
-}
-```
-
-Scriptoni also provides autofixing capabilities by adding the following script to your `package.json`:
-
-```json
-"lint-style-fix": "scriptoni stylefmt"
-```
-
-**Note**: you can pass any argument you would pass to ``stylelint` or `stylefmt` executables. By default, `stylelint` and `stylefmt` will analyze any `.scss` in you `/src` directory.
-You can analyze a different path by passing it as main arg to the script:
-
-```json
-"lint-style": "scriptoni lint-style source/**/*.css"
-```
-
 ### `webpack`
 
 Bundling your application with webpack is awesome. What's less awesome is having to configure it on every single project. `scriptoni` provides a default battle-tested webpack configuration for both development and production builds.

@@ -1,7 +1,6 @@
 import * as webpack from 'webpack';
 import * as HTMLPlugin from 'html-webpack-plugin';
 import * as ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import * as StyleLintPlugin from 'stylelint-webpack-plugin';
 import * as VirtualModulePlugin from 'virtual-module-webpack-plugin';
 import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
@@ -61,10 +60,6 @@ export default ({
         'process.env.__supportedLocales__': JSON.stringify(getSupportedLocales(paths.LOCALES))
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new StyleLintPlugin({
-        files: ['**/*.scss'],
-        syntax: 'scss'
-      }),
       new HTMLPlugin(getHtmlPluginConfig(NODE_ENV, config, paths))
     ].concat(bundleAnalyzer ? [new BundleAnalyzerPlugin()] : []),
 

@@ -6,16 +6,12 @@ import metarpheus from './scripts/metarpheus';
 import metarpheusDiff from './scripts/metarpheus-diff';
 import prettierWrite from './scripts/prettier/write';
 import prettierCheck from './scripts/prettier/listDifferent';
-import stylelintCheck from './scripts/stylelint';
-import stylelintWrite from './scripts/stylelint/stylefmt';
 import webpackDev from './scripts/webpack/dev';
 import webpackBuild from './scripts/webpack/build';
 
 const Script = t.union([
   t.literal('metarpheus'),
   t.literal('metarpheus-diff'),
-  t.literal('lint-style'),
-  t.literal('stylefmt'),
   t.literal('web-dev'),
   t.literal('web-build'),
   t.literal('prettier-check'),
@@ -44,10 +40,6 @@ function runScript(script: Script): Promise<void> {
       return metarpheus(getMetarpheusCLIOptions());
     case 'metarpheus-diff':
       return metarpheusDiff(getMetarpheusCLIOptions());
-    case 'lint-style':
-      return stylelintCheck();
-    case 'stylefmt':
-      return stylelintWrite();
     case 'web-dev':
       cleanBuildFolder();
       return webpackDev(getWebpackCLIOptions());
