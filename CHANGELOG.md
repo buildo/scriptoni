@@ -2,6 +2,18 @@
 
 
 
+## [v4.0.0](https://github.com/buildo/scriptoni/tree/v4.0.0) (2019-01-03)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v3.0.0...v4.0.0)
+
+#### Fixes (bugs & defects):
+
+- we are not prettifying scss files [#248](https://github.com/buildo/scriptoni/issues/248)
+- Scriptoni does not log errors [#234](https://github.com/buildo/scriptoni/issues/234)
+
+#### Breaking:
+
+- Remove stylelint [#245](https://github.com/buildo/scriptoni/issues/245)
+
 ## [v3.0.0](https://github.com/buildo/scriptoni/tree/v3.0.0) (2018-12-27)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v2.0.2...v3.0.0)
 
