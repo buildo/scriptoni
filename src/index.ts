@@ -54,6 +54,6 @@ function runScript(script: Script): Promise<void> {
 }
 
 runScript(script).catch(error => {
-  logger.bin(`${script} script error: ${error}`);
+  logger.error(`${script} script error: ${error}`);
   process.exit(1);
 });

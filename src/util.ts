@@ -8,6 +8,7 @@ debug.enable('scriptoni:*');
 
 export const logger = {
   bin: debug('scriptoni:bin'),
+  error: debug('scriptoni:error'),
   metarpheus: debug('scriptoni:metarpheus'),
   metarpheusDiff: debug('scriptoni:metarpheus-diff'),
   webpack: debug('scriptoni:webpack'),
