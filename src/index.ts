@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as t from 'io-ts';
 import * as rimraf from 'rimraf';
 import { logger, valueOrThrow, getMetarpheusCLIOptions, getWebpackCLIOptions } from './util';
 import metarpheus from './scripts/metarpheus';
@@ -8,16 +7,7 @@ import prettierWrite from './scripts/prettier/write';
 import prettierCheck from './scripts/prettier/listDifferent';
 import webpackDev from './scripts/webpack/dev';
 import webpackBuild from './scripts/webpack/build';
-
-const Script = t.union([
-  t.literal('metarpheus'),
-  t.literal('metarpheus-diff'),
-  t.literal('web-dev'),
-  t.literal('web-build'),
-  t.literal('prettier-check'),
-  t.literal('prettier-write')
-]);
-type Script = t.TypeOf<typeof Script>;
+import { Script } from './model';
 
 const script = valueOrThrow(Script, process.argv[2]);
 

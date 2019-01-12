@@ -3,13 +3,12 @@ import getPaths from './paths';
 import * as path from 'path';
 import identity = require('lodash/identity');
 import { logger } from '../../util';
-import { WebpackConfiguration, WebpackCLIOptions } from '../../model';
-import { WebpackConfigBuilderInput } from './webpack.base';
-
-type CustomizeFunction = (
-  defaultConfiguration: WebpackConfiguration,
-  options: WebpackConfigBuilderInput & { target: 'dev' | 'build' }
-) => WebpackConfiguration;
+import {
+  WebpackConfiguration,
+  WebpackCLIOptions,
+  CustomizeFunction,
+  WebpackConfigBuilderInput
+} from '../../model';
 
 export default function getWebpackConfig(
   webpackConfigFn: (input: WebpackConfigBuilderInput) => WebpackConfiguration,

@@ -6,19 +6,7 @@ import getSupportedLocales from './supportedLocales';
 import { getHtmlPluginConfig } from './util';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import * as fs from 'fs';
-import {
-  WebpackCLIOptions,
-  WebpackConfigurationOptions,
-  WebpackConfiguration,
-  Paths
-} from '../../model';
-
-export type WebpackConfigBuilderInput = {
-  config: WebpackConfigurationOptions;
-  paths: Paths;
-  NODE_ENV: string | undefined;
-  bundleAnalyzer: WebpackCLIOptions['bundleAnalyzer'];
-};
+import { WebpackConfiguration, WebpackConfigBuilderInput } from '../../model';
 
 export default ({
   config,

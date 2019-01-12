@@ -1,10 +1,8 @@
 import { getRoutes, getModels } from 'metarpheus-io-ts';
 import { logger } from '../../util';
 import { run } from 'metarpheus';
-import { MetarpheusConfig } from '../../model';
+import { MetarpheusConfig, MetarpheusOptions } from '../../model';
 import { Model, Route } from 'metarpheus-io-ts/lib/domain';
-
-type MetarpheusOptions = Pick<MetarpheusConfig, 'modelsForciblyInUse'>;
 
 function runMetarpheus(
   apiPaths: string[],
