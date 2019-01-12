@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
-import WebpackBase, { WebpackConfigBuilderInput } from './webpack.base';
+import WebpackBase from './webpack.base';
 import { statsOutputConfiguration } from './util';
-import { WebpackConfiguration } from '../../model';
+import { WebpackConfiguration, WebpackConfigBuilderInput } from '../../model';
 
 export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   const base = WebpackBase(input);

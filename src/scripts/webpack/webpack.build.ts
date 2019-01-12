@@ -3,8 +3,8 @@ import * as CompressionPlugin from 'compression-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpackFailPlugin = require('webpack-fail-plugin');
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import WebpackBase, { WebpackConfigBuilderInput } from './webpack.base';
-import { WebpackConfiguration } from '../../model';
+import WebpackBase from './webpack.base';
+import { WebpackConfiguration, WebpackConfigBuilderInput } from '../../model';
 
 export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   const base = WebpackBase(input);
