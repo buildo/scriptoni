@@ -11,7 +11,8 @@
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "pretty": true,
-    "lib": ["es6", "es7", "es2017"]
+    "lib": ["es6", "es7", "es2017"],
+    "declaration": true
   },
   "include": ["src/**/*", "typings"]
 }

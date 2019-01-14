@@ -1,6 +1,16 @@
 import * as webpack from 'webpack';
 import * as t from 'io-ts';
 
+export const Script = t.union([
+  t.literal('metarpheus'),
+  t.literal('metarpheus-diff'),
+  t.literal('web-dev'),
+  t.literal('web-build'),
+  t.literal('prettier-check'),
+  t.literal('prettier-write')
+]);
+export type Script = t.TypeOf<typeof Script>;
+
 export const WebpackCLIOptions = t.interface({
   c: t.string,
   paths: t.string,
@@ -45,6 +55,8 @@ export type PartialMetarpheusConfig = t.TypeOf<typeof PartialMetarpheusConfig>;
 export const MetarpheusConfig = t.interface(metarpheusConfigProperties);
 export type MetarpheusConfig = t.TypeOf<typeof MetarpheusConfig>;
 
+export type MetarpheusOptions = Pick<MetarpheusConfig, 'modelsForciblyInUse'>;
+
 export const Paths = t.interface({
   ROOT: t.string,
   SRC: t.string,
@@ -63,3 +75,15 @@ export const Paths = t.interface({
   BABELRC: t.string
 });
 export type Paths = t.TypeOf<typeof Paths>;
+
+export type WebpackConfigBuilderInput = {
+  config: WebpackConfigurationOptions;
+  paths: Paths;
+  NODE_ENV: string | undefined;
+  bundleAnalyzer: WebpackCLIOptions['bundleAnalyzer'];
+};
+
+export type CustomizeFunction = (
+  defaultConfiguration: WebpackConfiguration,
+  options: WebpackConfigBuilderInput & { target: 'dev' | 'build' }
+) => WebpackConfiguration;

@@ -8,7 +8,8 @@
   "description": "Configuration and scripts for buildo React apps",
   "main": "./bin/scriptoni.js",
   "bin": {
-    "scriptoni": "./bin/scriptoni.js"
+    "scriptoni": "./bin/scriptoni.js",
+    "scriptoni-ts": "./bin/scriptoni-ts.js"
   },
   "scripts": {
     "build": "rimraf lib/* && tsc && yarn copy-files",
@@ -54,8 +55,7 @@
     "@types/webpack-fail-plugin": "^1.0.7",
     "jest": "^23.5.0",
     "smooth-release": "^8.0.0",
-    "ts-jest": "^22.4.6",
-    "ts-node": "^7.0.1"
+    "ts-jest": "^22.4.6"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -90,6 +90,7 @@
     "style-loader": "^0.21.0",
     "svg-react-loader": "^0.4.4",
     "ts-loader": "^5.3.1",
+    "ts-node": "^7.0.1",
     "typescript": "^3.1.6",
     "uglifyjs-webpack-plugin": "^1.2.3",
     "virtual-module-webpack-plugin": "^0.4.0",
