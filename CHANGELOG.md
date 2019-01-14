@@ -2,6 +2,13 @@
 
 
 
+## [v4.0.1](https://github.com/buildo/scriptoni/tree/v4.0.1) (2019-01-14)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v4.0.0...v4.0.1)
+
+#### New features:
+
+- add support for config files in TS [#252](https://github.com/buildo/scriptoni/issues/252)
+
 ## [v4.0.0](https://github.com/buildo/scriptoni/tree/v4.0.0) (2019-01-03)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v3.0.0...v4.0.0)
 
