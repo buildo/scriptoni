@@ -2,6 +2,13 @@
 
 
 
+## [v5.0.0](https://github.com/buildo/scriptoni/tree/v5.0.0) (2019-01-18)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v4.0.1...v5.0.0)
+
+#### Breaking:
+
+- Webpack: stricter default tsconfig [#258](https://github.com/buildo/scriptoni/issues/258)
+
 ## [v4.0.1](https://github.com/buildo/scriptoni/tree/v4.0.1) (2019-01-14)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v4.0.0...v4.0.1)
 
