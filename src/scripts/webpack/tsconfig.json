@@ -3,7 +3,7 @@
     "module": "commonjs",
     "target": "esnext",
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "suppressImplicitAnyIndexErrors": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
