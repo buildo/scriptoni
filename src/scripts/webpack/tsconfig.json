@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ESNext",
-    "strict" true,
+    "target": "esnext",
+    "strict": true,
     "suppressImplicitAnyIndexErrors": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -10,7 +10,7 @@
     "allowJs": true,
     "jsx": "react",
     "removeComments": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": ["esnext", "dom"],
     "paths": {
       "model": ["src/model"],
       "HTTPAPI": ["src/HTTPAPI"],
