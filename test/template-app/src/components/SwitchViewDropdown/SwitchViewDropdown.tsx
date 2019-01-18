@@ -43,7 +43,7 @@ class SwitchViewDropdown extends React.Component<Props> {
     const value = currentView.ready ? currentView.value : undefined;
     return (
       <View className="switch-view-dropdown">
-        <Dropdown options={dropdownOptions} value={value} onChange={this.onChange} />
+        <Dropdown options={dropdownOptions} value={value} onChange={this.onChange as any} />
       </View>
     );
   }
