@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "esnext",
-    "noImplicitAny": true,
+    "target": "ESNext",
+    "strict" true,
     "suppressImplicitAnyIndexErrors": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
     "sourceMap": false,
-    "alwaysStrict": true,
     "allowJs": true,
     "jsx": "react",
     "removeComments": true,
-    "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": ["ESNext", "DOM"],
     "paths": {
       "model": ["src/model"],
       "HTTPAPI": ["src/HTTPAPI"],
