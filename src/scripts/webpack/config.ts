@@ -77,7 +77,6 @@ export default function getWebpackOptions(options: WebpackCLIOptions): WebpackCo
   valueOrThrow(ConfigValidator, config);
 
   const defaultConfig: Partial<WebpackConfigurationOptions> = {
-    devTool: 'source-map',
     port: 3000
   };
 

@@ -8,7 +8,7 @@ import { WebpackConfiguration, WebpackConfigBuilderInput } from '../../model';
 
 export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
   const base = WebpackBase(input);
-  const { paths, NODE_ENV } = input;
+  const { paths, NODE_ENV, config } = input;
 
   const plugins = [
     // cause failed production builds to fail faster
@@ -49,7 +49,7 @@ export default (input: WebpackConfigBuilderInput): WebpackConfiguration => {
 
     entry: paths.ENTRY,
 
-    devtool: 'source-map',
+    devtool: config.devTool as any,
 
     plugins: [...base.plugins, ...plugins],
 

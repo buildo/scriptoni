@@ -24,10 +24,31 @@ export const MetarpheusCLIOptions = t.interface({
 });
 export type MetarpheusCLIOptions = t.TypeOf<typeof MetarpheusCLIOptions>;
 
+const DevTool = t.union([
+  t.literal('eval'),
+  t.literal('inline-source-map'),
+  t.literal('cheap-eval-source-map'),
+  t.literal('cheap-source-map'),
+  t.literal('cheap-module-eval-source-map'),
+  t.literal('cheap-module'),
+  t.literal('inline-source-map'),
+  t.literal('cheap-eval-source-map'),
+  t.literal('cheap-source-map'),
+  t.literal('cheap-module-eval-source-map'),
+  t.literal('cheap-module-source-map'),
+  t.literal('eval-source-map'),
+  t.literal('source-map'),
+  t.literal('nosources-source-map'),
+  t.literal('hidden-source-map'),
+  t.literal('nosources-source-map'),
+  t.literal('inline-cheap-source-map'),
+  t.literal('inline-cheap-module-source-map')
+]);
+
 export const WebpackConfigurationOptions = t.interface({
   port: t.number,
   title: t.union([t.undefined, t.string]),
-  devTool: t.string,
+  devTool: t.union([t.undefined, DevTool]),
   bundle: t.dictionary(t.string, t.any)
 });
 export type WebpackConfigurationOptions = t.TypeOf<typeof WebpackConfigurationOptions>;
