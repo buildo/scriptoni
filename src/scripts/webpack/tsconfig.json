@@ -3,11 +3,15 @@
     "module": "commonjs",
     "target": "esnext",
     "strict": true,
-    "suppressImplicitAnyIndexErrors": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": false,
     "allowJs": true,
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "jsx": "react",
     "removeComments": true,
     "lib": ["esnext", "dom"],
@@ -22,6 +26,6 @@
       "*": ["src/components/Basic/*", "src/components/*", "src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src", "typings"],
   "exclude": ["node_modules", "test/template-app"]
 }
