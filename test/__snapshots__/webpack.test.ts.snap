@@ -11,10 +11,6 @@ Array [
     "size": 1000,
   },
   Object {
-    "name": "2.bundle.js.map",
-    "size": 13000,
-  },
-  Object {
     "name": "3.bundle.js",
     "size": 1000,
   },
@@ -23,23 +19,15 @@ Array [
     "size": 0,
   },
   Object {
-    "name": "3.bundle.js.map",
-    "size": 3000,
-  },
-  Object {
     "name": "4.bundle.js",
     "size": 0,
   },
   Object {
-    "name": "4.bundle.js.map",
+    "name": "4.bundle.js.gz",
     "size": 0,
   },
   Object {
     "name": "5.bundle.js",
-    "size": 0,
-  },
-  Object {
-    "name": "5.bundle.js.map",
     "size": 0,
   },
   Object {
@@ -55,20 +43,12 @@ Array [
     "size": 3000,
   },
   Object {
-    "name": "main.bundle.js.map",
-    "size": 31000,
-  },
-  Object {
     "name": "main.style.min.css",
     "size": 11000,
   },
   Object {
     "name": "main.style.min.css.gz",
-    "size": 2000,
-  },
-  Object {
-    "name": "main.style.min.css.map",
-    "size": 21000,
+    "size": 1000,
   },
   Object {
     "name": "vendors~main.bundle.js",
@@ -79,20 +59,12 @@ Array [
     "size": 161000,
   },
   Object {
-    "name": "vendors~main.bundle.js.map",
-    "size": 2793000,
-  },
-  Object {
     "name": "vendors~main.style.min.css",
     "size": 19000,
   },
   Object {
     "name": "vendors~main.style.min.css.gz",
     "size": 4000,
-  },
-  Object {
-    "name": "vendors~main.style.min.css.map",
-    "size": 25000,
   },
 ]
 `;
@@ -101,26 +73,19 @@ exports[`webpack build built files should stay the same 1`] = `
 Array [
   "2.bundle.js",
   "2.bundle.js.gz",
-  "2.bundle.js.map",
   "3.bundle.js",
   "3.bundle.js.gz",
-  "3.bundle.js.map",
   "4.bundle.js",
-  "4.bundle.js.map",
+  "4.bundle.js.gz",
   "5.bundle.js",
-  "5.bundle.js.map",
   "index.html",
   "main.bundle.js",
   "main.bundle.js.gz",
-  "main.bundle.js.map",
   "main.style.min.css",
   "main.style.min.css.gz",
-  "main.style.min.css.map",
   "vendors~main.bundle.js",
   "vendors~main.bundle.js.gz",
-  "vendors~main.bundle.js.map",
   "vendors~main.style.min.css",
   "vendors~main.style.min.css.gz",
-  "vendors~main.style.min.css.map",
 ]
 `;
