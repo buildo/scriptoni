@@ -2,6 +2,18 @@
 
 
 
+## [v6.0.0](https://github.com/buildo/scriptoni/tree/v6.0.0) (2019-01-24)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v5.0.0...v6.0.0)
+
+#### Breaking:
+
+- both scriptoni and VSCode ignore project's `.prettier.js` [#262](https://github.com/buildo/scriptoni/issues/262)
+- [webpack] no devtool in dev and prod by default [#130](https://github.com/buildo/scriptoni/issues/130)
+
+#### New features:
+
+- tsconfig.json changes proposal [#259](https://github.com/buildo/scriptoni/issues/259)
+
 ## [v5.0.0](https://github.com/buildo/scriptoni/tree/v5.0.0) (2019-01-18)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v4.0.1...v5.0.0)
 
