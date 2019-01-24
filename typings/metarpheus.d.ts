@@ -1,1 +1,1 @@
-declare module 'metarpheus';
+declare module "metarpheus";
