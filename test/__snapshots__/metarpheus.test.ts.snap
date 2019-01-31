@@ -29,7 +29,7 @@ export interface Account {
 }
 
 export const Account = t.intersection([
-  t.interface({
+  t.type({
     id: t.string,
     username: t.string,
     publicKey: t.string
