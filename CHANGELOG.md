@@ -2,6 +2,13 @@
 
 
 
+## [v6.1.0](https://github.com/buildo/scriptoni/tree/v6.1.0) (2019-01-31)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v6.0.0...v6.1.0)
+
+#### New features:
+
+- upgrade to metarpheus-io-ts 0.8.0 [#264](https://github.com/buildo/scriptoni/issues/264)
+
 ## [v6.0.0](https://github.com/buildo/scriptoni/tree/v6.0.0) (2019-01-24)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v5.0.0...v6.0.0)
 
