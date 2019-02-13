@@ -10,14 +10,14 @@ In this simple example it does a bit of both.
 
 */
 
-import * as React from "react";
-import View from "View";
-import SwitchViewDropdown from "SwitchViewDropdown";
-import Hello from "Hello";
-import { declareQueries } from "@buildo/bento/data";
-import { currentView } from "queries";
+import * as React from 'react';
+import View from 'View';
+import SwitchViewDropdown from 'SwitchViewDropdown';
+import Hello from 'Hello';
+import { declareQueries } from '@buildo/bento/data';
+import { currentView } from 'queries';
 
-import "./app.scss";
+import './app.scss';
 
 const queries = declareQueries({ currentView });
 
@@ -28,7 +28,7 @@ class App extends React.Component<typeof queries.Props> {
       <View column className="app">
         <h1>Bento App</h1>
         <SwitchViewDropdown />
-        {currentView.ready && currentView.value === "hello" && <Hello />}
+        {currentView.ready && currentView.value === 'hello' && <Hello />}
       </View>
     );
   }

@@ -1,10 +1,10 @@
-import * as React from "react";
-import View from "View";
-import { FormattedMessage } from "react-intl";
-import { declareQueries } from "@buildo/bento/data";
-import { randomName } from "queries";
+import * as React from 'react';
+import View from 'View';
+import { FormattedMessage } from 'react-intl';
+import { declareQueries } from '@buildo/bento/data';
+import { randomName } from 'queries';
 
-import "./hello.scss";
+import './hello.scss';
 
 /*
 
@@ -48,7 +48,7 @@ type State = {
 
 export default class Hello extends React.Component<{}, State> {
   state = {
-    value: "10",
+    value: '10',
     length: 10,
     showError: false
   };
@@ -57,11 +57,10 @@ export default class Hello extends React.Component<{}, State> {
     const value = e.target.value;
     const parsedValue = parseInt(value);
 
-    const betweenSixAndFifty =
-      !isNaN(parsedValue) && parsedValue >= 6 && parsedValue <= 50;
+    const betweenSixAndFifty = !isNaN(parsedValue) && parsedValue >= 6 && parsedValue <= 50;
 
     if (!value) {
-      this.setState({ value: "" });
+      this.setState({ value: '' });
     } else if (betweenSixAndFifty) {
       this.setState({ value, length: parsedValue, showError: false });
     } else {

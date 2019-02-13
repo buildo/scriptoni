@@ -9,13 +9,13 @@ using the dedicated query, command, helpers and types defined respecitvely in
 
 */
 
-import * as React from "react";
-import View from "components/View";
-import Dropdown from "components/Dropdown";
-import { declareQueries, declareCommands } from "@buildo/bento/data";
-import { viewToLocation, CurrentView } from "model";
-import { currentView } from "queries";
-import { doUpdateLocation } from "commands";
+import * as React from 'react';
+import View from 'components/View';
+import Dropdown from 'components/Dropdown';
+import { declareQueries, declareCommands } from '@buildo/bento/data';
+import { viewToLocation, CurrentView } from 'model';
+import { currentView } from 'queries';
+import { doUpdateLocation } from 'commands';
 
 const queries = declareQueries({ currentView });
 const commands = declareCommands({ doUpdateLocation });
@@ -24,12 +24,12 @@ type Props = typeof queries.Props & typeof commands.Props;
 
 const dropdownOptions = [
   {
-    value: "home",
-    label: "Home"
+    value: 'home',
+    label: 'Home'
   },
   {
-    value: "hello",
-    label: "Hello"
+    value: 'hello',
+    label: 'Hello'
   }
 ];
 
@@ -43,11 +43,7 @@ class SwitchViewDropdown extends React.Component<Props> {
     const value = currentView.ready ? currentView.value : undefined;
     return (
       <View className="switch-view-dropdown">
-        <Dropdown
-          options={dropdownOptions}
-          value={value}
-          onChange={this.onChange as any}
-        />
+        <Dropdown options={dropdownOptions} value={value} onChange={this.onChange as any} />
       </View>
     );
   }
