@@ -1,1 +1,1 @@
-declare module "progress-bar-webpack-plugin";
+declare module 'progress-bar-webpack-plugin';

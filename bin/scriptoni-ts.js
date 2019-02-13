@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-require("ts-node/register");
-require("./scriptoni");
+require('ts-node/register');
+require('./scriptoni');
