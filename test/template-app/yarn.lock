@@ -1569,6 +1569,11 @@ buffer-from@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.0.tgz#87fcaa3a298358e0ade6e442cfce840740d1ad04"
 
+buffer-from@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+  integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
+
 buffer-indexof@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-indexof/-/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
@@ -3392,6 +3397,11 @@ fp-ts@^1.0.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.6.1.tgz#83526f1d173387e5f686c57652f5b5fc580e6d1e"
 
+fp-ts@^1.12.0:
+  version "1.19.4"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.19.4.tgz#258ac247b79ac0ea82a91b31b665a93f735e7636"
+  integrity sha512-/gCyXWxe2ncEeXqKqVUOVRDQvN8UVDfPgRsP2coix8YvVNgaxppRiQQ6wZsEuouL0EQFK0yXrqRgzO/NBowMvA==
+
 fp-ts@^1.7.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.10.0.tgz#f249f07a167f4c13a96baf01794f7e0753de4225"
@@ -4079,6 +4089,11 @@ invert-kv@^2.0.0:
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
 
+io-ts-codegen@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.3.0.tgz#24549ee0f1f3aefc461139ab9b5e062a652bcb1d"
+  integrity sha512-JaBdPG74J++X5v5P2WIbjN2AV+ews2FMyqZFoR7lu74MBtGPimxQ+CU0ya65B2LOh1/NAp50xZvBJ8uPkVTnzQ==
+
 io-ts-codegen@^0.1.8:
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.1.11.tgz#0ea1c2ffd768fddfca5385adb5435c2d24d7f502"
@@ -4090,10 +4105,10 @@ io-ts@^1.0.5:
   dependencies:
     fp-ts "^1.0.0"
 
-io-ts@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.4.1.tgz#7061d85a60dad3e7bbfa6679035d400a1302366e"
-  integrity sha512-jzOHbNMvXlHfF64Ik+WHQ0ZI7NqTrZQzh0YsWAM4lWBp3Sm/4wWZAMlsUtulNeEFSJsRUxeaYU/WhR2qFoLNXQ==
+io-ts@^1.7.1:
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.10.4.tgz#cd5401b138de88e4f920adbcb7026e2d1967e6e2"
+  integrity sha512-b23PteSnYXSONJ6JQXRAlvJhuw8KOtkqa87W4wDtvMrud/DTJd5X+NpOOI+O/zZwVq6v0VLAaJ+1EDViKEuN9g==
   dependencies:
     fp-ts "^1.0.0"
 
@@ -4777,14 +4792,10 @@ lodash@4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.1.1, lodash@^4.11.1, lodash@^4.11.2, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
-
-lodash@^4.17.5:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.1.1, lodash@^4.11.1, lodash@^4.11.2, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
+  version "4.17.13"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
+  integrity sha512-vm3/XWXfWtRua0FkUyEHBZy8kCPjErNBT9fJx8Zvs+U6zjqPbTUOpkaoum3O5uiA8sm+yNMHXfYkTUHFoMxFNA==
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -4831,6 +4842,11 @@ make-dir@^1.0.0:
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.3.0.tgz#79c1033b80515bd6d24ec9933e860ca75ee27f0c"
   dependencies:
     pify "^3.0.0"
+
+make-error@^1.1.1:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.5.tgz#efe4e81f6db28cadd605c70f29c831b58ef776c8"
+  integrity sha512-c3sIjNUow0+8swNwVpqoH4YCShKNFkMaw6oH1mNS2haDZQqkeZFlHS3dhoeEbKKmJB4vXpJucU6oH75aDYeE9g==
 
 map-age-cleaner@^0.1.1:
   version "0.1.3"
@@ -4911,7 +4927,7 @@ merge-descriptors@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
 
-metarpheus-io-ts@^0.4.0, metarpheus-io-ts@^0.4.1:
+metarpheus-io-ts@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/metarpheus-io-ts/-/metarpheus-io-ts-0.4.1.tgz#587c015dba0e37678db53d2089cf209445168eda"
   integrity sha512-eCRXXqww0DtuXaVmM/U3uBXLZMgGIkHOUvmz4SotmElhueuxPVKrwAQqziKKqdl6q0YFrMSoobutX1TDEYR90g==
@@ -4919,6 +4935,16 @@ metarpheus-io-ts@^0.4.0, metarpheus-io-ts@^0.4.1:
     commander "^2.9.0"
     fp-ts "^1.7.0"
     io-ts-codegen "^0.1.8"
+    lodash "^4.17.4"
+
+metarpheus-io-ts@^0.8.0:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/metarpheus-io-ts/-/metarpheus-io-ts-0.8.3.tgz#d80e89ca6e1662351c27e77f066982dda605bac6"
+  integrity sha512-wdN4EUmglnmU4p4oR/+oC0uHL06zy7OEhCeIGsH8Atfaz70W29wsIf0FbUuVvgZcqFCxt1x0koKJa02zGaToKA==
+  dependencies:
+    commander "^2.9.0"
+    fp-ts "^1.12.0"
+    io-ts-codegen "0.3.0"
     lodash "^4.17.4"
 
 metarpheus-tcomb@^0.2:
@@ -6989,7 +7015,7 @@ schema-utils@^1.0.0:
     ajv-keywords "^3.1.0"
 
 scriptoni@../../:
-  version "0.17.0"
+  version "7.0.0"
   dependencies:
     babel-cli "^6.26.0"
     babel-core "^6.24.1"
@@ -6997,15 +7023,14 @@ scriptoni@../../:
     babel-preset-buildo "^0.1.1"
     chalk "^2.4.1"
     compression-webpack-plugin "^1.1.11"
-    cross-spawn "^4.0.2"
     css-loader "^0.28.4"
     debug "^2.2.0"
     diff "^3.0.1"
     file-loader "^1.1.11"
     html-webpack-plugin "^3.2.0"
-    io-ts "^1.4.1"
+    io-ts "^1.7.1"
     metarpheus "^1.0.0"
-    metarpheus-io-ts "^0.4.1"
+    metarpheus-io-ts "^0.8.0"
     mini-css-extract-plugin "^0.4.2"
     minimist "^1.2.0"
     node-glob "^1.2.0"
@@ -7022,12 +7047,9 @@ scriptoni@../../:
     sass-loader "^7.0.1"
     sass-variables-loader "^0.1.3"
     style-loader "^0.21.0"
-    stylefmt "^5.1.2"
-    stylelint "^7.8.0"
-    stylelint-config-buildo "github:buildo/stylelint-config"
-    stylelint-webpack-plugin "^0.10.4"
     svg-react-loader "^0.4.4"
-    ts-loader "^4.2.0"
+    ts-loader "^5.3.1"
+    ts-node "^7.0.1"
     typescript "^3.1.6"
     uglifyjs-webpack-plugin "^1.2.3"
     virtual-module-webpack-plugin "^0.4.0"
@@ -7339,6 +7361,14 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
+source-map-support@^0.5.6:
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.12.tgz#b4f3b10d51857a5af0138d3ce8003b201613d599"
+  integrity sha512-4h2Pbvyy15EE02G+JOZpUCmqWJuqrs+sEkzewTm++BPi7Hvn/HwcqLAcNxYAyI0x13CpPPn+kMjl+hplXMHITQ==
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
 source-map-url@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
@@ -7363,7 +7393,7 @@ source-map@^0.4.2:
   dependencies:
     amdefine ">=0.0.4"
 
-source-map@^0.6.1, source-map@~0.6.1:
+source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
@@ -7977,6 +8007,31 @@ ts-loader@^4.2.0:
     loader-utils "^1.0.2"
     micromatch "^3.1.4"
     semver "^5.0.1"
+
+ts-loader@^5.3.1:
+  version "5.4.5"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.4.5.tgz#a0c1f034b017a9344cef0961bfd97cc192492b8b"
+  integrity sha512-XYsjfnRQCBum9AMRZpk2rTYSVpdZBpZK+kDh0TeT3kxmQNBDVIeUjdPjY5RZry4eIAb8XHc4gYSUiUWPYvzSRw==
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    loader-utils "^1.0.2"
+    micromatch "^3.1.4"
+    semver "^5.0.1"
+
+ts-node@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
+  integrity sha512-BVwVbPJRspzNh2yfslyT1PSbl5uIk03EZlb493RKHN4qej/D06n1cEhjlOJG69oFsE7OT8XjpTUcYf6pKTLMhw==
+  dependencies:
+    arrify "^1.0.0"
+    buffer-from "^1.1.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.5.6"
+    yn "^2.0.0"
 
 tslib@^1.9.0:
   version "1.9.3"
@@ -8607,3 +8662,8 @@ yargs@^7.0.0:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
+
+yn@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
+  integrity sha1-5a2ryKz0CPY4X8dklWhMiOavaJo=
