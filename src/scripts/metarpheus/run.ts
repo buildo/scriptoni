@@ -21,9 +21,8 @@ export function runMetarpheusIoTs(metarpheusConfig: MetarpheusConfig) {
   const model = getModels(
     intermRep.models,
     {
-      isReadonly: metarpheusConfig.isReadonly,
       runtime: metarpheusConfig.runtime,
-      useLegacyNewtype: metarpheusConfig.useLegacyNewtype
+      useLegacyNewtype: metarpheusConfig.useLegacyNewtype,
     },
     metarpheusConfig.modelPrelude
   );
@@ -31,7 +30,6 @@ export function runMetarpheusIoTs(metarpheusConfig: MetarpheusConfig) {
   const api = getRoutes(
     intermRep.routes,
     intermRep.models,
-    metarpheusConfig,
     metarpheusConfig.apiPrelude
   );
 
