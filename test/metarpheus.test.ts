@@ -15,7 +15,7 @@ afterAll(() => {
   rimraf.sync(metarpheusOutPath);
 });
 
-fdescribe('metarpheus', () => {
+describe('metarpheus', () => {
   describe('metarpheusConfig option', () => {
     it('should read the correct config file', () => {
       const apiPath = path.resolve(testAppDir, config.apiOut);
@@ -30,8 +30,6 @@ fdescribe('metarpheus', () => {
 
         expect(fs.readFileSync(apiPath, { encoding: 'utf8' })).toMatchSnapshot();
         expect(fs.readFileSync(modelsPath, { encoding: 'utf8' })).toMatchSnapshot();
-      }, err => {
-        console.log((err as any).message) return Promise.reject(err)
       });
     });
   });
