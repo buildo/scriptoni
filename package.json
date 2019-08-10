@@ -18,7 +18,7 @@
     "prettier-write": "node bin/scriptoni.js prettier-write",
     "metarpheus": "node bin/scriptoni.js metarpheus",
     "metarpheus-diff": "node bin/scriptoni.js metarpheus-diff",
-    "test": "NODE_ENV= jest --runInBand",
+    "test": "rm -rf test/test-app && NODE_ENV= jest --runInBand",
     "preversion": "yarn test",
     "prepublish": "yarn build",
     "release-version": "smooth-release"

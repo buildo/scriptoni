@@ -2,7 +2,7 @@ const resolve = require('path').resolve;
 const runCommands = require('./runCommands');
 
 const scriptoniDir = resolve(__dirname, '..');
-const templateDir = resolve(__dirname, 'template-app');
+const templateFilesDir = resolve(__dirname, 'template-files');
 
 module.exports = () => {
   console.log();
@@ -13,7 +13,11 @@ module.exports = () => {
   return runCommands([
     `cd ${scriptoniDir}`,
     'yarn build',
-    `cd ${templateDir}`,
-    'yarn --frozen-lockfile'
+    `cd ${__dirname}`,
+    'npx @buildo/create-bento-app test-app',
+    'cd test-app',
+    `cp -a ${templateFilesDir}/. .`,
+    'yarn remove scriptoni',
+    'yarn add ../../'
   ]);
 };
