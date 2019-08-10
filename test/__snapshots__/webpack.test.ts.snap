@@ -48,11 +48,11 @@ Array [
   },
   Object {
     "name": "vendors~main.bundle.js",
-    "size": 661000,
+    "size": 664000,
   },
   Object {
     "name": "vendors~main.bundle.js.gz",
-    "size": 175000,
+    "size": 176000,
   },
   Object {
     "name": "vendors~main.style.min.css",
