@@ -2,6 +2,19 @@
 
 
 
+## [v8.0.0](https://github.com/buildo/scriptoni/tree/v8.0.0) (2019-08-12)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v7.0.0...v8.0.0)
+
+#### Breaking:
+
+- update metarpheus version [#274](https://github.com/buildo/scriptoni/issues/274)
+- Remove magic paths [#268](https://github.com/buildo/scriptoni/issues/268)
+- Revert "#262: both scriptoni and VSCode ignore project's `.prettier.js`" [#266](https://github.com/buildo/scriptoni/issues/266)
+
+#### New features:
+
+- Proposal: add noImplicitReturns: true to default tsconfig [#269](https://github.com/buildo/scriptoni/issues/269)
+
 ## [v7.0.0](https://github.com/buildo/scriptoni/tree/v7.0.0) (2019-02-13)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v6.1.0...v7.0.0)
 
