@@ -4,7 +4,7 @@ exports[`webpack build built files should not change size 1`] = `
 Array [
   Object {
     "name": "2.bundle.js",
-    "size": 7000,
+    "size": 18000,
   },
   Object {
     "name": "2.bundle.js.gz",
@@ -12,7 +12,7 @@ Array [
   },
   Object {
     "name": "3.bundle.js",
-    "size": 1000,
+    "size": 2000,
   },
   Object {
     "name": "3.bundle.js.gz",
@@ -20,10 +20,6 @@ Array [
   },
   Object {
     "name": "4.bundle.js",
-    "size": 0,
-  },
-  Object {
-    "name": "4.bundle.js.gz",
     "size": 0,
   },
   Object {
@@ -36,7 +32,7 @@ Array [
   },
   Object {
     "name": "main.bundle.js",
-    "size": 11000,
+    "size": 13000,
   },
   Object {
     "name": "main.bundle.js.gz",
@@ -44,7 +40,7 @@ Array [
   },
   Object {
     "name": "main.style.min.css",
-    "size": 11000,
+    "size": 10000,
   },
   Object {
     "name": "main.style.min.css.gz",
@@ -52,19 +48,19 @@ Array [
   },
   Object {
     "name": "vendors~main.bundle.js",
-    "size": 625000,
+    "size": 661000,
   },
   Object {
     "name": "vendors~main.bundle.js.gz",
-    "size": 161000,
+    "size": 175000,
   },
   Object {
     "name": "vendors~main.style.min.css",
-    "size": 19000,
+    "size": 8000,
   },
   Object {
     "name": "vendors~main.style.min.css.gz",
-    "size": 4000,
+    "size": 2000,
   },
 ]
 `;
@@ -76,7 +72,6 @@ Array [
   "3.bundle.js",
   "3.bundle.js.gz",
   "4.bundle.js",
-  "4.bundle.js.gz",
   "5.bundle.js",
   "index.html",
   "main.bundle.js",

@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { promisify } from 'util';
 import { readdir as _readdir, statSync, mkdirSync } from 'fs';
 import sortBy = require('lodash/sortBy');
-import { runCommands, templateDir } from './utils';
+import { runCommands, testAppDir } from './utils';
 
 const readdir = promisify(_readdir);
 
@@ -14,21 +14,21 @@ jest.setTimeout(10 * 60 * 1000);
 describe('webpack', () => {
   describe('build', () => {
     beforeAll(() => {
-      rimraf.sync(resolve(templateDir, 'build'));
-      mkdirSync(resolve(templateDir, 'build'));
-      return runCommands([`cd ${templateDir}`, 'yarn build']);
+      rimraf.sync(resolve(testAppDir, 'build'));
+      mkdirSync(resolve(testAppDir, 'build'));
+      return runCommands([`cd ${testAppDir}`, 'yarn build']);
     });
 
     it('built files should stay the same', async () => {
-      const fileNames = await readdir(resolve(templateDir, 'build'));
+      const fileNames = await readdir(resolve(testAppDir, 'build'));
       expect(fileNames.map(stripHash)).toMatchSnapshot();
     });
 
     it('built files should not change size', async () => {
-      const fileNames = await readdir(resolve(templateDir, 'build'));
+      const fileNames = await readdir(resolve(testAppDir, 'build'));
       const fileSizes = fileNames.map(name => ({
         name: stripHash(name),
-        size: Math.floor(statSync(resolve(templateDir, 'build', name)).size / 1000) * 1000
+        size: Math.floor(statSync(resolve(testAppDir, 'build', name)).size / 1000) * 1000
       }));
       expect(sortBy(fileSizes, 'name')).toMatchSnapshot();
     });

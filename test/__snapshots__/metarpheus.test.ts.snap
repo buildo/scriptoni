@@ -3,7 +3,7 @@
 exports[`metarpheus metarpheusConfig option should read the correct config file 1`] = `
 "API_PRELUDE
 
-export default function getRoutes(config: RouteConfig) {
+export default function getRoutes(_metarpheusRouteConfig: RouteConfig) {
   return {
 
   }
@@ -13,6 +13,10 @@ export default function getRoutes(config: RouteConfig) {
 exports[`metarpheus metarpheusConfig option should read the correct config file 2`] = `
 "// DO NOT EDIT MANUALLY - metarpheus-generated
 import * as t from 'io-ts'
+// @ts-ignore
+import { createOptionFromNullable } from 'io-ts-types/lib/fp-ts/createOptionFromNullable'
+// @ts-ignore
+import { Option } from 'fp-ts/lib/Option'
 
 MODEL_PRELUDE
 export const VoidFromUnit = new t.Type<void, {}>(
@@ -24,18 +28,14 @@ export const VoidFromUnit = new t.Type<void, {}>(
 export interface Account {
   id: string,
   username: string,
-  email?: string,
+  email: Option<string>,
   publicKey: string
 }
 
-export const Account = t.intersection([
-  t.type({
-    id: t.string,
-    username: t.string,
-    publicKey: t.string
-  }),
-  t.partial({
-    email: t.string
-  })
-])"
+export const Account = t.type({
+  id: t.string,
+  username: t.string,
+  email: createOptionFromNullable(t.string),
+  publicKey: t.string
+}, 'Account')"
 `;

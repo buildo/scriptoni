@@ -1,15 +1,15 @@
 import * as path from 'path';
-import { runCommands, templateDir } from './utils';
+import { runCommands, testAppDir } from './utils';
 import * as fs from 'fs';
 import * as rimraf from 'rimraf';
 
-const config = require('./template-app/metarpheus.config.test');
+const config = require(path.resolve(testAppDir, 'metarpheus.config.test'));
 
 const metarpheusDir = config.apiOut
   .split('/')
   .slice(0, -1)
   .join('/');
-const metarpheusOutPath = path.resolve(templateDir, metarpheusDir);
+const metarpheusOutPath = path.resolve(testAppDir, metarpheusDir);
 
 afterAll(() => {
   rimraf.sync(metarpheusOutPath);
@@ -18,10 +18,13 @@ afterAll(() => {
 describe('metarpheus', () => {
   describe('metarpheusConfig option', () => {
     it('should read the correct config file', () => {
-      const apiPath = path.resolve(templateDir, config.apiOut);
-      const modelsPath = path.resolve(templateDir, config.modelOut);
+      const apiPath = path.resolve(testAppDir, config.apiOut);
+      const modelsPath = path.resolve(testAppDir, config.modelOut);
 
-      return runCommands([`cd ${templateDir}`, 'yarn metarpheus']).then(() => {
+      return runCommands([
+        `cd ${testAppDir}`,
+        './node_modules/.bin/scriptoni metarpheus --metarpheusConfig metarpheus.config.test.js'
+      ]).then(() => {
         expect(fs.existsSync(apiPath)).toBeTruthy();
         expect(fs.existsSync(modelsPath)).toBeTruthy();
 
