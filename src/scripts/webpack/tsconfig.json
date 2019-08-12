@@ -14,17 +14,7 @@
     "baseUrl": ".",
     "jsx": "react",
     "removeComments": true,
-    "lib": ["esnext", "dom"],
-    "paths": {
-      "model": ["src/model"],
-      "HTTPAPI": ["src/HTTPAPI"],
-      "container": ["src/container"],
-      "Basic": ["src/components/Basic"],
-      "queries": ["src/queries"],
-      "commands": ["src/commands"],
-      "transitions": ["src/transitions"],
-      "*": ["src/components/Basic/*", "src/components/*", "src/*"]
-    }
+    "lib": ["esnext", "dom"]
   },
   "include": ["src", "typings"],
   "exclude": ["node_modules", "test/template-app"]

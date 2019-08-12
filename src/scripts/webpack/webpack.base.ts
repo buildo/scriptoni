@@ -21,7 +21,6 @@ export default ({
 
   return {
     resolve: {
-      modules: [paths.SRC, paths.COMPONENTS, paths.BASIC_COMPONENTS, paths.NODE_MODULES],
       extensions: ['.js', '.ts', '.tsx', '.json']
     },
 
