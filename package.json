@@ -42,7 +42,7 @@
     "@types/debug": "^0.0.31",
     "@types/diff": "^3.5.2",
     "@types/html-webpack-plugin": "^3.2.0",
-    "@types/jest": "^22.2.3",
+    "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.118",
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/minimist": "^1.2.0",
@@ -51,11 +51,11 @@
     "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "@types/webpack": "^4.4.19",
     "@types/webpack-bundle-analyzer": "^2.13.0",
-    "@types/webpack-dev-server": "^3.1.1",
+    "@types/webpack-dev-server": "^3.1.7",
     "@types/webpack-fail-plugin": "^1.0.7",
-    "jest": "^23.5.0",
+    "jest": "^24.9.0",
     "smooth-release": "^8.0.0",
-    "ts-jest": "^22.4.6"
+    "ts-jest": "^24.1.0"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -64,7 +64,7 @@
     "babel-preset-buildo": "^0.1.1",
     "chalk": "^2.4.1",
     "compression-webpack-plugin": "^1.1.11",
-    "css-loader": "^0.28.4",
+    "css-loader": "^3.2.0",
     "debug": "^2.2.0",
     "diff": "^3.0.1",
     "file-loader": "^1.1.11",
@@ -96,7 +96,7 @@
     "virtual-module-webpack-plugin": "^0.4.0",
     "webpack": "^4.7.0",
     "webpack-bundle-analyzer": "^3.0.2",
-    "webpack-dev-server": "^3.1.4",
+    "webpack-dev-server": "^3.8.1",
     "webpack-fail-plugin": "^2.0.0"
   },
   "jest": {
