@@ -40,7 +40,7 @@ Array [
   },
   Object {
     "name": "main.style.min.css",
-    "size": 10000,
+    "size": 8000,
   },
   Object {
     "name": "main.style.min.css.gz",
@@ -48,11 +48,11 @@ Array [
   },
   Object {
     "name": "vendors~main.bundle.js",
-    "size": 664000,
+    "size": 671000,
   },
   Object {
     "name": "vendors~main.bundle.js.gz",
-    "size": 176000,
+    "size": 178000,
   },
   Object {
     "name": "vendors~main.style.min.css",
