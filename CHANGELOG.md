@@ -2,6 +2,13 @@
 
 
 
+## [v8.0.1](https://github.com/buildo/scriptoni/tree/v8.0.1) (2019-09-30)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v8.0.0...v8.0.1)
+
+#### New features:
+
+- Scriptoni triggers security advisories [#278](https://github.com/buildo/scriptoni/issues/278)
+
 ## [v8.0.0](https://github.com/buildo/scriptoni/tree/v8.0.0) (2019-08-12)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v7.0.0...v8.0.0)
 
