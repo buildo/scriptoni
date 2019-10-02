@@ -23,10 +23,6 @@ Array [
     "size": 0,
   },
   Object {
-    "name": "4.bundle.js.gz",
-    "size": 0,
-  },
-  Object {
     "name": "5.bundle.js",
     "size": 0,
   },
@@ -52,11 +48,11 @@ Array [
   },
   Object {
     "name": "vendors~main.bundle.js",
-    "size": 625000,
+    "size": 623000,
   },
   Object {
     "name": "vendors~main.bundle.js.gz",
-    "size": 161000,
+    "size": 160000,
   },
   Object {
     "name": "vendors~main.style.min.css",
@@ -76,7 +72,6 @@ Array [
   "3.bundle.js",
   "3.bundle.js.gz",
   "4.bundle.js",
-  "4.bundle.js.gz",
   "5.bundle.js",
   "index.html",
   "main.bundle.js",
