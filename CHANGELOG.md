@@ -2,6 +2,13 @@
 
 
 
+## [v9.0.0](https://github.com/buildo/scriptoni/tree/v9.0.0) (2020-01-23)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v8.0.1...v9.0.0)
+
+#### Breaking:
+
+- update metarpheus version [#281](https://github.com/buildo/scriptoni/issues/281)
+
 ## [v8.0.1](https://github.com/buildo/scriptoni/tree/v8.0.1) (2019-09-30)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v8.0.0...v8.0.1)
 
@@ -10,7 +17,7 @@
 - Scriptoni triggers security advisories [#278](https://github.com/buildo/scriptoni/issues/278)
 
 ## [v8.0.0](https://github.com/buildo/scriptoni/tree/v8.0.0) (2019-08-12)
-[Full Changelog](https://github.com/buildo/scriptoni/compare/v7.0.0...v8.0.0)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v7.0.1...v8.0.0)
 
 #### Breaking:
 
@@ -21,6 +28,9 @@
 #### New features:
 
 - Proposal: add noImplicitReturns: true to default tsconfig [#269](https://github.com/buildo/scriptoni/issues/269)
+
+## [v7.0.1](https://github.com/buildo/scriptoni/tree/v7.0.1) (2019-10-02)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v7.0.0...v7.0.1)
 
 ## [v7.0.0](https://github.com/buildo/scriptoni/tree/v7.0.0) (2019-02-13)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v6.1.0...v7.0.0)
