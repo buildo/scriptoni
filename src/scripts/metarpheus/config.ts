@@ -7,6 +7,7 @@ const defaultConfig: MetarpheusConfig = {
   isReadonly: false,
   runtime: true,
   modelsForciblyInUse: [],
+  discardRouteErrorModels: false,
   useLegacyNewtype: false,
   modelPrelude: undefined,
   apiPrelude: undefined,

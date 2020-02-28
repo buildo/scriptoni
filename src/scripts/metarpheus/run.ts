@@ -14,7 +14,8 @@ function runMetarpheus(
 // RUN METARPHEUS
 export function runMetarpheusIoTs(metarpheusConfig: MetarpheusConfig) {
   const intermRep = runMetarpheus(metarpheusConfig.apiPaths, {
-    modelsForciblyInUse: metarpheusConfig.modelsForciblyInUse
+    modelsForciblyInUse: metarpheusConfig.modelsForciblyInUse,
+    discardRouteErrorModels: metarpheusConfig.discardRouteErrorModels
   });
 
   logger.metarpheus('Starting metarpheus-io-ts');
