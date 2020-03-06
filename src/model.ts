@@ -67,6 +67,7 @@ const metarpheusConfigProperties = {
   apiPrelude: t.union([t.string, t.undefined]),
   modelPrelude: t.union([t.string, t.undefined]),
   modelsForciblyInUse: t.array(t.string),
+  discardRouteErrorModels: t.boolean,
   useLegacyNewtype: t.boolean
 };
 
@@ -76,7 +77,10 @@ export type PartialMetarpheusConfig = t.TypeOf<typeof PartialMetarpheusConfig>;
 export const MetarpheusConfig = t.interface(metarpheusConfigProperties);
 export type MetarpheusConfig = t.TypeOf<typeof MetarpheusConfig>;
 
-export type MetarpheusOptions = Pick<MetarpheusConfig, 'modelsForciblyInUse'>;
+export type MetarpheusOptions = Pick<
+  MetarpheusConfig,
+  'modelsForciblyInUse' | 'discardRouteErrorModels'
+>;
 
 export const Paths = t.interface({
   ROOT: t.string,
