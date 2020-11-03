@@ -7,6 +7,8 @@ resource_types:
 resources:
 - name: master
   type: git
+  webhook_token: 0gd4XZNL4Y94zYDLql3C
+  check_every: 30m
   source:
     uri: git@github.com:buildo/scriptoni
     branch: master
@@ -14,6 +16,8 @@ resources:
 
 - name: pr
   type: pull-request
+  webhook_token: 0gd4XZNL4Y94zYDLql3C
+  check_every: 30m
   source:
     repository: buildo/scriptoni
     access_token: ((github-token))
