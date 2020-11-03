@@ -77,7 +77,8 @@ export default function getWebpackOptions(options: WebpackCLIOptions): WebpackCo
   valueOrThrow(ConfigValidator, config);
 
   const defaultConfig: Partial<WebpackConfigurationOptions> = {
-    port: 3000
+    port: 3000,
+    devTool: 'cheap-eval-source-map'
   };
 
   // validate against scriptoni's validator
