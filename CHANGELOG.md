@@ -2,6 +2,18 @@
 
 
 
+## [v10.0.0-0](https://github.com/buildo/scriptoni/tree/v10.0.0-0) (2021-02-16)
+[Full Changelog](https://github.com/buildo/scriptoni/compare/v9.0.0...v10.0.0-0)
+
+#### New features:
+
+- Fix failing tests in v10 [#293](https://github.com/buildo/scriptoni/issues/293)
+- Update metarpheus dependencies and add new config key [#283](https://github.com/buildo/scriptoni/issues/283)
+
+#### Breaking:
+
+- Use updated metarpheus-io-ts for fp-ts v2 [#290](https://github.com/buildo/scriptoni/issues/290)
+
 ## [v9.0.0](https://github.com/buildo/scriptoni/tree/v9.0.0) (2020-01-23)
 [Full Changelog](https://github.com/buildo/scriptoni/compare/v8.0.1...v9.0.0)
 

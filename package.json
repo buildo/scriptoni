@@ -1,6 +1,6 @@
 {
   "name": "scriptoni",
-  "version": "9.0.0",
+  "version": "10.0.0-0",
   "files": [
     "lib",
     "bin"
@@ -8,8 +8,8 @@
   "description": "Configuration and scripts for buildo React apps",
   "main": "./bin/scriptoni.js",
   "bin": {
-    "scriptoni": "./bin/scriptoni.js",
-    "scriptoni-ts": "./bin/scriptoni-ts.js"
+    "scriptoni": "bin/scriptoni.js",
+    "scriptoni-ts": "bin/scriptoni-ts.js"
   },
   "scripts": {
     "build": "rimraf lib/* && tsc && yarn copy-files",
