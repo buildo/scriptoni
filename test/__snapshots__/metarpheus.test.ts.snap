@@ -14,7 +14,7 @@ exports[`metarpheus metarpheusConfig option should read the correct config file 
 "// DO NOT EDIT MANUALLY - metarpheus-generated
 import * as t from 'io-ts'
 // @ts-ignore
-import { createOptionFromNullable } from 'io-ts-types/lib/fp-ts/createOptionFromNullable'
+import { optionFromNullable } from 'io-ts-types/lib/optionFromNullable'
 // @ts-ignore
 import { Option } from 'fp-ts/lib/Option'
 
@@ -35,7 +35,7 @@ export interface Account {
 export const Account = t.type({
   id: t.string,
   username: t.string,
-  email: createOptionFromNullable(t.string),
+  email: optionFromNullable(t.string),
   publicKey: t.string
 }, 'Account')"
 `;
