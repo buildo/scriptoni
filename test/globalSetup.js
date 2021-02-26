@@ -14,7 +14,7 @@ module.exports = () => {
     `cd ${scriptoniDir}`,
     'yarn build',
     `cd ${__dirname}`,
-    'npx @buildo/create-bento-app test-app',
+    'npm_config_yes=true npx @buildo/create-bento-app test-app',
     'cd test-app',
     `cp -a ${templateFilesDir}/. .`,
     'yarn remove scriptoni',
